@@ -1,0 +1,82 @@
+/*
+ languages.strings
+ FlyingSwallow
+ 
+ Created by koupoo on 12-12-21.
+ Copyright (c) 2012年 www.hexairbot.com. All rights reserved.
+ */
+"BLE DEVICES" = "连接Hex Mini";
+"PERSONAL SETTINGS" = "个人设置";
+"TRIM SETTINGS" = "修正设置";
+"CHANNELS SETTINGS" = "通道设置";
+"MODE SETTINGS" = "模式设置";
+"ABOUT" = "关于HEX MINI";
+
+//PERSONAL SETTINGS
+"LEFT HANDED" = "左手模式";
+"INTERFACE OPACITY" = "界面透明度";
+
+//CHANNELS SETTINGS
+"CHANNELS" = "通道";
+
+"IS REVERSING" = "反方向";
+"TRIM VALUE" = "修正值";
+"OUTPUT ADJUSTABLE RANGE" = "输出可调范围";
+"OUTPUT PPM RANGE" = "输出的PPM范围";
+"DEFAULT OUTPUT VALUE" = "默认输出值";
+
+
+//MODE SETTINGS
+"PPM POLARITY REVERSED" = "PPM极性反向";
+"DEAD BAND" = "盲区";
+
+//Audio Warning
+"Increase Audio Volume" = "增大音量";
+"Decrease Audio Volume" = "减小音量";
+"Plug in PPM output cable" = "插入PPM输出线";
+
+//Channel List Table View Cell
+"Trim" = "修正值";
+"Adjustable" = "可调";
+"Normal" = "正向";
+"Reversed" = "反向";
+
+"Take Off Throttle" = "起飞油门";
+
+"Aileron/Elevator Dead Band" = "Aileron/Elevator操作无效区";
+"Rudder Dead Band" = "Rudder操作无效区";
+
+//status info pane
+"Rudder Locked" = "航向锁定";
+"Throttle Locked" = "油门锁定";
+"Throttle Rudder Locked" = "油门和航向锁定";
+
+"Default Settings" = "默认设置";
+"Default" = "默认";
+
+"Scan" = "扫描";
+"Stop Scan" = "停止扫描";
+
+"connected" = "已连接";
+"not connected" = "未连接";
+
+//BLE Device settings
+"Connecting..." = "连接中...";
+
+"Connection" = "连接";
+"Connect" = "连接";
+"Disconnect" = "关闭";
+"Cancel" = "取消";
+"Connect to Hex Mini?" = "连接到Hex Mini?";
+"Disconnect to Hex Mini?" = "关闭与Hex Mini的连接?";
+"Scanning Hex Mini..."= "扫描Hex Mini中...";
+
+"Calibrate Acc" = "校准加速计";
+"Calibrate Mag" = "校准罗盘";
+
+"Calibrate" = "校准";
+"Calibrate the accelerator of Hex Mini?" = "校准Hex Mini的加速计?";
+"Calibrate the magnetometer of Hex Mini?" = "校准Hex Mini的数字罗盘?";
+"Reset to defaut settings?" = "恢复到默认设置";
+"Reset" = "恢复";
+

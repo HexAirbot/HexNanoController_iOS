@@ -1,0 +1,92 @@
+/* 
+  languages.strings
+  FlyingSwallow
+
+  Created by koupoo on 12-12-21.
+  Copyright (c) 2012年 www.hexairbot.com. All rights reserved.
+*/
+
+/* Settings Menu Text */
+"BLE DEVICES" = "CONNECT TO HEX MINI";
+"PERSONAL SETTINGS" = "PERSONAL SETTINGS";
+"TRIM SETTINGS" = "TRIM SETTINGS";
+"CHANNELS SETTINGS" = "CHANNELS SETTINGS";
+"MODE SETTINGS" = "MODE SETTINGS";
+"ABOUT" = "ABOUT HEX MINI";
+
+//PERSONAL SETTINGS
+"LEFT HANDED" = "LEFT HANDED";
+"INTERFACE OPACITY" = "INTERFACE OPACITY";
+
+//CHANNELS SETTINGS
+"CHANNELS" = "Channels";
+
+"IS REVERSING" = "Direction Reversed";
+"TRIM VALUE" = "Trim Value";
+"OUTPUT ADJUSTABLE RANGE" = "Output Adjustable Range";
+"OUTPUT PPM RANGE" = "Output PPM Range";
+"DEFAULT OUTPUT VALUE" = "Default Output Value";
+
+
+
+
+//MODE SETTINGS
+"PPM POLARITY REVERSED" = "PPM Polarity Reversed";
+"DEAD BAND" = "DEAD BAND";
+
+//Audio Warning
+"Increase Audio Volume" = "Increase Audio Volume";
+"Decrease Audio Volume" = "Decrease Audio Volume";
+"Plug in PPM output cable" = "Plug in PPM output cable";
+
+
+//Channel List Table View Cell
+"Trim" = "Trim";
+"Adjustable" = "Adjustble";
+"Normal" = "Normal";
+"Reversed" = "Reversed";
+
+"Take Off Throttle" = "Take Off Throttle";
+
+"Aileron/Elevator Dead Band" = "Aileron/Elevator Dead Band";
+"Rudder Dead Band" = "Rudder Dead Band";
+
+//status info pane
+"Rudder Locked" = "Rudder Locked";
+"Throttle Locked" = "Throttle Locked";
+"Throttle Rudder Locked" = "Throttle Rudder Locked";
+
+"Default Settings" = "Default Settings";
+"Default" = "Default";
+
+"Scan" = "Scan";
+"Stop Scan" = "Stop Scan";
+
+"connected" = "connected";
+"not connected" = "not connected";
+
+//BLE Device settings
+"Connecting..." = "Connecting...";
+"Connection" = "Connection";
+"Connect" = "Connect";
+"Disconnect" = "Disconnect";
+"Cancel" = "Cancel";
+"Connect to Hex Mini?" = "Connect to Hex Mini?";
+"Disconnect to Hex Mini?" = "Disconnect to Hex Mini?";
+"Scanning Hex Mini..." = "Scanning Hex Mini...";
+
+"Calibrate Acc" = "Calibrate Acc";
+"Calibrate Mag" = "Calibrate Mag";
+
+"Calibrate" = "Calibrate";
+"Calibrate the accelerator of Hex Mini?" = "Calibrate the accelerator of Hex Mini?";
+"Calibrate the magnetometer of Hex Mini?" = "Calibrate the magnetometer of Hex Mini?";
+"Reset to defaut settings?" = "Reset to defaut settings?";
+"Reset" = "Reset";
+
+
+
+
+
+
+

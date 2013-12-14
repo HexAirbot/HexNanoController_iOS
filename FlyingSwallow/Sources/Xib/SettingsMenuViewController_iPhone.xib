@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1280" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -15,10 +15,14 @@
                 <outlet property="aileronElevatorDeadBandLabel" destination="143" id="299"/>
                 <outlet property="aileronElevatorDeadBandSlider" destination="142" id="298"/>
                 <outlet property="aileronElevatorDeadBandTitleLabel" destination="141" id="297"/>
+                <outlet property="beginnerModeSwitchButton" destination="ysN-bV-OVH" id="vqh-rZ-dG1"/>
+                <outlet property="beginnerModeTitleLabel" destination="tzV-Gz-Sif" id="fRf-Um-K4f"/>
                 <outlet property="connectionActivityIndicatorView" destination="328" id="331"/>
                 <outlet property="connectionStateTextLabel" destination="329" id="334"/>
                 <outlet property="defaultSettingsButton" destination="103" id="279"/>
                 <outlet property="downTrimButton" destination="O9z-JR-IJw" id="Tea-bI-n6G"/>
+                <outlet property="headfreeModeSwitchButton" destination="7M2-sR-vIR" id="RgQ-cu-J0T"/>
+                <outlet property="headfreeModeTitleLabel" destination="1kP-Uq-chU" id="fCz-Lk-qD2"/>
                 <outlet property="interfaceOpacityLabel" destination="126" id="270"/>
                 <outlet property="interfaceOpacitySlider" destination="127" id="264"/>
                 <outlet property="interfaceOpacityTitleLabel" destination="125" id="263"/>
@@ -192,9 +196,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="319">
-                    <rect key="frame" x="30" y="55" width="380" height="207"/>
+                    <rect key="frame" x="30" y="65" width="380" height="197"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="320"/>
                         <outlet property="delegate" destination="-1" id="321"/>
@@ -325,6 +330,14 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Beginner Mode" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="tzV-Gz-Sif">
+                    <rect key="frame" x="0.0" y="54" width="192" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="16.7%" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="143">
                     <rect key="frame" x="40" y="121" width="150" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -369,24 +382,24 @@
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="307"/>
                     </connections>
                 </slider>
-                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take Off Throttle" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="282">
-                    <rect key="frame" x="0.0" y="47" width="192" height="20"/>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take Off Throttle" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="282">
+                    <rect key="frame" x="0.0" y="210" width="192" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="1200us" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="283">
-                    <rect key="frame" x="42" y="67" width="150" height="25"/>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="1200us" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="283">
+                    <rect key="frame" x="42" y="230" width="150" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                     <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.55000001192092896" minValue="0.0" maxValue="1" id="284" customClass="FSSlider">
-                    <rect key="frame" x="198" y="46" width="230" height="29"/>
+                <slider hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.55000001192092896" minValue="0.0" maxValue="1" id="284" customClass="FSSlider">
+                    <rect key="frame" x="198" y="209" width="230" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -395,6 +408,44 @@
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="288"/>
                     </connections>
                 </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Headfree Mode" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="1kP-Uq-chU">
+                    <rect key="frame" x="0.0" y="206" width="192" height="47"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7M2-sR-vIR">
+                    <rect key="frame" x="200" y="216" width="77" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" image="Btn_OFF.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="switchButtonClick:" destination="-1" eventType="touchUpInside" id="4ss-jm-LdP"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ysN-bV-OVH">
+                    <rect key="frame" x="200" y="51" width="77" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" image="Btn_OFF.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="switchButtonClick:" destination="-1" eventType="touchUpInside" id="A4p-Au-bOy"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -420,9 +471,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5r5-Cl-m7w">
-                    <rect key="frame" x="197" y="32" width="46" height="30"/>
+                    <rect key="frame" x="174" y="42" width="92" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Up">
+                    <state key="normal" title="Up" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -430,9 +482,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O9z-JR-IJw">
-                    <rect key="frame" x="197" y="174" width="46" height="30"/>
+                    <rect key="frame" x="174" y="179" width="92" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Down">
+                    <state key="normal" title="Down" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -440,9 +493,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3yF-3J-aH3">
-                    <rect key="frame" x="289" y="104" width="46" height="30"/>
+                    <rect key="frame" x="275" y="114" width="92" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Right">
+                    <state key="normal" title="Right" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -450,9 +504,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hwl-mw-m7K">
-                    <rect key="frame" x="113" y="104" width="46" height="30"/>
+                    <rect key="frame" x="79" y="114" width="92" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Left">
+                    <state key="normal" title="Left" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

@@ -34,7 +34,11 @@
 #define UDP_SERVER_HOST @"192.168.0.1"
 #define UDP_SERVER_PORT 6000
 
-#define kThrottleFineTuningStep 0.015
+#define kThrottleFineTuningStep 0.03
+#define kBeginnerElevatorChannelRatio  0.5
+#define kBeginnerAileronChannelRatio   0.5
+#define kBeginnerRudderChannelRatio    0.0
+#define kBeginnerThrottleChannelRatio  0.8
 
 
 static inline float sign(float value)
@@ -249,7 +253,6 @@ static inline float sign(float value)
 
     warningLabel.text = getLocalizeString(@"not connected");
     
-    [self setSwitchButton:headFreeSwitchButton withValue:_settings.isHeadFreeMode];
     [self setSwitchButton:altHoldSwitchButton withValue:_settings.isAltHoldMode];
     
     if (_settings.isHeadFreeMode) {
@@ -267,6 +270,17 @@ static inline float sign(float value)
     }
     
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateUI) userInfo:nil repeats:YES];
+    
+    
+    if (_settings.isBeginnerMode) {
+        UIAlertView *alertView = [[UIAlertView alloc]       initWithTitle:getLocalizeString(@"Beginner Mode")
+                message:getLocalizeString(@"Beginner Mode Info")
+                                                           delegate:self
+                                                  cancelButtonTitle:getLocalizeString(@"OK")
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        [alertView release];
+    }
 }
 
 
@@ -321,8 +335,6 @@ static inline float sign(float value)
     altValueTextLabel = nil;
     [headAngleValueTextLabel release];
     headAngleValueTextLabel = nil;
-    [headFreeSwitchButton release];
-    headFreeSwitchButton = nil;
     [altHoldSwitchButton release];
     altHoldSwitchButton = nil;
     [super viewDidUnload];
@@ -375,7 +387,6 @@ static inline float sign(float value)
     [pitchValueTextLabel release];
     [altValueTextLabel release];
     [headAngleValueTextLabel release];
-    [headFreeSwitchButton release];
     [altHoldSwitchButton release];
     [super dealloc];
 }
@@ -444,6 +455,19 @@ static inline float sign(float value)
     }
     
     [self updateJoysticksForAccModeChanged];
+}
+
+- (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl beginnerModeValueDidChange:(BOOL)enabled{
+    
+}
+
+- (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl headfreeModeValueDidChange:(BOOL)enabled{
+    if (_settings.isHeadFreeMode) {
+        [_aux1Channel setValue:1];
+    }
+    else{
+        [_aux1Channel setValue:-1];
+    }
 }
 
 - (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl ppmPolarityReversed:(BOOL)enabled{
@@ -803,18 +827,7 @@ static inline float sign(float value)
 - (IBAction)switchButtonClick:(id)sender {
     [self toggleSwitchButton:sender];
     
-    if(sender == headFreeSwitchButton){
-        _settings.isHeadFreeMode = (SWITCH_BUTTON_CHECKED == [sender tag]) ? YES : NO;
-        [_settings save];
-        
-        if (_settings.isHeadFreeMode) {
-            [_aux1Channel setValue:1];
-        }
-        else{
-            [_aux1Channel setValue:-1];
-        }
-    }
-    else if(sender == altHoldSwitchButton){
+    if(sender == altHoldSwitchButton){
         _settings.isAltHoldMode = (SWITCH_BUTTON_CHECKED == [sender tag]) ? YES : NO;
         [_settings save];
         
@@ -824,9 +837,6 @@ static inline float sign(float value)
         else{
             [_aux2Channel setValue:-1];
         }
-    }
-    else{
-        ;
     }
 }
 
@@ -1147,11 +1157,21 @@ static inline float sign(float value)
         
         if (isLeftHanded) {
             if (accModeEnabled == NO) {
-                [_aileronChannel setValue:rightJoystickXInput];
+                if (_settings.isBeginnerMode) {
+                    [_aileronChannel setValue:rightJoystickXInput * kBeginnerAileronChannelRatio];
+                }
+                else{
+                    [_aileronChannel setValue:rightJoystickXInput];
+                }
             }
         }
         else {
-            [_rudderChannel setValue:rightJoystickXInput];
+            if(_settings.isBeginnerMode){
+                [_rudderChannel setValue:rightJoystickXInput * kBeginnerRudderChannelRatio];
+            }
+            else{
+                [_rudderChannel setValue:rightJoystickXInput];
+            }
         }
         
         if(throttleIsLocked && !isLeftHanded){
@@ -1184,11 +1204,22 @@ static inline float sign(float value)
         
         if (isLeftHanded) {
             if (accModeEnabled == NO) {
-                [_elevatorChannel setValue:rightJoystickYInput];
+                if (_settings.isBeginnerMode) {
+                    [_elevatorChannel setValue:rightJoystickYInput * kBeginnerElevatorChannelRatio];
+                }
+                else{
+                    [_elevatorChannel setValue:rightJoystickYInput];
+                }
             }
         }
         else {
-            [_throttleChannel setValue:rightJoystickYInput];
+            if (_settings.isBeginnerMode) {
+                [_throttleChannel setValue:(kBeginnerThrottleChannelRatio - 1) + rightJoystickYInput * kBeginnerThrottleChannelRatio];
+            }
+            else{
+                [_throttleChannel setValue:rightJoystickYInput];
+            }
+            
             [self updateThrottleValueLabel];
         }
 	}
@@ -1237,11 +1268,19 @@ static inline float sign(float value)
        //NSLog(@"left x input:%.3f",leftJoystickXInput);
 		
         if(isLeftHanded){
-            [_rudderChannel setValue:leftJoystickXInput];
+            if(_settings.isBeginnerMode){
+                [_rudderChannel setValue:leftJoystickXInput * kBeginnerRudderChannelRatio];
+            }else{
+                [_rudderChannel setValue:leftJoystickXInput];
+            }
         }
         else{
             if (accModeEnabled == NO) {
-                [_aileronChannel setValue:leftJoystickXInput];
+                if(_settings.isBeginnerMode){
+                    [_aileronChannel setValue:leftJoystickXInput * kBeginnerAileronChannelRatio];
+                }else{
+                    [_aileronChannel setValue:leftJoystickXInput];
+                }
             }
         }
         
@@ -1272,12 +1311,23 @@ static inline float sign(float value)
         //NSLog(@"left y input:%.3f",leftJoystickYInput);
         
         if(isLeftHanded){
-            [_throttleChannel setValue:leftJoystickYInput];
+            if (_settings.isBeginnerMode) {
+                   [_throttleChannel setValue:(kBeginnerThrottleChannelRatio - 1) + leftJoystickYInput * kBeginnerThrottleChannelRatio];
+            }
+            else{
+                [_throttleChannel setValue:leftJoystickYInput];
+            }
+            
             [self updateThrottleValueLabel];
         }
         else{
             if (accModeEnabled == NO) {
-                [_elevatorChannel setValue:leftJoystickYInput];
+                if (_settings.isBeginnerMode) {
+                    [_elevatorChannel setValue:leftJoystickYInput * kBeginnerElevatorChannelRatio];
+                }
+                else{
+                    [_elevatorChannel setValue:leftJoystickYInput];
+                }
             }
         }
 	}
@@ -1750,9 +1800,14 @@ static inline float sign(float value)
                 //NSLog(@"ctrldata.iphone_theta %f", theta);
                 //NSLog(@"ctrldata.iphone_phi   %f", phi);
                 
-                [_aileronChannel setValue:phi];
-                [_elevatorChannel setValue:theta];
-                
+                if (_settings.isBeginnerMode) {
+                    [_aileronChannel setValue:phi * kBeginnerAileronChannelRatio];
+                    [_elevatorChannel setValue:theta * kBeginnerElevatorChannelRatio];
+                }
+                else{
+                    [_aileronChannel setValue:phi];
+                    [_elevatorChannel setValue:theta];
+                }
             }
         }
         else{

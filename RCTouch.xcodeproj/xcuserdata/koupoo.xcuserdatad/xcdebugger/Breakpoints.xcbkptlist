@@ -320,12 +320,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FlyingSwallow/Transmitter/BleSerialManager.m"
-         timestampString = "389692289.919003"
+         timestampString = "406802408.66386"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "396"
-         endingLineNumber = "396"
-         landmarkName = "-getSerialCharacteristicUUID"
+         startingLineNumber = "398"
+         endingLineNumber = "398"
+         landmarkName = "-getSerialServiceUUID"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -476,11 +476,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FlyingSwallow/Transmitter/BleSerialManager.m"
-         timestampString = "389692289.919003"
+         timestampString = "406802408.66386"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "305"
-         endingLineNumber = "305"
+         startingLineNumber = "307"
+         endingLineNumber = "307"
          landmarkName = "-peripheral:didUpdateValueForCharacteristic:error:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -507,8 +507,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "95"
          endingLineNumber = "95"
-         landmarkName = "-sendData:"
-         landmarkType = "5">
+         landmarkName = "@implementation BleSerialManager"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -676,8 +676,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "189"
          endingLineNumber = "189"
-         landmarkName = "-centralManager:didDisconnectPeripheral:error:"
-         landmarkType = "5">
+         landmarkName = "@implementation BleSerialManager"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

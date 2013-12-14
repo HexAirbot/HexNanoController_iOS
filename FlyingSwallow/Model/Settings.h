@@ -26,6 +26,7 @@
 #define kKeySettingsPpmPolarityIsNegative @"PpmPolarityIsNegative"
 #define kKeySettingsIsHeadFreeMode @"IsHeadFreeMode"
 #define kKeySettingsIsAltHoldMode @"IsAltHoldMode"
+#define kKeySettingsIsBeginnerMode @"IsBeginnerMode"
 #define kKeySettingsAileronDeadBand @"AileronDeadBand"
 #define kKeySettingsElevatorDeadBand @"ElevatorDeadBand"
 #define kKeySettingsRudderDeadBand @"RudderDeadBand"
@@ -48,6 +49,7 @@
 @property(nonatomic, assign) BOOL ppmPolarityIsNegative;
 @property(nonatomic, assign) BOOL isHeadFreeMode;
 @property(nonatomic, assign) BOOL isAltHoldMode;
+@property(nonatomic, assign) BOOL isBeginnerMode;
 @property(nonatomic, assign) float aileronDeadBand;
 @property(nonatomic, assign) float elevatorDeadBand;
 @property(nonatomic, assign) float rudderDeadBand;

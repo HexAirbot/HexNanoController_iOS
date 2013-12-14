@@ -17,7 +17,6 @@
 		E01CC8BD16F4CB360006921B /* BasicInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CC8BC16F4CB360006921B /* BasicInfoManager.m */; };
 		E01CC8C416F4D9260006921B /* drone.png in Resources */ = {isa = PBXBuildFile; fileRef = E01CC8C216F4D9260006921B /* drone.png */; };
 		E01CC8C516F4D9260006921B /* world.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E01CC8C316F4D9260006921B /* world.jpg */; };
-		E01D2D63171C3EF900FA1105 /* SerialGATT.m in Sources */ = {isa = PBXBuildFile; fileRef = E01D2D62171C3EF900FA1105 /* SerialGATT.m */; };
 		E01D3474171E707D00618DC0 /* BleSerialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E01D3473171E707D00618DC0 /* BleSerialManager.m */; };
 		E05AA5E5169B4152009DA2A7 /* RCTouch-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05AA5E4169B4152009DA2A7 /* RCTouch-Info.plist */; };
 		E05AA5E7169B4227009DA2A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E0E3D35A169B2AE300DC30C6 /* Default.png */; };
@@ -145,8 +144,6 @@
 		E01CC8BC16F4CB360006921B /* BasicInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoManager.m; sourceTree = "<group>"; };
 		E01CC8C216F4D9260006921B /* drone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drone.png; sourceTree = "<group>"; };
 		E01CC8C316F4D9260006921B /* world.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world.jpg; sourceTree = "<group>"; };
-		E01D2D61171C3EF900FA1105 /* SerialGATT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialGATT.h; sourceTree = "<group>"; };
-		E01D2D62171C3EF900FA1105 /* SerialGATT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialGATT.m; sourceTree = "<group>"; };
 		E01D3472171E707D00618DC0 /* BleSerialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BleSerialManager.h; sourceTree = "<group>"; };
 		E01D3473171E707D00618DC0 /* BleSerialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BleSerialManager.m; sourceTree = "<group>"; };
 		E05AA5E4169B4152009DA2A7 /* RCTouch-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RCTouch-Info.plist"; sourceTree = "<group>"; };
@@ -298,8 +295,6 @@
 		E01D2D60171C3EAF00FA1105 /* BLE_Serial */ = {
 			isa = PBXGroup;
 			children = (
-				E01D2D61171C3EF900FA1105 /* SerialGATT.h */,
-				E01D2D62171C3EF900FA1105 /* SerialGATT.m */,
 				E01D3472171E707D00618DC0 /* BleSerialManager.h */,
 				E01D3473171E707D00618DC0 /* BleSerialManager.m */,
 			);
@@ -777,7 +772,6 @@
 				E0159E1316F71456002D414F /* OSDView.m in Sources */,
 				E0159E1C16F72B36002D414F /* OSDCommon.mm in Sources */,
 				E0159E1D16F72B36002D414F /* OSDData.mm in Sources */,
-				E01D2D63171C3EF900FA1105 /* SerialGATT.m in Sources */,
 				E01D3474171E707D00618DC0 /* BleSerialManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -871,7 +865,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlyingSwallow/RCTouch-Prefix.pch";
 				INFOPLIST_FILE = "FlyingSwallow/RCTouch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = RCTouch;
 				PROVISIONING_PROFILE = "FFDB58C7-D9B4-42E7-8D98-44635D3A45F7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -888,7 +882,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlyingSwallow/RCTouch-Prefix.pch";
 				INFOPLIST_FILE = "FlyingSwallow/RCTouch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = RCTouch;
 				PROVISIONING_PROFILE = "99E9D8B7-4B47-4715-BCEF-D2A69215E34E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

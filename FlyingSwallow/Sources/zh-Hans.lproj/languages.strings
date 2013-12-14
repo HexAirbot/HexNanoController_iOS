@@ -5,16 +5,17 @@
  Created by koupoo on 12-12-21.
  Copyright (c) 2012年 www.hexairbot.com. All rights reserved.
  */
-"BLE DEVICES" = "连接Hex Mini";
+"BLE DEVICES" = "连接FLEXBOT";
 "PERSONAL SETTINGS" = "个人设置";
-"TRIM SETTINGS" = "修正设置";
+"TRIM SETTINGS" = "角度修正";
 "CHANNELS SETTINGS" = "通道设置";
 "MODE SETTINGS" = "模式设置";
-"ABOUT" = "关于HEX MINI";
+"ABOUT" = "关于FLEXBOT";
 
 //PERSONAL SETTINGS
 "LEFT HANDED" = "左手模式";
 "INTERFACE OPACITY" = "界面透明度";
+"Acc Mode" = "加速计模式";
 
 //CHANNELS SETTINGS
 "CHANNELS" = "通道";
@@ -29,6 +30,7 @@
 //MODE SETTINGS
 "PPM POLARITY REVERSED" = "PPM极性反向";
 "DEAD BAND" = "盲区";
+"Headfree Mode" = "无头模式";
 
 //Audio Warning
 "Increase Audio Volume" = "增大音量";
@@ -41,6 +43,7 @@
 "Normal" = "正向";
 "Reversed" = "反向";
 
+"Beginner Mode" = "新手模式";
 "Take Off Throttle" = "起飞油门";
 
 "Aileron/Elevator Dead Band" = "Aileron/Elevator操作无效区";
@@ -67,16 +70,20 @@
 "Connect" = "连接";
 "Disconnect" = "关闭";
 "Cancel" = "取消";
-"Connect to Hex Mini?" = "连接到Hex Mini?";
-"Disconnect to Hex Mini?" = "关闭与Hex Mini的连接?";
-"Scanning Hex Mini..."= "扫描Hex Mini中...";
+"Connect to Flexbot?" = "连接到Flexbot?";
+"Disconnect to Flexbot?" = "关闭与Flexbot的连接?";
+"Scanning Flexbot..."= "扫描Flexbot中...";
 
 "Calibrate Acc" = "校准加速计";
 "Calibrate Mag" = "校准罗盘";
 
 "Calibrate" = "校准";
-"Calibrate the accelerator of Hex Mini?" = "校准Hex Mini的加速计?";
-"Calibrate the magnetometer of Hex Mini?" = "校准Hex Mini的数字罗盘?";
+"Calibrate the accelerator of Flexbot?" = "校准Flexbot的加速计?";
+"Calibrate the magnetometer of Flexbot?" = "校准Flexbot的数字罗盘?";
 "Reset to defaut settings?" = "恢复到默认设置";
 "Reset" = "恢复";
+
+"OK" = "好的";
+"Beginner Mode Info" = "当前控制模式是新手模式，若您已经能熟练操作Flexbot飞行器，您可以在模式设置界面中将新手模式关闭。";
+
 

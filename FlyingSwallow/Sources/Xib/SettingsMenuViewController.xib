@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1280" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -10,19 +10,25 @@
                 <outlet property="aboutPageView" destination="8" id="42"/>
                 <outlet property="aboutWebView" destination="96" id="98"/>
                 <outlet property="accCalibrateButton" destination="120" id="124"/>
+                <outlet property="accModeSwitchButton" destination="TWh-I3-cJc" id="Thh-7J-SDw"/>
+                <outlet property="accModeTitleLabel" destination="pcw-yT-o3y" id="VxN-aA-pUU"/>
                 <outlet property="aileronElevatorDeadBandLabel" destination="17" id="66"/>
                 <outlet property="aileronElevatorDeadBandSlider" destination="16" id="74"/>
                 <outlet property="aileronElevatorDeadBandTitleLabel" destination="18" id="64"/>
+                <outlet property="beginnerModeSwitchButton" destination="Rxe-3W-hI2" id="Z30-uo-4Ga"/>
+                <outlet property="beginnerModeTitleLabel" destination="JMx-kz-6YR" id="T8V-5u-YlQ"/>
                 <outlet property="connectionActivityIndicatorView" destination="106" id="111"/>
                 <outlet property="connectionStateTextLabel" destination="108" id="115"/>
                 <outlet property="defaultSettingsButton" destination="24" id="53"/>
                 <outlet property="downTrimButton" destination="KSr-4K-FTp" id="igA-6X-RJ6"/>
+                <outlet property="headfreeModeSwitchButton" destination="2sk-qe-j5i" id="Qdt-nH-fdG"/>
+                <outlet property="headfreeModeTitleLabel" destination="bUc-Z6-vc1" id="Vam-Y1-QoR"/>
                 <outlet property="interfaceOpacityLabel" destination="36" id="62"/>
                 <outlet property="interfaceOpacitySlider" destination="33" id="63"/>
                 <outlet property="interfaceOpacityTitleLabel" destination="37" id="61"/>
                 <outlet property="isScanningTextLabel" destination="107" id="114"/>
-                <outlet property="leftHandedSwitchButton" destination="TWh-I3-cJc" id="xl4-7K-m26"/>
-                <outlet property="leftHandedTitleLabel" destination="pcw-yT-o3y" id="5cq-Ie-fzR"/>
+                <outlet property="leftHandedSwitchButton" destination="34" id="Yxn-Vn-SvA"/>
+                <outlet property="leftHandedTitleLabel" destination="35" id="95P-kg-n2Q"/>
                 <outlet property="leftTrimButton" destination="Obv-Bp-RdV" id="ivw-85-bre"/>
                 <outlet property="magCalibrateButton" destination="122" id="125"/>
                 <outlet property="modeSettingsPageView" destination="7" id="43"/>
@@ -322,6 +328,14 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Beginner Mode" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="JMx-kz-6YR">
+                    <rect key="frame" x="-17" y="92" width="298" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="16.7%" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="17">
                     <rect key="frame" x="129" y="180" width="150" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -366,24 +380,24 @@
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="86"/>
                     </connections>
                 </slider>
-                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take Off Throttle" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="21">
-                    <rect key="frame" x="40" y="89" width="241" height="20"/>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Take Off Throttle" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="21">
+                    <rect key="frame" x="20" y="426" width="241" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="1200us" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="20">
-                    <rect key="frame" x="89" y="109" width="192" height="25"/>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="1200us" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="20">
+                    <rect key="frame" x="69" y="443" width="192" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
                     <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.55000001192092896" minValue="0.0" maxValue="1" id="19" customClass="FSSlider">
-                    <rect key="frame" x="287" y="88" width="420" height="29"/>
+                <slider hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.55000001192092896" minValue="0.0" maxValue="1" id="19" customClass="FSSlider">
+                    <rect key="frame" x="267" y="422" width="420" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -392,6 +406,44 @@
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="82"/>
                     </connections>
                 </slider>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rxe-3W-hI2">
+                    <rect key="frame" x="289" y="92" width="77" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" image="Btn_OFF.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="switchButtonClick:" destination="-1" eventType="touchUpInside" id="Tgt-rl-r2B"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Headfree Mode" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="bUc-Z6-vc1">
+                    <rect key="frame" x="65" y="316" width="216" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2sk-qe-j5i">
+                    <rect key="frame" x="289" y="312" width="77" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" image="Btn_OFF.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="switchButtonClick:" destination="-1" eventType="touchUpInside" id="1I1-f3-1hM"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -417,9 +469,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lc1-uZ-Ikx">
-                    <rect key="frame" x="197" y="32" width="46" height="30"/>
+                    <rect key="frame" x="353" y="117" width="126" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Up">
+                    <state key="normal" title="Up" backgroundImage="Btn_Default_IPAD.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -427,9 +480,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KSr-4K-FTp">
-                    <rect key="frame" x="197" y="174" width="46" height="30"/>
+                    <rect key="frame" x="353" y="334" width="126" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Down">
+                    <state key="normal" title="Down" backgroundImage="Btn_Default_IPAD.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -437,9 +491,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="guL-uV-M68">
-                    <rect key="frame" x="289" y="104" width="46" height="30"/>
+                    <rect key="frame" x="481" y="225" width="126" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Right">
+                    <state key="normal" title="Right" backgroundImage="Btn_Default_IPAD.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -447,9 +502,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Obv-Bp-RdV">
-                    <rect key="frame" x="113" y="104" width="46" height="30"/>
+                    <rect key="frame" x="224" y="225" width="126" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Left">
+                    <state key="normal" title="Left" backgroundImage="Btn_Default_IPAD.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

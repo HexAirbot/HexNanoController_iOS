@@ -27,6 +27,7 @@
 @synthesize ppmPolarityIsNegative = _ppmPolarityIsNegative;
 @synthesize isHeadFreeMode = _isHeadFreeMode;
 @synthesize isAltHoldMode = _isAltHoldMode;
+@synthesize isBeginnerMode = _isBeginnerMode;
 @synthesize aileronDeadBand = _aileronDeadBand;
 @synthesize elevatorDeadBand = _elevatorDeadBand;
 @synthesize rudderDeadBand = _rudderDeadBand;
@@ -48,6 +49,7 @@
         _ppmPolarityIsNegative = [[_settingsData objectForKey:kKeySettingsPpmPolarityIsNegative] boolValue];
         _isHeadFreeMode = [[_settingsData objectForKey:kKeySettingsIsHeadFreeMode] boolValue];
         _isAltHoldMode =  [[_settingsData objectForKey:kKeySettingsIsAltHoldMode] boolValue];
+        _isBeginnerMode = [[_settingsData objectForKey:kKeySettingsIsBeginnerMode] boolValue];
         _aileronDeadBand = [[_settingsData objectForKey:kKeySettingsAileronDeadBand] floatValue];
         _elevatorDeadBand = [[_settingsData objectForKey:kKeySettingsElevatorDeadBand] floatValue];
         _rudderDeadBand = [[_settingsData objectForKey:kKeySettingsRudderDeadBand] floatValue];
@@ -97,6 +99,12 @@
     _isAltHoldMode = isAltHoldMode;
     
     [_settingsData setObject:[NSNumber numberWithBool:_isAltHoldMode] forKey:kKeySettingsIsAltHoldMode];
+}
+
+- (void)setIsBeginnerMode:(BOOL)isBeginnerMode{
+    _isBeginnerMode = isBeginnerMode;
+    
+    [_settingsData setObject:[NSNumber numberWithBool:_isBeginnerMode] forKey:kKeySettingsIsBeginnerMode];
 }
 
 - (void)setPpmPolarityIsNegative:(BOOL)ppmPolarityIsNegative{
@@ -188,6 +196,7 @@
     self.ppmPolarityIsNegative = [[defaultSettingsData objectForKey:kKeySettingsPpmPolarityIsNegative] boolValue];
     self.isHeadFreeMode = [[defaultSettingsData objectForKey:kKeySettingsIsHeadFreeMode] boolValue];
     self.isAltHoldMode = [[defaultSettingsData objectForKey:kKeySettingsIsAltHoldMode] boolValue];
+    self.isBeginnerMode = [[defaultSettingsData objectForKey:kKeySettingsIsBeginnerMode] boolValue];
     self.aileronDeadBand = [[defaultSettingsData objectForKey:kKeySettingsAileronDeadBand] floatValue];
     self.elevatorDeadBand = [[defaultSettingsData objectForKey:kKeySettingsElevatorDeadBand] floatValue];
     self.rudderDeadBand = [[defaultSettingsData objectForKey:kKeySettingsRudderDeadBand] floatValue];

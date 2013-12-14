@@ -7,16 +7,17 @@
 */
 
 /* Settings Menu Text */
-"BLE DEVICES" = "CONNECT TO HEX MINI";
+"BLE DEVICES" = "CONNECT TO FLEXBOT";
 "PERSONAL SETTINGS" = "PERSONAL SETTINGS";
-"TRIM SETTINGS" = "TRIM SETTINGS";
+"TRIM SETTINGS" = "ANGEL TRIM";
 "CHANNELS SETTINGS" = "CHANNELS SETTINGS";
 "MODE SETTINGS" = "MODE SETTINGS";
-"ABOUT" = "ABOUT HEX MINI";
+"ABOUT" = "ABOUT FLEXBOT";
 
 //PERSONAL SETTINGS
-"LEFT HANDED" = "LEFT HANDED";
-"INTERFACE OPACITY" = "INTERFACE OPACITY";
+"LEFT HANDED" = "Left Handed";
+"INTERFACE OPACITY" = "Interface Opacity";
+"Acc Mode" = "Acc Mode";
 
 //CHANNELS SETTINGS
 "CHANNELS" = "Channels";
@@ -33,6 +34,7 @@
 //MODE SETTINGS
 "PPM POLARITY REVERSED" = "PPM Polarity Reversed";
 "DEAD BAND" = "DEAD BAND";
+"Headfree Mode" = "Headfree Mode";
 
 //Audio Warning
 "Increase Audio Volume" = "Increase Audio Volume";
@@ -46,6 +48,7 @@
 "Normal" = "Normal";
 "Reversed" = "Reversed";
 
+"Beginner Mode" = "Beginner Mode";
 "Take Off Throttle" = "Take Off Throttle";
 
 "Aileron/Elevator Dead Band" = "Aileron/Elevator Dead Band";
@@ -71,21 +74,21 @@
 "Connect" = "Connect";
 "Disconnect" = "Disconnect";
 "Cancel" = "Cancel";
-"Connect to Hex Mini?" = "Connect to Hex Mini?";
-"Disconnect to Hex Mini?" = "Disconnect to Hex Mini?";
-"Scanning Hex Mini..." = "Scanning Hex Mini...";
+"Connect to Flexbot?" = "Connect to Flexbot?";
+"Disconnect to Flexbot?" = "Disconnect to Flexbot?";
+"Scanning Flexbot..." = "Scanning Flexbot...";
 
 "Calibrate Acc" = "Calibrate Acc";
 "Calibrate Mag" = "Calibrate Mag";
 
 "Calibrate" = "Calibrate";
-"Calibrate the accelerator of Hex Mini?" = "Calibrate the accelerator of Hex Mini?";
-"Calibrate the magnetometer of Hex Mini?" = "Calibrate the magnetometer of Hex Mini?";
+"Calibrate the accelerator of Flexbot?" = "Calibrate the accelerator of Flexbot?";
+"Calibrate the magnetometer of Flexbot?" = "Calibrate the magnetometer of Flexbot?";
 "Reset to defaut settings?" = "Reset to defaut settings?";
 "Reset" = "Reset";
 
-
-
+"OK" = "OK";
+"Beginner Mode Info" = "Curerent control mode is beginner mode, if you can control Flexbot drone well, you can turn beggniner mode off in mode settings page.";
 
 
 

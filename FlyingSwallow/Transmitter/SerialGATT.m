@@ -384,6 +384,7 @@
         for(int i=0; i < service.characteristics.count; i++) {
             CBCharacteristic *c = [service.characteristics objectAtIndex:i]; 
             printf("Found characteristic %s\r\n",[ self CBUUIDToString:c.UUID]);
+            /*
             CBService *s = [peripheral.services objectAtIndex:(peripheral.services.count - 1)];
             if([self compareCBUUID:service.UUID UUID2:s.UUID]) {
                 printf("Finished discovering characteristics\n");
@@ -393,6 +394,19 @@
                 //[self writeValue:fileService characteristicUUID:fileSub p:peripheral data:d];
                 [self notify:peripheral on:YES];
             }
+             */
+        }
+        
+        char t[16];
+        t[0] = (fileService >> 8) & 0xFF;
+        t[1] = fileService & 0xFF;
+        NSData *data = [[NSData alloc] initWithBytes:t length:16];
+        CBUUID *uuid = [CBUUID UUIDWithData:data];
+        
+        if ([self compareCBUUID:service.UUID UUID2:uuid]) {
+            printf("xxxxxTry to open notify\n");
+            printf("Finished discovering characteristics\n");
+            [self notify:peripheral on:YES];
         }
     }
     else {

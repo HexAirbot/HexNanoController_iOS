@@ -32,6 +32,8 @@
 - (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl interfaceOpacityValueDidChange:(float)newValue;
 - (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl leftHandedValueDidChange:(BOOL)enabled;
 - (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl accModeValueDidChange:(BOOL)enabled;
+- (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl beginnerModeValueDidChange:(BOOL)enabled;
+- (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl headfreeModeValueDidChange:(BOOL)enabled;
 - (void)settingsMenuViewController:(SettingsMenuViewController *)ctrl ppmPolarityReversed:(BOOL)enabled;
 
 @end
@@ -113,6 +115,12 @@ enum ChannelListTableViewSection {
     IBOutlet UIButton *downTrimButton;
     IBOutlet UIButton *rightTrimButton;
     IBOutlet UIButton *leftTrimButton;
+    
+    IBOutlet UILabel *beginnerModeTitleLabel;
+    IBOutlet UIButton *beginnerModeSwitchButton;
+    
+    IBOutlet UILabel *headfreeModeTitleLabel;
+    IBOutlet UIButton *headfreeModeSwitchButton;
 }
 @property(nonatomic, assign) NSObject<SettingMenuViewControllerDelegate> *delegate;
 

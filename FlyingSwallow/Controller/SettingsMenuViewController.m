@@ -102,6 +102,9 @@ typedef enum settings_alert_dialog{
 - (void)updateSettingsUI{
     [self setSwitchButton:leftHandedSwitchButton withValue:settings.isLeftHanded];
     [self setSwitchButton:accModeSwitchButton withValue:settings.isAccMode];
+    [self setSwitchButton:beginnerModeSwitchButton withValue:settings.isBeginnerMode];
+    [self setSwitchButton:headfreeModeSwitchButton withValue:settings.isHeadFreeMode];
+    
     interfaceOpacitySlider.value = settings.interfaceOpacity * 100;
     interfaceOpacityLabel.text = [NSString stringWithFormat:@"%d%%", (int)(settings.interfaceOpacity * 100)];
     [self setSwitchButton:ppmPolarityReversedSwitchButton withValue:settings.ppmPolarityIsNegative];
@@ -122,6 +125,7 @@ typedef enum settings_alert_dialog{
     
     leftHandedTitleLabel.text = getLocalizeString(@"LEFT HANDED");
     interfaceOpacityTitleLabel.text = getLocalizeString(@"INTERFACE OPACITY");
+    accModeTitleLabel.text = getLocalizeString(@"Acc Mode");
 
     [pageViewArray addObject:peripheralView];
     [pageTitleArray addObject:getLocalizeString(@"BLE DEVICES")];
@@ -159,10 +163,13 @@ typedef enum settings_alert_dialog{
     takeOffThrottleTitleLabel.text = getLocalizeString(@"Take Off Throttle");
     aileronElevatorDeadBandTitleLabel.text = getLocalizeString(@"Aileron/Elevator Dead Band");
     rudderDeadBandTitleLabel.text = getLocalizeString(@"Rudder Dead Band");
+    beginnerModeTitleLabel.text = getLocalizeString(@"Beginner Mode");
+    headfreeModeTitleLabel.text = getLocalizeString(@"Headfree Mode");
+    
     [defaultSettingsButton setTitle:getLocalizeString(@"Default Settings") forState:UIControlStateNormal];
     [peripheralListScanButton setTitle:getLocalizeString(@"Scan") forState:UIControlStateNormal];
     
-    isScanningTextLabel.text = getLocalizeString(@"Scanning Hex Mini...");
+    isScanningTextLabel.text = getLocalizeString(@"Scanning Flexbot...");
     
     [magCalibrateButton setTitle:getLocalizeString(@"Calibrate Mag") forState:UIControlStateNormal];
     [accCalibrateButton setTitle:getLocalizeString(@"Calibrate Acc") forState:UIControlStateNormal];
@@ -216,6 +223,8 @@ typedef enum settings_alert_dialog{
             connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"not connected")];
         }
     }
+    
+    peripheralListTableView.backgroundColor = [UIColor clearColor];
 
 }
 
@@ -389,6 +398,10 @@ typedef enum settings_alert_dialog{
     [trimSettingsView release];
     [accModeTitleLabel release];
     [accModeSwitchButton release];
+    [beginnerModeSwitchButton release];
+    [beginnerModeTitleLabel release];
+    [headfreeModeTitleLabel release];
+    [headfreeModeSwitchButton release];
     [super dealloc];
 }
 
@@ -469,16 +482,16 @@ typedef enum settings_alert_dialog{
         if ([[[Transmitter sharedTransmitter] bleSerialManager] currentBleSerial] == peripheral) {
            // if ([peripheral isConnected]) {
             if ([[Transmitter sharedTransmitter] isConnected]) {
-                NSString *msg = getLocalizeString(@"Disconnect to Hex Mini?");
+                NSString *msg = getLocalizeString(@"Disconnect to Flexbot?");
                 [self showAlertViewWithTitle:getLocalizeString(@"Connection") cancelButtonTitle:getLocalizeString(@"Cancel") okButtonTitle:getLocalizeString(@"Disconnect") message:msg tag:settings_alert_dialog_disconnect];
             }
             else{
-                NSString *msg = getLocalizeString(@"Connect to Hex Mini?");
+                NSString *msg = getLocalizeString(@"Connect to Flexbot?");
                 [self showAlertViewWithTitle:getLocalizeString(@"Connection") cancelButtonTitle:getLocalizeString(@"Cancel") okButtonTitle:getLocalizeString(@"Connect") message:msg tag:settings_alert_dialog_connect];
             }
         }
         else{
-            NSString *msg = getLocalizeString(@"Connect to Hex Mini?");
+            NSString *msg = getLocalizeString(@"Connect to Flexbot?");
             [self showAlertViewWithTitle:getLocalizeString(@"Connection") cancelButtonTitle:getLocalizeString(@"Cancel") okButtonTitle:getLocalizeString(@"Connect") message:msg tag:settings_alert_dialog_connect];
         }
     }
@@ -563,7 +576,7 @@ typedef enum settings_alert_dialog{
         
         CBPeripheral *peripheral = [peripheralList objectAtIndex:[indexPath row]];
         //cell.textLabel.text = peripheral.name;
-        cell.textLabel.text = @"Hex Mini";
+        cell.textLabel.text = @"Flexbot";
         //cell.detailTextLabel.text = [NSString stringWithFormat:@"RRSI:%d", [peripheral.RSSI intValue]];
         return cell;
     }
@@ -664,6 +677,7 @@ typedef enum settings_alert_dialog{
         [_delegate settingsMenuViewController:self ppmPolarityReversed:settings.ppmPolarityIsNegative];
     }
     
+    
     if([_delegate respondsToSelector:@selector(settingsMenuViewController:interfaceOpacityValueDidChange:)]){
         [_delegate settingsMenuViewController:self interfaceOpacityValueDidChange:settings.interfaceOpacity];
     }
@@ -736,11 +750,11 @@ typedef enum settings_alert_dialog{
         [self switchScan];
     }
     else if(sender == accCalibrateButton){
-        NSString *msg = getLocalizeString(@"Calibrate the accelerator of Hex Mini?");
+        NSString *msg = getLocalizeString(@"Calibrate the accelerator of Flexbot?");
         [self showAlertViewWithTitle:nil cancelButtonTitle:getLocalizeString(@"Cancel") okButtonTitle:getLocalizeString(@"Calibrate") message:msg tag:settings_alert_dialog_calibrate_acc];
     }
     else if(sender == magCalibrateButton){
-        NSString *msg = getLocalizeString(@"Calibrate the magnetometer of Hex Mini?");
+        NSString *msg = getLocalizeString(@"Calibrate the magnetometer of Flexbot?");
         [self showAlertViewWithTitle:nil cancelButtonTitle:getLocalizeString(@"Cancel") okButtonTitle:getLocalizeString(@"Calibrate") message:msg tag:settings_alert_dialog_calibrate_mag];
     }
     else if(sender == upTrimButton){
@@ -784,6 +798,23 @@ typedef enum settings_alert_dialog{
 
         if ([_delegate respondsToSelector:@selector(settingsMenuViewController:accModeValueDidChange:)]) {
             [_delegate settingsMenuViewController:self accModeValueDidChange:settings.isAccMode];
+        }
+    }
+    else if(sender == beginnerModeSwitchButton){
+        settings.isBeginnerMode = (SWITCH_BUTTON_CHECKED == [sender tag]) ? YES : NO;
+        [settings save];
+        
+        if ([_delegate respondsToSelector:@selector(settingsMenuViewController:beginnerModeValueDidChange:)]) {
+            [_delegate settingsMenuViewController:self beginnerModeValueDidChange:settings.isBeginnerMode];
+        }
+    }
+    else if(sender == headfreeModeSwitchButton){
+        settings.isHeadFreeMode = (SWITCH_BUTTON_CHECKED == [sender tag]) ? YES : NO;
+        
+        [settings save];
+        
+        if ([_delegate respondsToSelector:@selector(settingsMenuViewController:headfreeModeValueDidChange:)]) {
+            [_delegate settingsMenuViewController:self headfreeModeValueDidChange:settings.isHeadFreeMode];
         }
     }
 }

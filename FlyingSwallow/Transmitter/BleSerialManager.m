@@ -47,8 +47,9 @@
         
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:CBCentralManagerScanOptionAllowDuplicatesKey, @"YES", nil];
         
-        [_centralManager scanForPeripheralsWithServices:[NSArray arrayWithObject:serialServiceUUID]
-                                                    options:options];
+       // [_centralManager scanForPeripheralsWithServices:[NSArray arrayWithObject:serialServiceUUID]
+                                                    //options:options];
+        [_centralManager scanForPeripheralsWithServices:nil options:nil];
         
 //        [_centralManager scanForPeripheralsWithServices:nil options:nil];
         NSLog(@"Scanning started");
@@ -134,7 +135,7 @@
 //    NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
     
     
-    if (![_bleSerialList containsObject:peripheral]) {
+    if (![_bleSerialList containsObject:peripheral] && ([peripheral.name isEqualToString:@"AnyFlite"] || [peripheral.name isEqualToString:@"Hex Mini"] || [peripheral.name isEqualToString:@"HMSoft"] || [peripheral.name isEqualToString:@"Hex Nano"] || [peripheral.name isEqualToString:@"Any Flite"] || [peripheral.name isEqualToString:@"Flexbot"])) {
         [(NSMutableArray *)_bleSerialList addObject:peripheral];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPeripheralListDidChange object:self userInfo:nil];
@@ -276,8 +277,10 @@
         return;
     }
     
+    
     for (CBCharacteristic *characteristic in service.characteristics) {
         if ([characteristic.UUID isEqual:[self getSerialCharacteristicUUID]]) {
+    
             NSLog(@"****begin notify value for characteritic:%@", characteristic);
             
             [serialCharacteristic release];

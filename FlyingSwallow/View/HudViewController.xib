@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -10,6 +10,7 @@
                 <outlet property="batteryImageView" destination="52" id="115"/>
                 <outlet property="batteryLevelLabel" destination="55" id="146"/>
                 <outlet property="downIndicatorImageView" destination="111" id="113"/>
+                <outlet property="helpButton" destination="bba-eV-IdZ" id="F0Q-xO-Aer"/>
                 <outlet property="joystickLeftBackgroundImageView" destination="45" id="88"/>
                 <outlet property="joystickLeftButton" destination="59" id="86"/>
                 <outlet property="joystickLeftThumbImageView" destination="44" id="89"/>
@@ -139,6 +140,21 @@
                     </state>
                     <connections>
                         <action selector="buttonDidTouchUpInside:" destination="-1" eventType="touchUpInside" id="129"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bba-eV-IdZ" userLabel="Help">
+                    <rect key="frame" x="859" y="4" width="36" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" image="Btn_Settings_IPAD.png">
+                        <color key="titleColor" red="0.19607843" green="0.30980393000000001" blue="0.52156866000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" image="Btn_Settings_On_IPAD.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonDidTouchUpInside:" destination="-1" eventType="touchUpInside" id="BJW-mX-mNA"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="69">

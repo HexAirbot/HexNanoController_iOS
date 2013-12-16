@@ -177,7 +177,19 @@ typedef enum settings_alert_dialog{
     channelListTableView.backgroundColor = [UIColor clearColor];
     channelListTableView.backgroundView.hidden = YES;
     
-    NSURL *aboutFileURL = [NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"About" ofType:@"html"]];
+    NSString *currentLan = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    NSURL *aboutFileURL = nil;
+    
+    if (![currentLan isEqual:@"en"] && ![currentLan isEqual:@"zh-Hans"] && ![currentLan isEqual:@"zh-Hant"]) {
+        NSBundle *enBundle =[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"]];
+        
+        aboutFileURL = [NSURL fileURLWithPath:[enBundle pathForResource:@"About" ofType:@"html"]];
+    }
+    else{
+        aboutFileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"About" ofType:@"html"]];
+    }
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:aboutFileURL];
     [aboutWebView loadRequest:request];
     

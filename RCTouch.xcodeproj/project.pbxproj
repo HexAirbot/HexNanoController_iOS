@@ -25,6 +25,15 @@
 		E05AA5F7169B496D009DA2A7 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E05AA5F6169B496D009DA2A7 /* Default-Landscape@2x~ipad.png */; };
 		E05AA5F8169B498F009DA2A7 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E05AA5F4169B4962009DA2A7 /* Default-Portrait@2x~ipad.png */; };
 		E0AE51C5168B6AD400AA394D /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = E0AE51C4168B6AD400AA394D /* util.c */; };
+		E0AE67B6185EADFA00802775 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AE67B5185EADFA00802775 /* HelpViewController.m */; };
+		E0AE67BA185EAE8C00802775 /* HelpViewController_iPhone_tall.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67B7185EAE8C00802775 /* HelpViewController_iPhone_tall.xib */; };
+		E0AE67BB185EAE8C00802775 /* HelpViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67B8185EAE8C00802775 /* HelpViewController_iPhone.xib */; };
+		E0AE67BC185EAE8C00802775 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67B9185EAE8C00802775 /* HelpViewController.xib */; };
+		E0AE67C2185EB58800802775 /* help_page_01.png in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67BD185EB58800802775 /* help_page_01.png */; };
+		E0AE67C3185EB58800802775 /* help_page_02.png in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67BE185EB58800802775 /* help_page_02.png */; };
+		E0AE67C4185EB58800802775 /* help_page_03.png in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67BF185EB58800802775 /* help_page_03.png */; };
+		E0AE67C5185EB58800802775 /* help_page_04.png in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67C0185EB58800802775 /* help_page_04.png */; };
+		E0AE67C6185EB58800802775 /* help_page_05.png in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67C1185EB58800802775 /* help_page_05.png */; };
 		E0C429F9168C9F7A00B0AD63 /* BlockViewStyle1.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C429F8168C9F7A00B0AD63 /* BlockViewStyle1.m */; };
 		E0C70A36169838480012570B /* Background_Settings_IPAD.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C70A34169838480012570B /* Background_Settings_IPAD.png */; };
 		E0C70A37169838480012570B /* Background_Settings_RETINA.png in Resources */ = {isa = PBXBuildFile; fileRef = E0C70A35169838480012570B /* Background_Settings_RETINA.png */; };
@@ -152,6 +161,16 @@
 		E05AA5F6169B496D009DA2A7 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../../../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		E0AE51C4168B6AD400AA394D /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
 		E0AE51C7168B6ADF00AA394D /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		E0AE67B4185EADFA00802775 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		E0AE67B5185EADFA00802775 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		E0AE67B7185EAE8C00802775 /* HelpViewController_iPhone_tall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController_iPhone_tall.xib; sourceTree = "<group>"; };
+		E0AE67B8185EAE8C00802775 /* HelpViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController_iPhone.xib; sourceTree = "<group>"; };
+		E0AE67B9185EAE8C00802775 /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
+		E0AE67BD185EB58800802775 /* help_page_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_page_01.png; sourceTree = "<group>"; };
+		E0AE67BE185EB58800802775 /* help_page_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_page_02.png; sourceTree = "<group>"; };
+		E0AE67BF185EB58800802775 /* help_page_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_page_03.png; sourceTree = "<group>"; };
+		E0AE67C0185EB58800802775 /* help_page_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_page_04.png; sourceTree = "<group>"; };
+		E0AE67C1185EB58800802775 /* help_page_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_page_05.png; sourceTree = "<group>"; };
 		E0C429F7168C9F7A00B0AD63 /* BlockViewStyle1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockViewStyle1.h; sourceTree = "<group>"; };
 		E0C429F8168C9F7A00B0AD63 /* BlockViewStyle1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockViewStyle1.m; sourceTree = "<group>"; };
 		E0C70A34169838480012570B /* Background_Settings_IPAD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_Settings_IPAD.png; sourceTree = "<group>"; };
@@ -402,6 +421,8 @@
 				E0DDFA4116849CEC00F2A21E /* SettingsMenuViewController.m */,
 				E0D0141B16887DFC003E3F19 /* ChannelSettingsViewController.h */,
 				E0D0141C16887DFC003E3F19 /* ChannelSettingsViewController.m */,
+				E0AE67B4185EADFA00802775 /* HelpViewController.h */,
+				E0AE67B5185EADFA00802775 /* HelpViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -440,6 +461,11 @@
 		E0DDF9EE168472BB00F2A21E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				E0AE67BD185EB58800802775 /* help_page_01.png */,
+				E0AE67BE185EB58800802775 /* help_page_02.png */,
+				E0AE67BF185EB58800802775 /* help_page_03.png */,
+				E0AE67C0185EB58800802775 /* help_page_04.png */,
+				E0AE67C1185EB58800802775 /* help_page_05.png */,
 				E0142F09174DC18800C5A9E1 /* Background_Settings_RETINA_TALL.png */,
 				E0EAAFE8174CCDDF007FB982 /* hud_frame_RETINA_TALL.png */,
 				E08D2E7F16AD59BB007D83E3 /* App */,
@@ -497,6 +523,9 @@
 		E0DDF9EF168472BB00F2A21E /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				E0AE67B7185EAE8C00802775 /* HelpViewController_iPhone_tall.xib */,
+				E0AE67B8185EAE8C00802775 /* HelpViewController_iPhone.xib */,
+				E0AE67B9185EAE8C00802775 /* HelpViewController.xib */,
 				E0DDF9E616846E7C00F2A21E /* HudViewController.xib */,
 				E0DDF9E816846F4600F2A21E /* HudViewController_iPhone.xib */,
 				E0EAAFE4174CB638007FB982 /* HudViewController_iPhone_tall.xib */,
@@ -654,6 +683,7 @@
 				E0DDF9E716846E7C00F2A21E /* HudViewController.xib in Resources */,
 				E0DDF9E916846F4600F2A21E /* HudViewController_iPhone.xib in Resources */,
 				E0DDF9F5168472E900F2A21E /* Btn_Back_RETINA.png in Resources */,
+				E0AE67C6185EB58800802775 /* help_page_05.png in Resources */,
 				E0DDF9F6168472E900F2A21E /* Btn_Battery_0_RETINA.png in Resources */,
 				E0DDFA26168474A200F2A21E /* Barre_Window.png in Resources */,
 				E0DDFA27168474A200F2A21E /* Picto_Close_Window.png in Resources */,
@@ -704,11 +734,14 @@
 				E0DF7ED716973B90002607DB /* Btn_Battery_2_RETINA.png in Resources */,
 				E0DF7ED816973B90002607DB /* Btn_Battery_3_RETINA.png in Resources */,
 				E0DF7EDA169749CA002607DB /* hud_frame_ipad.png in Resources */,
+				E0AE67C4185EB58800802775 /* help_page_03.png in Resources */,
 				E0DF7EDF16974A4D002607DB /* Btn_Decrease_IPAD.png in Resources */,
 				E0DF7EE016974A4D002607DB /* Btn_Decrease_On_IPAD.png in Resources */,
+				E0AE67BA185EAE8C00802775 /* HelpViewController_iPhone_tall.xib in Resources */,
 				E0DF7EE116974A4D002607DB /* Btn_Increase_IPAD.png in Resources */,
 				E0DF7EE216974A4D002607DB /* Btn_Increase_On_IPAD.png in Resources */,
 				E0DF7EE516974B94002607DB /* Btn_Take_Off_IPAD.png in Resources */,
+				E0AE67C5185EB58800802775 /* help_page_04.png in Resources */,
 				E0DF7EE616974B94002607DB /* Btn_Take_Off_On_IPAD.png in Resources */,
 				E0DF7EED16974ECE002607DB /* Btn_Emergency_IPAD.png in Resources */,
 				E0DF7EEE16974ECE002607DB /* Btn_Emergency_On_IPAD.png in Resources */,
@@ -717,12 +750,15 @@
 				E0DF7EF8169750CE002607DB /* Joystick_Manuel_iPAD.png in Resources */,
 				E0DF7EFB16975117002607DB /* Btn_Settings_IPAD.png in Resources */,
 				E0DF7EFC16975117002607DB /* Btn_Settings_On_IPAD.png in Resources */,
+				E0AE67BC185EAE8C00802775 /* HelpViewController.xib in Resources */,
+				E0AE67BB185EAE8C00802775 /* HelpViewController_iPhone.xib in Resources */,
 				E0DF7EFF1697520A002607DB /* Switch_Off_IPAD.png in Resources */,
 				E0DF7F001697520A002607DB /* Switch_On_IPAD.png in Resources */,
 				E0C70A36169838480012570B /* Background_Settings_IPAD.png in Resources */,
 				E0C70A37169838480012570B /* Background_Settings_RETINA.png in Resources */,
 				E0C70A3A16983A690012570B /* Btn_Default_IPAD.png in Resources */,
 				E0C70A3C16983CB40012570B /* Btn_Back_IPAD.png in Resources */,
+				E0AE67C2185EB58800802775 /* help_page_01.png in Resources */,
 				E0C70A3E16983DF70012570B /* Btn_Default_RETINA.png in Resources */,
 				E0C70A45169868FF0012570B /* Down_Indicator.png in Resources */,
 				E0C70A46169868FF0012570B /* Up_Indicator.png in Resources */,
@@ -734,6 +770,7 @@
 				E0E3D35F169B2F4200DC30C6 /* Channel_Settings_Bg.jpg in Resources */,
 				E0E3D36C169B348100DC30C6 /* About.html in Resources */,
 				E05AA5E5169B4152009DA2A7 /* RCTouch-Info.plist in Resources */,
+				E0AE67C3185EB58800802775 /* help_page_02.png in Resources */,
 				E05AA5E7169B4227009DA2A7 /* Default.png in Resources */,
 				E05AA5E8169B42C3009DA2A7 /* Default-Portrait~ipad.png in Resources */,
 				E05AA5F3169B494B009DA2A7 /* Default@2x.png in Resources */,
@@ -763,6 +800,7 @@
 				E0DDFA971684C6ED00F2A21E /* FSSlider.m in Sources */,
 				E0CCFAB01685C63C000266A9 /* Settings.m in Sources */,
 				E0CCFAB31685CB95000266A9 /* Channel.m in Sources */,
+				E0AE67B6185EADFA00802775 /* HelpViewController.m in Sources */,
 				E0D0141D16887DFC003E3F19 /* ChannelSettingsViewController.m in Sources */,
 				E0AE51C5168B6AD400AA394D /* util.c in Sources */,
 				E0C429F9168C9F7A00B0AD63 /* BlockViewStyle1.m in Sources */,
@@ -878,7 +916,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guiyang YiDong Information Technology Co. Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Guiyang YiDong Information Technology Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yu chuan (A9FQ53NVN8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlyingSwallow/RCTouch-Prefix.pch";
 				INFOPLIST_FILE = "FlyingSwallow/RCTouch-Info.plist";

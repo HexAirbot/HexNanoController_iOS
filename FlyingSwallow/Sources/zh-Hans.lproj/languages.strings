@@ -7,7 +7,7 @@
  */
 "BLE DEVICES" = "连接FLEXBOT";
 "PERSONAL SETTINGS" = "个人设置";
-"TRIM SETTINGS" = "角度修正";
+"TRIM SETTINGS" = "飞行角度修正";
 "CHANNELS SETTINGS" = "通道设置";
 "MODE SETTINGS" = "模式设置";
 "ABOUT" = "关于FLEXBOT";

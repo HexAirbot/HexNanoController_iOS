@@ -67,6 +67,8 @@ float accelero_rotation[3][3];
     
     IBOutlet UIButton *altHoldSwitchButton;
     
+    IBOutlet UIButton *helpButton;
+    
 }
 @property (retain, nonatomic) IBOutlet UITextView *debugTextView;
 - (IBAction)switchButtonClick:(id)sender;
@@ -87,7 +89,6 @@ float accelero_rotation[3][3];
 - (IBAction)buttonDidTouchUpInside:(id)sender;
 - (IBAction)buttonDidTouchUpOutside:(id)sender;
 - (IBAction)buttonDidTouchCancel:(id)sender;
-
 
 - (IBAction)unlockButtonDidTouchUp:(id)sender;
 - (IBAction)lockButtonDidTouchUp:(id)sender;

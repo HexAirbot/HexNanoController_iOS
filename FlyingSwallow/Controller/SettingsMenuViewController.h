@@ -23,7 +23,7 @@
 #import "Settings.h"
 #import "ChannelSettingsViewController.h"
 
-#define kNotificationDismissSettingsMenuView @"NotificationDissmissAboutUsView"
+#define kNotificationDismissSettingsMenuView @"NotificationDissmissSettingsView"
 
 @class SettingsMenuViewController;
 

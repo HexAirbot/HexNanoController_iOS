@@ -25,6 +25,7 @@
 #import "Transmitter.h"
 #import "BasicInfoManager.h"
 #import "OSDCommon.h"
+#import "HelpViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <CoreMotion/CoreMotion.h>
 
@@ -99,6 +100,7 @@ static inline float sign(float value)
 @property(nonatomic, retain) Settings *settings;
 
 @property(nonatomic, retain) SettingsMenuViewController *settingMenuVC;
+@property(nonatomic, retain) HelpViewController *helpVC;
 
 @end
 
@@ -119,6 +121,7 @@ static inline float sign(float value)
 @synthesize settings = _settings;
 
 @synthesize settingMenuVC = _settingMenuVC;
+@synthesize helpVC = _helpVC;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -133,13 +136,13 @@ static inline float sign(float value)
     return YES;
 }
 
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissSettingsMenuView) name:kNotificationDismissSettingsMenuView object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissHelpView) name:kNotificationDismissHelpView object:nil];
         
         NSString *documentsDir= [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         NSString *userSettingsFilePath = [documentsDir stringByAppendingPathComponent:@"Settings.plist"];
@@ -306,6 +309,8 @@ static inline float sign(float value)
     batteryImageView = nil;
     [_settingMenuVC release];
     _settingMenuVC = nil;
+    [_helpVC release];
+    _helpVC = nil;
     [warningView release];
     warningView = nil;
     [warningLabel release];
@@ -344,10 +349,12 @@ static inline float sign(float value)
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     [_settingMenuVC release], _settingMenuVC = nil;
+    [_helpVC release], _helpVC = nil;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationDismissSettingsMenuView object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationDismissHelpView object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationTransmitterStateDidChange object:nil];
     
     [self stopTransmission];
@@ -388,6 +395,7 @@ static inline float sign(float value)
     [altValueTextLabel release];
     [headAngleValueTextLabel release];
     [altHoldSwitchButton release];
+    [helpButton release];
     [super dealloc];
 }
 
@@ -679,6 +687,13 @@ static inline float sign(float value)
         [_settingMenuVC.view removeFromSuperview];
 }
 
+- (void)dismissHelpView{
+    if(_helpVC.view != nil){
+        [_helpVC.view removeFromSuperview];
+        [_helpVC release], _helpVC = nil;
+    }
+}
+
 - (void)hideBatteryLevelUI
 {
 	batteryLevelLabel.hidden = YES;
@@ -865,12 +880,23 @@ static inline float sign(float value)
         right_press_previous_time = current_time;
         
         if(dt > 0.1 && dt < 0.3){
-            if(_throttleChannel.value + kThrottleFineTuningStep > 1){
-                _throttleChannel.value = 1;
+            if (_settings.isBeginnerMode) {
+                if(_throttleChannel.value + kThrottleFineTuningStep > 1 + (kBeginnerThrottleChannelRatio - 1)){
+                    _throttleChannel.value = 1;
+                }
+                else {
+                    _throttleChannel.value += kThrottleFineTuningStep;
+                }
             }
-            else {
-                _throttleChannel.value += kThrottleFineTuningStep;
+            else{
+                if(_throttleChannel.value + kThrottleFineTuningStep > 1){
+                    _throttleChannel.value = 1;
+                }
+                else {
+                    _throttleChannel.value += kThrottleFineTuningStep;
+                }
             }
+            
             [self updateJoystickCenter];
         }
         
@@ -1360,6 +1386,24 @@ static inline float sign(float value)
 //    }
 }
 
+
+- (void)showHelpView{
+    [_helpVC release], _helpVC = nil;
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        _helpVC = [[HelpViewController alloc] initWithNibName:@"HelpViewController" bundle:nil];
+    } else {
+        if (isIphone5()) {
+            _helpVC = [[HelpViewController alloc] initWithNibName:@"HelpViewController_iPhone_tall" bundle:nil];
+        }
+        else{
+            _helpVC = [[HelpViewController alloc] initWithNibName:@"HelpViewController_iPhone" bundle:nil];
+        }
+    }
+    
+    [self.view addSubview:_helpVC.view];
+}
+
 - (void)showSettingsMenuView{
     [_settingMenuVC release], _settingMenuVC = nil;
     
@@ -1501,6 +1545,9 @@ static inline float sign(float value)
         downIndicatorImageView.hidden = YES;
         
         [self updateThrottleValueLabel];
+    }
+    else if(sender == helpButton){
+        [self showHelpView];
     }
 }
 

@@ -18,6 +18,8 @@
 @property (nonatomic, retain) OSDView *osdView;
 @property (nonatomic, readonly)  CMMotionManager *motionManager;
 
+@property (nonatomic, readonly) NSMutableString *debugStr;
+
 
 + (id)sharedManager;
 

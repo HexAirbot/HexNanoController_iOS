@@ -255,9 +255,11 @@ static Transmitter *sharedTransmitter;
             channelListIsChange = YES;
             NSLog(@"***channelListIsChange");
             break;
-        }
+        }å
     }
     */
+    
+    NSData *request = getDefaultOSDDataRequest();
     
     memcpy(oldChannelList, channelList, kPpmChannelCount * sizeof(float));
     
@@ -271,8 +273,15 @@ static Transmitter *sharedTransmitter;
     }
     
     if ([bleSerialMangager isConnected] && data != nil) {
-        [bleSerialMangager sendData:data];
+        [bleSerialMangager sendControlData:data];
     }
+    
+    static int cnt = 0;
+    cnt++;
+    if ((cnt % 4) == 3) {
+        [bleSerialMangager sendRequestData:getDefaultOSDDataRequest()];
+    }
+    
     
     [pool release];
 }
@@ -317,7 +326,7 @@ static Transmitter *sharedTransmitter;
         for (int idx = 0; idx < 1; idx++) {
             [packageData appendData:data];
         }
-        [bleSerialMangager sendData:packageData];
+        [bleSerialMangager sendControlData:packageData];
         return YES;
     }
     else

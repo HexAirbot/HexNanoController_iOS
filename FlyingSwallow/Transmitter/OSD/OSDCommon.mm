@@ -10,7 +10,7 @@
 #include <vector>
 #include <string>
 
-#define kOsdInfoRequestListLen 2
+#define kOsdInfoRequestListLen 3
 
 using namespace std;
 
@@ -21,7 +21,7 @@ using namespace std;
 //int mainInfoRequest[kOsdInfoRequestListLen]  = {MSP_IDENT, MSP_MOTOR_PINS, MSP_STATUS, MSP_RAW_IMU, MSP_SERVO, MSP_MOTOR, MSP_RC, MSP_RAW_GPS, MSP_COMP_GPS, MSP_ALTITUDE,MSP_ATTITUDE, MSP_BAT, MSP_DEBUG};
 //int mainInfoRequest[kOsdInfoRequestListLen] = {MSP_RAW_GPS, MSP_COMP_GPS, MSP_ALTITUDE,MSP_BAT,MSP_ATTITUDE};
 
-int mainInfoRequest[kOsdInfoRequestListLen] = {MSP_ATTITUDE, MSP_ALTITUDE};
+int mainInfoRequest[kOsdInfoRequestListLen] = {MSP_ATTITUDE, MSP_ALTITUDE, MSP_BAT};
 
 
 #ifdef __cplusplus
@@ -109,6 +109,8 @@ NSData *getDefaultOSDDataRequest(){
     vector<byte> requestList = requestMSPList(mainInfoRequest, kOsdInfoRequestListLen);
     
     int requestDataSize = requestList.size();
+    
+    
     
     /*
     printf("\nrequest \n");

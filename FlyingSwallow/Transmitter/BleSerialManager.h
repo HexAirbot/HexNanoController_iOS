@@ -48,7 +48,8 @@
 -(void)connect:(CBPeripheral *)peripheral;
 -(void)disconnect;
 
--(void)sendData:(NSData *)data;
+-(void)sendControlData:(NSData *)data;
+-(void)sendRequestData:(NSData *)data;
 
 
 @end

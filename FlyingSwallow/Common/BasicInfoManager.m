@@ -16,10 +16,12 @@ static BasicInfoManager *sharedManager;
 @synthesize debugTextView;
 @synthesize osdView;
 @synthesize motionManager = _motionManager;
+@synthesize debugStr = _debugStr;
 
 + (id)sharedManager{
 	if (sharedManager == nil) {
 		sharedManager = [[super alloc] init];
+        
 		return sharedManager;
 	}
 	return sharedManager;
@@ -32,10 +34,18 @@ static BasicInfoManager *sharedManager;
     return _motionManager;
 }
 
+- (NSMutableString *)debugStr{
+    if (_debugStr == nil) {
+        _debugStr =  [[NSMutableString alloc] init];
+    }
+    return _debugStr;
+}
+
 - (void)dealloc{
 	[debugTextView release];
     [osdView release];
     [_motionManager release];
+    [_debugStr release];
 	[super dealloc];
 }
 

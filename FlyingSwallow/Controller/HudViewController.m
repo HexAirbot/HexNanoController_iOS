@@ -396,6 +396,7 @@ static inline float sign(float value)
     [headAngleValueTextLabel release];
     [altHoldSwitchButton release];
     [helpButton release];
+    [debugValueTextLabel release];
     [super dealloc];
 }
 
@@ -618,6 +619,7 @@ static inline float sign(float value)
     pitchValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.angleY];
     headAngleValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.head];
     altValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.altitude];
+    debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
 }
 
 - (void)checkTransmitterState{

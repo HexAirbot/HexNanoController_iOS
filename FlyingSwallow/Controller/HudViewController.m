@@ -397,6 +397,7 @@ static inline float sign(float value)
     [altHoldSwitchButton release];
     [helpButton release];
     [debugValueTextLabel release];
+    [vBatValueTextLabel release];
     [super dealloc];
 }
 
@@ -619,6 +620,7 @@ static inline float sign(float value)
     pitchValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.angleY];
     headAngleValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.head];
     altValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.altitude];
+    vBatValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.vBat];
     debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
 }
 

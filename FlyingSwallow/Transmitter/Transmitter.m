@@ -281,6 +281,9 @@ static Transmitter *sharedTransmitter;
     if ((cnt % 4) == 3) {
         [bleSerialMangager sendRequestData:getDefaultOSDDataRequest()];
     }
+    else if (cnt % 4 == 2){
+        [bleSerialMangager sendRequestData:getSimpleCommand(MSP_BAT)];
+    }
     
     
     [pool release];
@@ -326,7 +329,10 @@ static Transmitter *sharedTransmitter;
         for (int idx = 0; idx < 1; idx++) {
             [packageData appendData:data];
         }
+        /*old version
         [bleSerialMangager sendControlData:packageData];
+         */
+        [bleSerialMangager sendRequestData:packageData];
         return YES;
     }
     else

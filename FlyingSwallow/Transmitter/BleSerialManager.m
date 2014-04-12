@@ -352,12 +352,15 @@
         return;
     }
     
-    /*
+    
+    
     NSData *data = characteristic.value;
     char what[200];
     [data  getBytes:what length:[data length]];
     what[[data length]] = '\0';
-    */
+    
+    NSLog(@"Received data len:%d, data:%s", [data length], what);
+    
     
     NSString *NSMutableString = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
     

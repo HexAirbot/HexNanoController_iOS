@@ -126,6 +126,7 @@ NSData *getDefaultOSDDataRequest(){
 }
 
 NSData *getSimpleCommand(unsigned char commandName){
+/*old version
     unsigned char package[6];
 
     package[0] = '$';
@@ -145,6 +146,31 @@ NSData *getSimpleCommand(unsigned char commandName){
     package[checkSumIdx] = checkSum;
 
     return [NSData dataWithBytes:package length:6];
+ */
+    
+    unsigned char package[18];
+    
+    package[0] = '$';
+    package[1] = 'M';
+    package[2] = '<';
+    package[3] = 0;
+    package[4] = commandName;
+    
+    unsigned char checkSum = 0;
+    
+    int dataSizeIdx = 3;
+    int checkSumIdx = 5;
+    
+    checkSum ^= (package[dataSizeIdx] & 0xFF);
+    checkSum ^= (package[dataSizeIdx + 1] & 0xFF);
+    
+    package[checkSumIdx] = checkSum;
+    
+    for(int idx = 6; idx < 18; idx++){
+        package[7] = '\0';
+    }
+    
+    return [NSData dataWithBytes:package length:18];
 }
 
     

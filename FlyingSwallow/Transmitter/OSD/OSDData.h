@@ -71,7 +71,7 @@
 
 
 @property(nonatomic, readonly) int pMeterSum;
-@property(nonatomic, readonly) int byteVbat;
+@property(nonatomic, readonly) float vBat;
 
 @property(nonatomic, readonly) int cycleTime;
 @property(nonatomic, readonly) int i2cError;

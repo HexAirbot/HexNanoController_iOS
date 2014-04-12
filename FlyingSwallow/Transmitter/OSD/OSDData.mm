@@ -89,7 +89,7 @@ using namespace std;
 @synthesize rcAux4 = _rcAux4;
 
 @synthesize pMeterSum = _pMeterSum;
-@synthesize byteVbat = _byteVbat;
+@synthesize vBat = _vBat;
 
 @synthesize cycleTime = _cycleTime;
 @synthesize i2cError = _i2cError;
@@ -163,7 +163,7 @@ using namespace std;
         _rcAux4     = osdData.rcAux4;
         
         _pMeterSum = osdData.pMeterSum;
-        _byteVbat = osdData.byteVbat;
+        _vBat      = osdData.vBat;
         
         _cycleTime = osdData.cycleTime;
         _i2cError = osdData.i2cError;
@@ -377,7 +377,7 @@ using namespace std;
             _altitude = (float) [self read32]; //[self int32ToFloat:[self read32]];
             break;
         case MSP_BAT:
-            _byteVbat = [self read8];
+            _vBat = [self read8] / 256.0f * 5;
             _pMeterSum = [self read16]; 
             break;
         case MSP_RC_TUNING:

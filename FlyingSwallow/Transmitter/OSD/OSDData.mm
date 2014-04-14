@@ -25,11 +25,6 @@ using namespace std;
 #define HEADER_ERR   6
 
 
-
-
-
-
-
 @interface OSDData(){
     int c_state;
     bool err_rcvd;

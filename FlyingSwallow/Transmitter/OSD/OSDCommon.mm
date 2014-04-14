@@ -167,7 +167,7 @@ NSData *getSimpleCommand(unsigned char commandName){
     package[checkSumIdx] = checkSum;
     
     for(int idx = 6; idx < 18; idx++){
-        package[7] = '\0';
+        package[idx] = '\0';
     }
     
     return [NSData dataWithBytes:package length:18];

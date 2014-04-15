@@ -396,6 +396,26 @@ using namespace std;
         case MSP_SET_RAW_RC_TINY:
             NSLog(@"set rc: %d, %d, %d, %d", [self read16], [self read16], [self read16], [self read16]);
             break;
+        case MSP_SET_TEST_PARAM:
+            
+            break;
+        case MSP_READ_TEST_PARAM:
+            _param1  = [self read8];
+            _param2  = [self read8];
+            _param3  = [self read8];
+            _param4  = [self read8];
+            _param5  = [self read8];
+            _param6  = [self read8];
+            _param7  = [self read8];
+            _param8  = [self read8];
+            _param9  = [self read8];
+            _param10 = [self read8];
+            _param11 = [self read8];
+            _param12 = [self read8];
+            
+            NSLog(@"***get p5:%f", _param5);
+            NSLog(@"***get p6:%f", _param6);
+            break;
         case MSP_DEBUG:
             _debug1 = [self read16];
             _debug2 = [self read16];

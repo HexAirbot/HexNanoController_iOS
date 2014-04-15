@@ -79,6 +79,20 @@
 @property(nonatomic, readonly) int mode;
 @property(nonatomic, readonly) int present;
 
+@property(nonatomic, readonly) float param1;
+@property(nonatomic, readonly) float param2;
+@property(nonatomic, readonly) float param3;
+@property(nonatomic, readonly) float param4;
+@property(nonatomic, readonly) float param5;
+@property(nonatomic, readonly) float param6;
+@property(nonatomic, readonly) float param7;
+@property(nonatomic, readonly) float param8;
+@property(nonatomic, readonly) float param9;
+@property(nonatomic, readonly) float param10;
+@property(nonatomic, readonly) float param11;
+@property(nonatomic, readonly) float param12;
+
+
 
 @property(nonatomic, assign) id<OSDDataDelegate> delegate;
 

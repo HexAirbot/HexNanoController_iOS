@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMenuViewController">
@@ -36,6 +36,30 @@
                 <outlet property="okButton" destination="105" id="152"/>
                 <outlet property="pageControl" destination="107" id="156"/>
                 <outlet property="pageTitleLabel" destination="106" id="151"/>
+                <outlet property="param10Label" destination="i10-Pv-Ja4" id="4BJ-cT-Efe"/>
+                <outlet property="param10Slider" destination="Kwp-pa-QLZ" id="7at-Ux-2nN"/>
+                <outlet property="param11Label" destination="IMP-NI-ax2" id="irQ-Zo-Fcj"/>
+                <outlet property="param11Slider" destination="avt-g2-Ffc" id="4zU-qs-jan"/>
+                <outlet property="param12Label" destination="i1W-4O-VkC" id="oZd-R4-pvS"/>
+                <outlet property="param12Slider" destination="42j-0b-nu9" id="ebg-zo-vB2"/>
+                <outlet property="param1Label" destination="pBI-Pv-7lg" id="CDd-fU-6cC"/>
+                <outlet property="param1Slider" destination="bOd-9x-JDa" id="38y-MK-8su"/>
+                <outlet property="param2Label" destination="BcL-3F-VT7" id="A9u-FA-Rmy"/>
+                <outlet property="param2Slider" destination="i2y-cJ-AZp" id="wB3-Ym-MgE"/>
+                <outlet property="param3Label" destination="h9o-K8-8QQ" id="NRA-xr-F4Z"/>
+                <outlet property="param3Slider" destination="PSd-sO-xAs" id="P46-Ml-YcM"/>
+                <outlet property="param4Label" destination="xCm-7F-ZfI" id="vkQ-r4-ebh"/>
+                <outlet property="param4Slider" destination="5rv-GD-AVB" id="7dS-wb-XUo"/>
+                <outlet property="param5Label" destination="TvK-5A-kqP" id="RkW-IP-2hX"/>
+                <outlet property="param5Slider" destination="dVm-UW-iEN" id="sdp-sm-xPT"/>
+                <outlet property="param6Label" destination="tdz-dZ-ZdB" id="n6k-WU-PKV"/>
+                <outlet property="param6Slider" destination="XIR-b7-ETh" id="b5Z-D8-Q2l"/>
+                <outlet property="param7Label" destination="IUw-DN-6iD" id="BH5-K4-TEc"/>
+                <outlet property="param7Slider" destination="tao-3e-BCq" id="fsE-8E-Mhb"/>
+                <outlet property="param8Label" destination="j3q-Bf-jXq" id="blD-cL-6e0"/>
+                <outlet property="param8Slider" destination="ihp-4a-G8U" id="s5E-lg-hIN"/>
+                <outlet property="param9Label" destination="vOg-dH-WFQ" id="Max-jP-7R1"/>
+                <outlet property="param9Slider" destination="207-ya-Mkq" id="qEk-rp-fjS"/>
                 <outlet property="peripheralListScanButton" destination="325" id="333"/>
                 <outlet property="peripheralListTableView" destination="319" id="324"/>
                 <outlet property="peripheralView" destination="318" id="323"/>
@@ -49,6 +73,8 @@
                 <outlet property="takeOffThrottleLabel" destination="283" id="286"/>
                 <outlet property="takeOffThrottleSlider" destination="284" id="287"/>
                 <outlet property="takeOffThrottleTitleLabel" destination="282" id="285"/>
+                <outlet property="testSettingsView" destination="PGl-cy-KXB" id="Ljn-6w-bTr"/>
+                <outlet property="testSettingsView2" destination="mOn-pe-RR0" id="4t8-2r-kpA"/>
                 <outlet property="trimSettingsView" destination="ppa-Dq-Gag" id="LiI-LG-lFm"/>
                 <outlet property="upTrimButton" destination="5r5-Cl-m7w" id="Hfe-jr-uJZ"/>
                 <outlet property="view" destination="97" id="144"/>
@@ -512,6 +538,378 @@
                     </state>
                     <connections>
                         <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="mPT-5n-idG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+        <view contentMode="scaleToFill" id="PGl-cy-KXB" userLabel="TestSettingsPage">
+            <rect key="frame" x="0.0" y="0.0" width="440" height="262"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param2" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="6b0-pp-GMw">
+                    <rect key="frame" x="4" y="44" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="BcL-3F-VT7">
+                    <rect key="frame" x="306" y="37" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="pBI-Pv-7lg">
+                    <rect key="frame" x="306" y="2" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="250" id="i2y-cJ-AZp" customClass="FSSlider">
+                    <rect key="frame" x="69" y="40" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="8np-de-iJu"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="D9k-b5-7Cs"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="a7u-3e-kCN"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param1" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="zE7-pb-Gtd">
+                    <rect key="frame" x="4" y="5" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.89999997615814209" minValue="0.0" maxValue="250" id="bOd-9x-JDa" customClass="FSSlider">
+                    <rect key="frame" x="69" y="1" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="NKK-vP-Hey"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="ZBV-iA-V2A"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="tnq-d3-deg"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param3" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="HqR-E4-rNN">
+                    <rect key="frame" x="4" y="85" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="h9o-K8-8QQ">
+                    <rect key="frame" x="306" y="82" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.16699999570846558" minValue="0.0" maxValue="250" id="PSd-sO-xAs" customClass="FSSlider">
+                    <rect key="frame" x="69" y="81" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="nvq-vl-iXe"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="uaY-xG-7aP"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="zb1-Gy-fVq"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param4" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="jfA-b3-F0Y">
+                    <rect key="frame" x="4" y="128" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="xCm-7F-ZfI">
+                    <rect key="frame" x="306" y="125" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.55000001192092896" minValue="0.0" maxValue="250" id="5rv-GD-AVB" customClass="FSSlider">
+                    <rect key="frame" x="69" y="124" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="W6x-JS-LrY"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="bMr-tX-oha"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="pjP-GJ-E3K"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param5" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="2qY-fx-Tbs">
+                    <rect key="frame" x="4" y="174" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="TvK-5A-kqP">
+                    <rect key="frame" x="306" y="171" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="tdz-dZ-ZdB">
+                    <rect key="frame" x="306" y="216" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="250" id="dVm-UW-iEN" customClass="FSSlider">
+                    <rect key="frame" x="69" y="171" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="2Oh-Vj-giL"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="kEm-8n-SMq"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="7ip-1w-LRs"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param6" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="63R-tS-u6M">
+                    <rect key="frame" x="4" y="217" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="250" id="XIR-b7-ETh" customClass="FSSlider">
+                    <rect key="frame" x="69" y="215" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="MFZ-dv-7BJ"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="slj-fL-8bH"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="mMh-Wl-F4G"/>
+                    </connections>
+                </slider>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T2M-aw-ahF">
+                    <rect key="frame" x="359" y="82" width="80" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="write" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="write:" destination="-1" eventType="touchUpInside" id="Tyl-Tj-d8u"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zGc-sF-pv9">
+                    <rect key="frame" x="359" y="164" width="80" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="read" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="read:" destination="-1" eventType="touchUpInside" id="Esb-Cy-l9e"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+        <view contentMode="scaleToFill" id="mOn-pe-RR0" userLabel="TestSettingsPage">
+            <rect key="frame" x="0.0" y="0.0" width="440" height="262"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param8" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="j6r-CK-rCm">
+                    <rect key="frame" x="7" y="43" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="j3q-Bf-jXq">
+                    <rect key="frame" x="308" y="36" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="IUw-DN-6iD">
+                    <rect key="frame" x="308" y="1" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="250" id="ihp-4a-G8U" customClass="FSSlider">
+                    <rect key="frame" x="70" y="39" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="I1c-cw-tqe"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="zrz-Y0-2oc"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="qW9-IY-s4o"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param7" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="I0j-SY-C3E">
+                    <rect key="frame" x="7" y="4" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.89999997615814209" minValue="0.0" maxValue="250" id="tao-3e-BCq" customClass="FSSlider">
+                    <rect key="frame" x="70" y="0.0" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="5ui-ak-MJy"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="bfF-G7-ytK"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="kqB-JU-GB5"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param9" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="jGC-zd-W0j">
+                    <rect key="frame" x="7" y="84" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="vOg-dH-WFQ">
+                    <rect key="frame" x="308" y="81" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.16699999570846558" minValue="0.0" maxValue="250" id="207-ya-Mkq" customClass="FSSlider">
+                    <rect key="frame" x="70" y="80" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="fxu-T0-C32"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="yP3-47-Z6l"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="dag-2b-pf5"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param10" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="dCd-oW-pGL">
+                    <rect key="frame" x="7" y="127" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="i10-Pv-Ja4">
+                    <rect key="frame" x="308" y="124" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.55000001192092896" minValue="0.0" maxValue="250" id="Kwp-pa-QLZ" customClass="FSSlider">
+                    <rect key="frame" x="70" y="123" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="4Sc-8B-Fmb"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="pkM-ke-5wU"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="X2a-so-YHT"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param11" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="sHI-AM-0yO">
+                    <rect key="frame" x="7" y="173" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="IMP-NI-ax2">
+                    <rect key="frame" x="308" y="170" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="0" lineBreakMode="tailTruncation" minimumFontSize="18" id="i1W-4O-VkC">
+                    <rect key="frame" x="308" y="215" width="60" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="250" id="avt-g2-Ffc" customClass="FSSlider">
+                    <rect key="frame" x="70" y="170" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="Vol-Kl-bWB"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="rng-qF-7Q2"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="lXm-TC-lUr"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="param12" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="jzu-4B-zs7">
+                    <rect key="frame" x="7" y="216" width="60" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="250" id="42j-0b-nu9" customClass="FSSlider">
+                    <rect key="frame" x="70" y="214" width="230" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpOutside" id="9o3-tw-BJW"/>
+                        <action selector="sliderRelease:" destination="-1" eventType="touchUpInside" id="g0h-cJ-Xc7"/>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="sXh-Wc-JoI"/>
+                    </connections>
+                </slider>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0eV-VK-dN7">
+                    <rect key="frame" x="360" y="81" width="80" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="write" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="write:" destination="-1" eventType="touchUpInside" id="gCh-NE-6wC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wz2-20-4i4">
+                    <rect key="frame" x="360" y="163" width="80" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="read" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="read:" destination="-1" eventType="touchUpInside" id="DLU-zc-9dV"/>
                     </connections>
                 </button>
             </subviews>

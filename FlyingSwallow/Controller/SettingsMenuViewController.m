@@ -126,6 +126,12 @@ typedef enum settings_alert_dialog{
     leftHandedTitleLabel.text = getLocalizeString(@"LEFT HANDED");
     interfaceOpacityTitleLabel.text = getLocalizeString(@"INTERFACE OPACITY");
     accModeTitleLabel.text = getLocalizeString(@"Acc Mode");
+    
+    [pageViewArray addObject:testSettingsView];
+    [pageTitleArray addObject:@"测试参数页面1"];
+    
+    [pageViewArray addObject:testSettingsView2];
+    [pageTitleArray addObject:@"测试参数页面2"];
 
     [pageViewArray addObject:peripheralView];
     [pageTitleArray addObject:getLocalizeString(@"BLE DEVICES")];
@@ -414,6 +420,32 @@ typedef enum settings_alert_dialog{
     [beginnerModeTitleLabel release];
     [headfreeModeTitleLabel release];
     [headfreeModeSwitchButton release];
+    [param1Slider release];
+    [param2Slider release];
+    [param3Slider release];
+    [param4Slider release];
+    [param5Slider release];
+    [param6Slider release];
+    [param7Slider release];
+    [param8Slider release];
+    [param9Slider release];
+    [param10Slider release];
+    [param11Slider release];
+    [param12Slider release];
+    [param1Label release];
+    [param2Label release];
+    [param3Label release];
+    [param4Label release];
+    [param5Label release];
+    [param6Label release];
+    [param7Label release];
+    [param8Label release];
+    [param9Label release];
+    [param10Label release];
+    [param11Label release];
+    [param12Label release];
+    [testSettingsView release];
+    [testSettingsView2 release];
     [super dealloc];
 }
 
@@ -869,9 +901,103 @@ typedef enum settings_alert_dialog{
         settings.rudderDeadBand = kRudderMaxDeadBandRatio * rudderDeadBandSlider.value;
         [self updateRudderDeadBandLabel];
     }
-    else {
-        
+    else  if(sender == param1Slider){
+        param1Label.text = [NSString stringWithFormat:@"%d", (int)param1Slider.value];
     }
+    else  if(sender == param2Slider){
+        param2Label.text = [NSString stringWithFormat:@"%d", (int)param2Slider.value];
+    }
+    else  if(sender == param3Slider){
+        param3Label.text = [NSString stringWithFormat:@"%d", (int)param3Slider.value];
+    }
+    else  if(sender == param4Slider){
+        param4Label.text = [NSString stringWithFormat:@"%d", (int)param4Slider.value];
+    }
+    else  if(sender == param5Slider){
+        param5Label.text = [NSString stringWithFormat:@"%d", (int)param5Slider.value];
+    }
+    else  if(sender == param6Slider){
+        param6Label.text = [NSString stringWithFormat:@"%d", (int)param6Slider.value];
+    }
+    else  if(sender == param7Slider){
+        param7Label.text = [NSString stringWithFormat:@"%d", (int)param7Slider.value];
+    }
+    else  if(sender == param8Slider){
+        param8Label.text = [NSString stringWithFormat:@"%d", (int)param8Slider.value];
+    }
+    else  if(sender == param9Slider){
+        param9Label.text = [NSString stringWithFormat:@"%d", (int)param9Slider.value];
+    }
+    else  if(sender == param10Slider){
+        param10Label.text = [NSString stringWithFormat:@"%d", (int)param10Slider.value];
+    }
+    else  if(sender == param11Slider){
+        param11Label.text = [NSString stringWithFormat:@"%d", (int)param11Slider.value];
+    }
+    else  if(sender == param12Slider){
+        param12Label.text = [NSString stringWithFormat:@"%d", (int)param12Slider.value];
+    }
+}
+
+- (IBAction)write:(id)sender {
+    unsigned char package[22];
+    
+    package[0] = '$';
+    package[1] = 'M';
+    package[2] = '<';
+    package[3] = 12;
+    
+    package[4] = MSP_SET_TEST_PARAM;
+    
+    unsigned char checkSum = 0;
+    
+    int dataSizeIdx = 3;
+    int checkSumIdx = 17;
+    
+    //package[dataSizeIdx] = 6;
+    
+    checkSum ^= (package[dataSizeIdx] & 0xFF);
+    checkSum ^= (package[dataSizeIdx + 1] & 0xFF);
+    
+    package[5]  = (int)(param1Slider.value);  // param 1 alpha
+    package[6]  = (int)(param2Slider.value);  // param 2 p
+    package[7]  = (int)(param3Slider.value);  // param 3 i
+    package[8]  = (int)(param4Slider.value);  // param 4 d
+    package[9]  = (int)(param5Slider.value);  // param 5
+    package[10] = (int)(param6Slider.value);  // param 6
+    package[11] = (int)(param7Slider.value);  // param 7
+    package[12] = (int)(param8Slider.value);  // param 8
+    package[13] = (int)(param9Slider.value);  // param 9
+    package[14] = (int)(param10Slider.value); // param 10
+    package[15] = (int)(param11Slider.value); // param 11
+    package[16] = (int)(param12Slider.value); // param 11
+    
+    NSLog(@"write p3=%d, p4=%d", package[7], package[8]);
+    
+    checkSum ^= (package[5] & 0xFF);
+    checkSum ^= (package[6] & 0xFF);
+    checkSum ^= (package[7] & 0xFF);
+    checkSum ^= (package[8] & 0xFF);
+    checkSum ^= (package[9] & 0xFF);
+    checkSum ^= (package[10] & 0xFF);
+    checkSum ^= (package[11] & 0xFF);
+    checkSum ^= (package[12] & 0xFF);
+    checkSum ^= (package[13] & 0xFF);
+    checkSum ^= (package[14] & 0xFF);
+    checkSum ^= (package[15] & 0xFF);
+    checkSum ^= (package[16] & 0xFF);
+    
+    package[checkSumIdx] = checkSum;
+    
+    NSMutableData *params = [NSMutableData dataWithBytes:package length:18];
+    
+    [[Transmitter sharedTransmitter] transmmitData:params];
+}
+
+- (IBAction)read:(id)sender {
+    [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_READ_TEST_PARAM];
+    
+    [self performSelector:@selector(updateTestParams) withObject:nil afterDelay:1];
 }
 
 - (void)handleNotificationPeripheralListDidChange{
@@ -919,5 +1045,36 @@ typedef enum settings_alert_dialog{
     }
 }
 #pragma mark UIAlertViewDelegate Methods end
+
+
+- (void)updateTestParams{
+    OSDData *osdData = [Transmitter sharedTransmitter].osdData;
+    
+    param1Slider.value  = osdData.param1;
+    param2Slider.value  = osdData.param2;
+    param3Slider.value  = osdData.param3;
+    param4Slider.value  = osdData.param4;
+    param5Slider.value  = osdData.param5;
+    param6Slider.value  = osdData.param6;
+    param7Slider.value  = osdData.param7;
+    param8Slider.value  = osdData.param8;
+    param9Slider.value  = osdData.param9;
+    param10Slider.value = osdData.param10;
+    param11Slider.value = osdData.param11;
+    param12Slider.value = osdData.param12;
+    
+    param1Label.text  = [NSString stringWithFormat:@"%d", (int)param1Slider.value];
+    param2Label.text  = [NSString stringWithFormat:@"%d", (int)param2Slider.value];
+    param3Label.text  = [NSString stringWithFormat:@"%d", (int)param3Slider.value];
+    param4Label.text  = [NSString stringWithFormat:@"%d", (int)param4Slider.value];
+    param5Label.text  = [NSString stringWithFormat:@"%d", (int)param5Slider.value];
+    param6Label.text  = [NSString stringWithFormat:@"%d", (int)param6Slider.value];
+    param7Label.text  = [NSString stringWithFormat:@"%d", (int)param7Slider.value];
+    param8Label.text  = [NSString stringWithFormat:@"%d", (int)param8Slider.value];
+    param9Label.text  = [NSString stringWithFormat:@"%d", (int)param9Slider.value];
+    param10Label.text = [NSString stringWithFormat:@"%d", (int)param10Slider.value];
+    param11Label.text = [NSString stringWithFormat:@"%d", (int)param11Slider.value];
+    param12Label.text = [NSString stringWithFormat:@"%d", (int)param12Slider.value];
+}
 
 @end

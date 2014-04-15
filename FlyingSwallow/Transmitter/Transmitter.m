@@ -273,16 +273,16 @@ static Transmitter *sharedTransmitter;
     }
     
     if ([bleSerialMangager isConnected] && data != nil) {
-        [bleSerialMangager sendControlData:data];
+        //[bleSerialMangager sendControlData:data];
     }
     
     static int cnt = 0;
     cnt++;
     if ((cnt % 4) == 3) {
-        [bleSerialMangager sendRequestData:getDefaultOSDDataRequest()];
+       // [bleSerialMangager sendRequestData:getDefaultOSDDataRequest()];
     }
     else if (cnt % 4 == 2){
-        [bleSerialMangager sendRequestData:getSimpleCommand(MSP_BAT)];
+       // [bleSerialMangager sendRequestData:getSimpleCommand(MSP_BAT)];
     }
     
     

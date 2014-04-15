@@ -73,6 +73,8 @@ float accelero_rotation[3][3];
     
     IBOutlet UIButton *helpButton;
     
+    
+    
 }
 @property (retain, nonatomic) IBOutlet UITextView *debugTextView;
 - (IBAction)switchButtonClick:(id)sender;

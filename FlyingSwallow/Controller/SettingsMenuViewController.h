@@ -121,6 +121,36 @@ enum ChannelListTableViewSection {
     
     IBOutlet UILabel *headfreeModeTitleLabel;
     IBOutlet UIButton *headfreeModeSwitchButton;
+    
+    IBOutlet FSSlider *param1Slider;
+    IBOutlet FSSlider *param2Slider;
+    IBOutlet FSSlider *param3Slider;
+    IBOutlet FSSlider *param4Slider;
+    IBOutlet FSSlider *param5Slider;
+    IBOutlet FSSlider *param6Slider;
+    IBOutlet FSSlider *param7Slider;
+    IBOutlet FSSlider *param8Slider;
+    IBOutlet FSSlider *param9Slider;
+    IBOutlet FSSlider *param10Slider;
+    IBOutlet FSSlider *param11Slider;
+    IBOutlet FSSlider *param12Slider;
+    
+    IBOutlet UILabel *param1Label;
+    IBOutlet UILabel *param2Label;
+    IBOutlet UILabel *param3Label;
+    IBOutlet UILabel *param4Label;
+    IBOutlet UILabel *param5Label;
+    IBOutlet UILabel *param6Label;
+    
+    IBOutlet UILabel *param7Label;
+    IBOutlet UILabel *param8Label;
+    IBOutlet UILabel *param9Label;
+    IBOutlet UILabel *param10Label;
+    IBOutlet UILabel *param11Label;
+    IBOutlet UILabel *param12Label;
+    
+    IBOutlet UIView *testSettingsView;
+    IBOutlet UIView *testSettingsView2;
 }
 @property(nonatomic, assign) NSObject<SettingMenuViewControllerDelegate> *delegate;
 
@@ -131,6 +161,9 @@ enum ChannelListTableViewSection {
 
 - (IBAction)sliderRelease:(id)sender;
 - (IBAction)sliderValueChanged:(id)sender;
+
+- (IBAction)write:(id)sender;
+- (IBAction)read:(id)sender;
 
 
 

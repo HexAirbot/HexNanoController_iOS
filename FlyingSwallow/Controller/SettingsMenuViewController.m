@@ -119,6 +119,21 @@ typedef enum settings_alert_dialog{
     [channelListTableView reloadData];
 }
 
+-(void)settingsPageScrollViewDidTap:(UITapGestureRecognizer*)tapGr{
+    [param1ScaleTextFiled resignFirstResponder];
+    [param2ScaleTextFiled resignFirstResponder];
+    [param3ScaleTextFiled resignFirstResponder];
+    [param4ScaleTextFiled resignFirstResponder];
+    [param5ScaleTextFiled resignFirstResponder];
+    [param6ScaleTextFiled resignFirstResponder];
+    [param7ScaleTextFiled resignFirstResponder];
+    [param8ScaleTextFiled resignFirstResponder];
+    [param9ScaleTextFiled resignFirstResponder];
+    [param10ScaleTextFiled resignFirstResponder];
+    [param11ScaleTextFiled resignFirstResponder];
+    [param12ScaleTextFiled resignFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -160,6 +175,9 @@ typedef enum settings_alert_dialog{
         x += pageView.frame.size.width;
     }
     [settingsPageScrollView  setContentSize:CGSizeMake(x, settingsPageScrollView.frame.size.height)];
+    UITapGestureRecognizer *tapReco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingsPageScrollViewDidTap:)];
+    tapReco.cancelsTouchesInView = NO;
+    [settingsPageScrollView addGestureRecognizer:tapReco];
     
     [pageControl setNumberOfPages:pageCount];
     [pageControl setCurrentPage:0];
@@ -446,6 +464,30 @@ typedef enum settings_alert_dialog{
     [param12Label release];
     [testSettingsView release];
     [testSettingsView2 release];
+    [param1ScaleTextFiled release];
+    [param2ScaleTextFiled release];
+    [param3ScaleTextFiled release];
+    [param5ScaleTextFiled release];
+    [param6ScaleTextFiled release];
+    [param7ScaleTextFiled release];
+    [param8ScaleTextFiled release];
+    [param9ScaleTextFiled release];
+    [param10ScaleTextFiled release];
+    [param11ScaleTextFiled release];
+    [param12ScaleTextFiled release];
+    [param1ValueLabel release];
+    [param4ScaleTextFiled release];
+    [param2ValueLabel release];
+    [param3ValueLabel release];
+    [param4ValueLabel release];
+    [param5ValueLabel release];
+    [param6ValueLabel release];
+    [param7ValueLabel release];
+    [param8ValueLabel release];
+    [param9ValueLabel release];
+    [param10ValueLabel release];
+    [param11ValueLabel release];
+    [param12ValueLabel release];
     [super dealloc];
 }
 
@@ -903,39 +945,51 @@ typedef enum settings_alert_dialog{
     }
     else  if(sender == param1Slider){
         param1Label.text = [NSString stringWithFormat:@"%d", (int)param1Slider.value];
+        param1ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param1Slider.value * [param1ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param2Slider){
         param2Label.text = [NSString stringWithFormat:@"%d", (int)param2Slider.value];
+        param2ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param2Slider.value * [param2ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param3Slider){
         param3Label.text = [NSString stringWithFormat:@"%d", (int)param3Slider.value];
+        param3ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param3Slider.value * [param3ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param4Slider){
         param4Label.text = [NSString stringWithFormat:@"%d", (int)param4Slider.value];
+        param4ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param4Slider.value * [param4ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param5Slider){
         param5Label.text = [NSString stringWithFormat:@"%d", (int)param5Slider.value];
+        param5ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param5Slider.value * [param5ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param6Slider){
         param6Label.text = [NSString stringWithFormat:@"%d", (int)param6Slider.value];
+        param6ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param6Slider.value * [param6ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param7Slider){
         param7Label.text = [NSString stringWithFormat:@"%d", (int)param7Slider.value];
+        param7ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param7Slider.value * [param7ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param8Slider){
         param8Label.text = [NSString stringWithFormat:@"%d", (int)param8Slider.value];
+        param8ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param8Slider.value * [param8ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param9Slider){
         param9Label.text = [NSString stringWithFormat:@"%d", (int)param9Slider.value];
+        param9ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param9Slider.value * [param9ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param10Slider){
         param10Label.text = [NSString stringWithFormat:@"%d", (int)param10Slider.value];
+        param10ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param10Slider.value * [param10ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param11Slider){
         param11Label.text = [NSString stringWithFormat:@"%d", (int)param11Slider.value];
+        param11ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param11Slider.value * [param11ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param12Slider){
         param12Label.text = [NSString stringWithFormat:@"%d", (int)param12Slider.value];
+        param12ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param12Slider.value * [param12ScaleTextFiled.text floatValue]];
     }
 }
 
@@ -1075,6 +1129,19 @@ typedef enum settings_alert_dialog{
     param10Label.text = [NSString stringWithFormat:@"%d", (int)param10Slider.value];
     param11Label.text = [NSString stringWithFormat:@"%d", (int)param11Slider.value];
     param12Label.text = [NSString stringWithFormat:@"%d", (int)param12Slider.value];
+    
+    param1ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param1Slider.value * [param1ScaleTextFiled.text floatValue]];
+    param2ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param2Slider.value * [param2ScaleTextFiled.text floatValue]];
+    param3ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param3Slider.value * [param3ScaleTextFiled.text floatValue]];
+    param4ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param4Slider.value * [param4ScaleTextFiled.text floatValue]];
+    param5ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param5Slider.value * [param5ScaleTextFiled.text floatValue]];
+    param6ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param6Slider.value * [param6ScaleTextFiled.text floatValue]];
+    param7ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param7Slider.value * [param7ScaleTextFiled.text floatValue]];
+    param8ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param8Slider.value * [param8ScaleTextFiled.text floatValue]];
+    param9ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param9Slider.value * [param9ScaleTextFiled.text floatValue]];
+    param10ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param10Slider.value * [param10ScaleTextFiled.text floatValue]];
+    param11ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param11Slider.value * [param11ScaleTextFiled.text floatValue]];
+    param12ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param12Slider.value * [param12ScaleTextFiled.text floatValue]];
 }
 
 @end

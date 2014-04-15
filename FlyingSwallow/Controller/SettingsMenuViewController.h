@@ -149,6 +149,32 @@ enum ChannelListTableViewSection {
     IBOutlet UILabel *param11Label;
     IBOutlet UILabel *param12Label;
     
+    IBOutlet UITextField *param1ScaleTextFiled;
+    IBOutlet UITextField *param2ScaleTextFiled;
+    IBOutlet UITextField *param3ScaleTextFiled;
+    IBOutlet UITextField *param4ScaleTextFiled;
+    IBOutlet UITextField *param5ScaleTextFiled;
+    IBOutlet UITextField *param6ScaleTextFiled;
+    IBOutlet UITextField *param7ScaleTextFiled;
+    IBOutlet UITextField *param8ScaleTextFiled;
+    IBOutlet UITextField *param9ScaleTextFiled;
+    IBOutlet UITextField *param10ScaleTextFiled;
+    IBOutlet UITextField *param11ScaleTextFiled;
+    IBOutlet UITextField *param12ScaleTextFiled;
+    
+    IBOutlet UILabel *param1ValueLabel;
+    IBOutlet UILabel *param2ValueLabel;
+    IBOutlet UILabel *param3ValueLabel;
+    IBOutlet UILabel *param4ValueLabel;
+    IBOutlet UILabel *param5ValueLabel;
+    IBOutlet UILabel *param6ValueLabel;
+    IBOutlet UILabel *param7ValueLabel;
+    IBOutlet UILabel *param8ValueLabel;
+    IBOutlet UILabel *param9ValueLabel;
+    IBOutlet UILabel *param10ValueLabel;
+    IBOutlet UILabel *param11ValueLabel;
+    IBOutlet UILabel *param12ValueLabel;
+    
     IBOutlet UIView *testSettingsView;
     IBOutlet UIView *testSettingsView2;
 }

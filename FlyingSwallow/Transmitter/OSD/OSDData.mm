@@ -370,6 +370,7 @@ using namespace std;
             break;
         case MSP_ALTITUDE:
             _altitude = (float) [self read32]; //[self int32ToFloat:[self read32]];
+            [self read16];
             break;
         case MSP_BAT:
             _vBat = [self read8] / 256.0f * 5;

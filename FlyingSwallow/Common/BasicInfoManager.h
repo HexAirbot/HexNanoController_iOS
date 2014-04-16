@@ -20,6 +20,8 @@
 
 @property (nonatomic, readonly) NSMutableString *debugStr;
 
+@property (nonatomic) BOOL needsAltHoldMode;
+
 
 + (id)sharedManager;
 

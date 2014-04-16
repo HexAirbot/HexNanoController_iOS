@@ -1076,6 +1076,8 @@ static inline float sign(float value)
             
             float throttleValue = [_throttleChannel value];
             
+            [self setAltHoldModeIfNeeds:throttleValue];
+            
             rightCenter = CGPointMake(joystickRightBackgroundImageView.frame.origin.x + (joystickRightBackgroundImageView.frame.size.width / 2), 
                                       joystickRightBackgroundImageView.frame.origin.y + (joystickRightBackgroundImageView.frame.size.height / 2) - throttleValue * rightJoyStickOperableRadius);
             
@@ -1098,6 +1100,8 @@ static inline float sign(float value)
             
             float throttleValue = [_throttleChannel value];
             
+            [self setAltHoldModeIfNeeds:throttleValue];
+            
             leftCenter = CGPointMake(joystickLeftBackgroundImageView.frame.origin.x + (joystickLeftBackgroundImageView.frame.size.width / 2), 
                                       joystickLeftBackgroundImageView.frame.origin.y + (joystickLeftBackgroundImageView.frame.size.height / 2) - throttleValue * rightJoyStickOperableRadius);
         }
@@ -1118,6 +1122,43 @@ static inline float sign(float value)
 		
 		[self updateVelocity:leftCenter isRight:NO];
 	}
+}
+
+- (void)setAltHoldModeIfNeeds:(float)throttleValue{
+    float scale =  throttleValue;
+    
+    if (scale > 1) {
+        scale = 1;
+    }
+    else if(scale < -1){
+        scale = -1;
+    }
+    
+    int pulseLen =  1500 + 500 * scale;
+    
+    if(pulseLen >= 1150 && pulseLen <= 1700) {
+        if ((((int)[ _aux2Channel value]) != 1)) {
+            [_aux2Channel setValue:1];
+        }
+    }
+    else{
+        if ((((int)[ _aux2Channel value]) != -1)) {
+            [_aux2Channel setValue:-1];
+        }
+    }
+}
+
+- (void)setAltHoldMode:(BOOL)isAltHoldMode{
+    if(isAltHoldMode) {
+        if ((((int)[ _aux2Channel value]) != 1)) {
+            [_aux2Channel setValue:1];
+        }
+    }
+    else{
+        if ((((int)[ _aux2Channel value]) != -1)) {
+            [_aux2Channel setValue:-1];
+        }
+    }
 }
 
 - (IBAction)joystickButtonDidDrag:(id)sender forEvent:(UIEvent *)event {
@@ -1243,6 +1284,8 @@ static inline float sign(float value)
             }
         }
         else {
+            [self setAltHoldMode:NO];
+            
             if (_settings.isBeginnerMode) {
                 [_throttleChannel setValue:(kBeginnerThrottleChannelRatio - 1) + rightJoystickYInput * kBeginnerThrottleChannelRatio];
             }
@@ -1341,10 +1384,12 @@ static inline float sign(float value)
         //NSLog(@"left y input:%.3f",leftJoystickYInput);
         
         if(isLeftHanded){
+            [self setAltHoldMode:NO];
+            
             if (_settings.isBeginnerMode) {
                    [_throttleChannel setValue:(kBeginnerThrottleChannelRatio - 1) + leftJoystickYInput * kBeginnerThrottleChannelRatio];
             }
-            else{
+            else{                
                 [_throttleChannel setValue:leftJoystickYInput];
             }
             

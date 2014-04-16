@@ -17,6 +17,7 @@ static BasicInfoManager *sharedManager;
 @synthesize osdView;
 @synthesize motionManager = _motionManager;
 @synthesize debugStr = _debugStr;
+@synthesize needsAltHoldMode = _needsAltHoldMode;
 
 + (id)sharedManager{
 	if (sharedManager == nil) {

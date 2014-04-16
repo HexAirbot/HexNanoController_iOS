@@ -750,7 +750,7 @@
                         <action selector="read:" destination="-1" eventType="touchUpInside" id="Esb-Cy-l9e"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" minimumFontSize="17" id="98l-BV-EKe">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.004" borderStyle="roundedRect" minimumFontSize="17" id="98l-BV-EKe">
                     <rect key="frame" x="374" y="0.0" width="67" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>

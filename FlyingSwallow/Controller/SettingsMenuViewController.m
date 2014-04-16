@@ -945,51 +945,51 @@ typedef enum settings_alert_dialog{
     }
     else  if(sender == param1Slider){
         param1Label.text = [NSString stringWithFormat:@"%d", (int)param1Slider.value];
-        param1ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param1Slider.value * [param1ScaleTextFiled.text floatValue]];
+        param1ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param1Slider.value * [param1ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param2Slider){
         param2Label.text = [NSString stringWithFormat:@"%d", (int)param2Slider.value];
-        param2ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param2Slider.value * [param2ScaleTextFiled.text floatValue]];
+        param2ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param2Slider.value * [param2ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param3Slider){
         param3Label.text = [NSString stringWithFormat:@"%d", (int)param3Slider.value];
-        param3ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param3Slider.value * [param3ScaleTextFiled.text floatValue]];
+        param3ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param3Slider.value * [param3ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param4Slider){
         param4Label.text = [NSString stringWithFormat:@"%d", (int)param4Slider.value];
-        param4ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param4Slider.value * [param4ScaleTextFiled.text floatValue]];
+        param4ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param4Slider.value * [param4ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param5Slider){
         param5Label.text = [NSString stringWithFormat:@"%d", (int)param5Slider.value];
-        param5ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param5Slider.value * [param5ScaleTextFiled.text floatValue]];
+        param5ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param5Slider.value * [param5ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param6Slider){
         param6Label.text = [NSString stringWithFormat:@"%d", (int)param6Slider.value];
-        param6ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param6Slider.value * [param6ScaleTextFiled.text floatValue]];
+        param6ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param6Slider.value * [param6ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param7Slider){
         param7Label.text = [NSString stringWithFormat:@"%d", (int)param7Slider.value];
-        param7ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param7Slider.value * [param7ScaleTextFiled.text floatValue]];
+        param7ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param7Slider.value * [param7ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param8Slider){
         param8Label.text = [NSString stringWithFormat:@"%d", (int)param8Slider.value];
-        param8ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param8Slider.value * [param8ScaleTextFiled.text floatValue]];
+        param8ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param8Slider.value * [param8ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param9Slider){
         param9Label.text = [NSString stringWithFormat:@"%d", (int)param9Slider.value];
-        param9ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param9Slider.value * [param9ScaleTextFiled.text floatValue]];
+        param9ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param9Slider.value * [param9ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param10Slider){
         param10Label.text = [NSString stringWithFormat:@"%d", (int)param10Slider.value];
-        param10ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param10Slider.value * [param10ScaleTextFiled.text floatValue]];
+        param10ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param10Slider.value * [param10ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param11Slider){
         param11Label.text = [NSString stringWithFormat:@"%d", (int)param11Slider.value];
-        param11ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param11Slider.value * [param11ScaleTextFiled.text floatValue]];
+        param11ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param11Slider.value * [param11ScaleTextFiled.text floatValue]];
     }
     else  if(sender == param12Slider){
         param12Label.text = [NSString stringWithFormat:@"%d", (int)param12Slider.value];
-        param12ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param12Slider.value * [param12ScaleTextFiled.text floatValue]];
+        param12ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param12Slider.value * [param12ScaleTextFiled.text floatValue]];
     }
 }
 
@@ -1130,18 +1130,18 @@ typedef enum settings_alert_dialog{
     param11Label.text = [NSString stringWithFormat:@"%d", (int)param11Slider.value];
     param12Label.text = [NSString stringWithFormat:@"%d", (int)param12Slider.value];
     
-    param1ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param1Slider.value * [param1ScaleTextFiled.text floatValue]];
-    param2ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param2Slider.value * [param2ScaleTextFiled.text floatValue]];
-    param3ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param3Slider.value * [param3ScaleTextFiled.text floatValue]];
-    param4ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param4Slider.value * [param4ScaleTextFiled.text floatValue]];
-    param5ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param5Slider.value * [param5ScaleTextFiled.text floatValue]];
-    param6ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param6Slider.value * [param6ScaleTextFiled.text floatValue]];
-    param7ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param7Slider.value * [param7ScaleTextFiled.text floatValue]];
-    param8ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param8Slider.value * [param8ScaleTextFiled.text floatValue]];
-    param9ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param9Slider.value * [param9ScaleTextFiled.text floatValue]];
-    param10ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param10Slider.value * [param10ScaleTextFiled.text floatValue]];
-    param11ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param11Slider.value * [param11ScaleTextFiled.text floatValue]];
-    param12ValueLabel.text = [NSString stringWithFormat:@"%.2f", (int)param12Slider.value * [param12ScaleTextFiled.text floatValue]];
+    param1ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param1Slider.value * [param1ScaleTextFiled.text floatValue]];
+    param2ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param2Slider.value * [param2ScaleTextFiled.text floatValue]];
+    param3ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param3Slider.value * [param3ScaleTextFiled.text floatValue]];
+    param4ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param4Slider.value * [param4ScaleTextFiled.text floatValue]];
+    param5ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param5Slider.value * [param5ScaleTextFiled.text floatValue]];
+    param6ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param6Slider.value * [param6ScaleTextFiled.text floatValue]];
+    param7ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param7Slider.value * [param7ScaleTextFiled.text floatValue]];
+    param8ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param8Slider.value * [param8ScaleTextFiled.text floatValue]];
+    param9ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param9Slider.value * [param9ScaleTextFiled.text floatValue]];
+    param10ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param10Slider.value * [param10ScaleTextFiled.text floatValue]];
+    param11ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param11Slider.value * [param11ScaleTextFiled.text floatValue]];
+    param12ValueLabel.text = [NSString stringWithFormat:@"%0.3f", (int)param12Slider.value * [param12ScaleTextFiled.text floatValue]];
 }
 
 @end

@@ -278,13 +278,9 @@ static Transmitter *sharedTransmitter;
     
     static int cnt = 0;
     cnt++;
-    if ((cnt % 4) == 3) {
-        [bleSerialMangager sendRequestData:getDefaultOSDDataRequest()];
+    if ((cnt % 3) == 2) {
+        [bleSerialMangager sendRequestData:getSimpleCommand(MSP_HEX_NANO)];
     }
-    else if (cnt % 4 == 2){
-       [bleSerialMangager sendRequestData:getSimpleCommand(MSP_BAT)];
-    }
-    
     
     [pool release];
 }

@@ -92,6 +92,8 @@ using namespace std;
 @synthesize mode = _mode;
 @synthesize present = _present;
 
+@synthesize absolutedAccZ = _absolutedAccZ;
+
 @synthesize debug1 = _debug1;
 @synthesize debug2 = _debug2;
 @synthesize debug3 = _debug3;
@@ -416,6 +418,19 @@ using namespace std;
             
             NSLog(@"***get p5:%f", _param5);
             NSLog(@"***get p6:%f", _param6);
+            break;
+        case MSP_HEX_NANO:
+            _absolutedAccZ = [self read16];
+            _altitude = (float) [self read32];
+            _angleX = [self read16]/10;  //[-180,180]，往右roll时，为正数
+            _angleY = [self read16]/10;  //[-180,180]，头往上仰时，为负
+            _head = [self read16];
+            _vBat = [self read8] / 256.0f * 5;
+            
+            if(_delegate != nil) {
+                [_delegate osdDataDidUpdateOneFrame:self];
+            }
+            
             break;
         case MSP_DEBUG:
             _debug1 = [self read16];

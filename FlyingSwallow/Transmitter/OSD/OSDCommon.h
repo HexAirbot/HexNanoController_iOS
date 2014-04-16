@@ -45,6 +45,8 @@ typedef unsigned char byte;
 #define MSP_READ_TEST_PARAM      189
 #define MSP_SET_TEST_PARAM       190
 
+#define MSP_HEX_NANO             199
+
 #define MSP_SET_RAW_RC           200
 #define MSP_SET_RAW_GPS          201
 #define MSP_SET_PID              202

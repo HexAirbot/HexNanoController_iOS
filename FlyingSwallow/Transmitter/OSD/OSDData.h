@@ -79,6 +79,8 @@
 @property(nonatomic, readonly) int mode;
 @property(nonatomic, readonly) int present;
 
+@property(nonatomic, readonly) int absolutedAccZ;
+
 @property(nonatomic, readonly) float param1;
 @property(nonatomic, readonly) float param2;
 @property(nonatomic, readonly) float param3;

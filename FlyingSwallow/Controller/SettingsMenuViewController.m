@@ -46,7 +46,7 @@ typedef enum settings_alert_dialog{
     NSMutableArray *pageViewArray;
     NSMutableArray *pageTitleArray;
     
-    int pageCount;
+    NSUInteger pageCount;
     
     Settings *settings;
     
@@ -222,7 +222,8 @@ typedef enum settings_alert_dialog{
         TransmitterState outputState = [[Transmitter sharedTransmitter] outputState];
         
         if ((inputState == TransmitterStateOk) && (outputState == TransmitterStateOk)) {
-            connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"connected")];
+//            connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"connected")];
+            connectionStateTextLabel.text = getLocalizeString(@"connected");
             connectionActivityIndicatorView.hidden = YES;
         }
         else if((inputState == TransmitterStateOk) && (outputState != TransmitterStateOk)){
@@ -486,7 +487,7 @@ typedef enum settings_alert_dialog{
     }
     else if(tableView.tag == kPeripheralDeviceListTabelView){
         CBPeripheral *peripheral = [peripheralList objectAtIndex:[indexPath row]];
-        NSString *deviceName = peripheral.name;
+//        NSString *deviceName = peripheral.name;
 
         [selectedPeripheral release];
         selectedPeripheral = [peripheral retain];
@@ -586,7 +587,7 @@ typedef enum settings_alert_dialog{
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         }
         
-        CBPeripheral *peripheral = [peripheralList objectAtIndex:[indexPath row]];
+//        CBPeripheral *peripheral = [peripheralList objectAtIndex:[indexPath row]];
         //cell.textLabel.text = peripheral.name;
         cell.textLabel.text = @"Flexbot";
         //cell.detailTextLabel.text = [NSString stringWithFormat:@"RRSI:%d", [peripheral.RSSI intValue]];
@@ -619,7 +620,7 @@ typedef enum settings_alert_dialog{
 
 - (void)scrollViewDidScroll:(UIScrollView *)_scrollView
 {
-	int currentPage = (int) (settingsPageScrollView.contentOffset.x + .5f * settingsPageScrollView.frame.size.width) / settingsPageScrollView.frame.size.width;
+	NSUInteger currentPage = (int) (settingsPageScrollView.contentOffset.x + .5f * settingsPageScrollView.frame.size.width) / settingsPageScrollView.frame.size.width;
     
     if (currentPage == 0)
     {
@@ -660,7 +661,7 @@ typedef enum settings_alert_dialog{
 }
 
 - (void)showNextPageView{
-    int nextPage = ((int) (settingsPageScrollView.contentOffset.x + .5f * settingsPageScrollView.frame.size.width) / settingsPageScrollView.frame.size.width) + 1;
+    NSUInteger nextPage = ((int) (settingsPageScrollView.contentOffset.x + .5f * settingsPageScrollView.frame.size.width) / settingsPageScrollView.frame.size.width) + 1;
     if (pageCount <= nextPage)
         nextPage = pageCount - 1;
     CGFloat nextOffset = nextPage *settingsPageScrollView.frame.size.width;

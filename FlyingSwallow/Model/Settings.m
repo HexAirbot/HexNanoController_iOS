@@ -56,7 +56,7 @@
         _takeOffThrottle = [[_settingsData objectForKey:kKeySettingsTakeOffThrottle] floatValue];
         
         NSArray *channelDataArray = [_settingsData objectForKey:kKeySettingsChannels];
-        int channelCount = [channelDataArray count];
+        NSUInteger channelCount = [channelDataArray count];
         _channelArray = [[NSMutableArray alloc] initWithCapacity:channelCount];
 
         for(int channelIdx = 0; channelIdx < channelCount; channelIdx++){
@@ -142,7 +142,7 @@
     [_settingsData writeToFile:_path atomically:YES];
 }
 
-- (int)channelCount{
+- (NSUInteger)channelCount{
     return [_channelArray count];
 }
 
@@ -202,7 +202,7 @@
     self.rudderDeadBand = [[defaultSettingsData objectForKey:kKeySettingsRudderDeadBand] floatValue];
     self.takeOffThrottle = [[defaultSettingsData objectForKey:kKeySettingsTakeOffThrottle] floatValue];
     
-    int channelCount = [defaultSettings channelCount];
+    NSUInteger channelCount = [defaultSettings channelCount];
     
     for(int defaultChannelIdx = 0; defaultChannelIdx < channelCount; defaultChannelIdx++){
         Channel *defaultChannel = [[Channel alloc] initWithSetting:defaultSettings idx:defaultChannelIdx];

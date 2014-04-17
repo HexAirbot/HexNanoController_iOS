@@ -247,7 +247,7 @@ static Transmitter *sharedTransmitter;
     
     [self updatePpmPackage];
     
-    BOOL channelListIsChange = NO;
+//    BOOL channelListIsChange = NO;
     
     /*
     for(int channelIdx = 0; channelIdx < kPpmChannelCount; channelIdx++){

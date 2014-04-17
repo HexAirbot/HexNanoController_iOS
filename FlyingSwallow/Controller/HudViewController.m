@@ -1628,7 +1628,7 @@ static inline float sign(float value)
     static float hpf_gyro_x, hpf_gyro_y, hpf_gyro_z;
     static float last_angle_gyro_x, last_angle_gyro_y, last_angle_gyro_z;
     
-    float phi, theta;
+    float phi, theta = 0.0;
     
     //dt calculus function of real elapsed time
     if(sTimebaseInfo.denom == 0) (void) mach_timebase_info(&sTimebaseInfo);
@@ -1661,7 +1661,7 @@ static inline float sign(float value)
        || fabs(current_acceleration.x) > 10 || fabs(current_acceleration.y) > 10 || fabs(current_acceleration.z)>10)
     {
         static uint32_t count = 0;
-        static BOOL popUpWasDisplayed = NO;
+//        static BOOL popUpWasDisplayed = NO;
         NSLog (@"Accelero errors : %f, %f, %f (count = %d)", current_acceleration.x, current_acceleration.y, current_acceleration.z, count);
         NSLog (@"Accelero raw : %f/%f, %f/%f, %f/%f", motionManager.deviceMotion.gravity.x, motionManager.deviceMotion.userAcceleration.x, motionManager.deviceMotion.gravity.y, motionManager.deviceMotion.userAcceleration.y, motionManager.deviceMotion.gravity.z, motionManager.deviceMotion.userAcceleration.z);
         NSLog (@"Attitude : %f / %f / %f", motionManager.deviceMotion.attitude.roll, motionManager.deviceMotion.attitude.pitch, motionManager.deviceMotion.attitude.yaw);

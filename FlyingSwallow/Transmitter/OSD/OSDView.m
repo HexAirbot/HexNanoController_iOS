@@ -325,7 +325,7 @@
     tickStepValue = (int)(kAttitudeTraceInterval / kAttitudeTraceTicksPerInterval);
     
     CGPoint traceStartPos = CGPointMake(self.frame.size.width * kAttitudeTraceX,  self.frame.size.height / 2.0 -  self.frame.size.height * kAttitudeTraceLen / 2.0);
-    CGPoint traceEndPos = CGPointMake(traceStartPos.x, traceStartPos.y + self.frame.size.height * kAttitudeTraceLen);
+//    CGPoint traceEndPos = CGPointMake(traceStartPos.x, traceStartPos.y + self.frame.size.height * kAttitudeTraceLen);
     
     CGContextMoveToPoint(context, traceStartPos.x, traceStartPos.y);
     //CGContextAddLineToPoint(context, traceEndPos.x, traceEndPos.y);

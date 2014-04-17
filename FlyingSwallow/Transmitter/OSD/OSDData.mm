@@ -231,7 +231,7 @@ using namespace std;
 //        }
 //    }
     
-    int byteCount = data.length;
+    NSUInteger byteCount = data.length;
     
     byte * dataPtr = (byte *)data.bytes;
     

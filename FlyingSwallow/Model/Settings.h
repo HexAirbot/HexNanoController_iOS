@@ -58,7 +58,7 @@
 
 - (id)initWithSettingsFile:(NSString *)settingsFilePath; 
 
-- (int)channelCount;
+- (NSUInteger)channelCount;
 - (Channel *)channelAtIndex:(int)i;
 - (Channel *)channelByName:(NSString*)name;
 

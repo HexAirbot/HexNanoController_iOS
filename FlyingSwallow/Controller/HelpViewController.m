@@ -13,7 +13,7 @@
     NSMutableArray *pageViewArray;
     NSMutableArray *pageTitleArray;
     
-    int pageCount;
+    NSUInteger pageCount;
 }
 
 @end

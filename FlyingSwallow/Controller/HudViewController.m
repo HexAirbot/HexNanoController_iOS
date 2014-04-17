@@ -1148,9 +1148,13 @@ static inline float sign(float value)
     
     int pulseLen =  1500 + 500 * scale;
     
-    if(pulseLen >= 1150 && pulseLen <= 1700) {
+    if(pulseLen >= 1150 && pulseLen <= 1750) {
         if ((((int)[ _aux2Channel value]) != 1)) {
             [_aux2Channel setValue:1];
+        }
+        
+        if (((int)[_aux4Channel value]) != 1) {
+            [_aux4Channel setValue:-1];
         }
     }
     else{
@@ -1661,7 +1665,7 @@ static inline float sign(float value)
     NSLog(@">>>***%d", osdData.absolutedAccZ);
     
     //if ( (accZ > -50) && (accZ < - 15)) {
-         if (accZ < - 25) {
+         if (accZ < - 15) {
         
         checkCnt++;
         
@@ -1683,7 +1687,7 @@ static inline float sign(float value)
     if (checkCnt * kCheckDuration > 0.3) {
         if (altitude > 130) {
             if (_throttleChannel.value > -0.8) {
-                _throttleChannel.value -= (10 / 500.0f);
+                _throttleChannel.value -= (20 / 500.0f);
                 
                 [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
             }
@@ -1691,12 +1695,12 @@ static inline float sign(float value)
             return;
         }
         else if(altitude < 50){
-            if (_throttleChannel.value < 0.4) {
+            if (_throttleChannel.value < 0.5) {
                 if (accZ <= -30) {
                     return;
                 }
                 
-                _throttleChannel.value += (10 / 500.0f);
+                _throttleChannel.value += (20 / 500.0f);
                 
                 [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
             }
@@ -1713,7 +1717,9 @@ static inline float sign(float value)
             
             [_aux2Channel setValue:1];
             
-            [_aux4Channel setValue:-1];
+           // [_aux4Channel setValue:-1];
+            
+            
             
             autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
             
@@ -1722,12 +1728,12 @@ static inline float sign(float value)
         //}
     }
     else{
-        if (_throttleChannel.value < 0.4) {
-            if (accZ <= -50) {
+        if (_throttleChannel.value < 0.5) {
+            if (accZ <= -30) {
                 return;
             }
             
-            _throttleChannel.value += (15 / 500.0f);
+            _throttleChannel.value += (22 / 500.0f);
             
             [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
         }
@@ -1760,7 +1766,7 @@ static inline float sign(float value)
         isAutoTakingOff = YES;
         
         throttleTimer = [[NSTimer scheduledTimerWithTimeInterval:kCheckDuration target:self selector:@selector(autoTakeOff) userInfo:nil repeats:YES] retain];
-        [self performSelector:@selector(autoTakeOffTimeOut) withObject:nil afterDelay:6];
+        [self performSelector:@selector(autoTakeOffTimeOut) withObject:nil afterDelay:7];
     }
 }
 

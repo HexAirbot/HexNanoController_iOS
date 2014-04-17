@@ -43,6 +43,8 @@
 
 #define kCheckDuration 0.1 //s
 
+static uint64_t take_off_start_time = 0;
+
 static inline float sign(float value)
 {
 	float result = 1.0;
@@ -1684,14 +1686,38 @@ static inline float sign(float value)
      
     }*/
     
-    if (checkCnt * kCheckDuration > 0.3) {
+    if (checkCnt * kCheckDuration > 0.2) {
+        uint64_t current_time = mach_absolute_time();
+        static mach_timebase_info_data_t sRightPressTimebaseInfo;
+        uint64_t elapsedNano;
+        float dt = 0;
+        
+        //dt calculus function of real elapsed time
+        if(sRightPressTimebaseInfo.denom == 0) (void) mach_timebase_info(&sRightPressTimebaseInfo);
+        elapsedNano = (current_time-take_off_start_time)*(sRightPressTimebaseInfo.numer / sRightPressTimebaseInfo.denom);
+        dt = elapsedNano/1000000000.0;
+        
         if (altitude > 130) {
-            if (_throttleChannel.value > -0.8) {
-                _throttleChannel.value -= (20 / 500.0f);
-                
-                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+            if (dt < 4.5) {  //此altitude是由超声波盲区造成的
+                if (_throttleChannel.value < 0.5) {
+                    if (accZ <= -30) {
+                        return;
+                    }
+                    
+                    _throttleChannel.value += ((4.5 - dt) / dt * 40 / 500.0f);
+                    
+                    [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+                }
             }
-            
+            else{
+                if (_throttleChannel.value > -0.8) {
+                    _throttleChannel.value -= (20 / 500.0f);
+                    
+                    [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+                }
+            }
+
+
             return;
         }
         else if(altitude < 50){
@@ -1756,6 +1782,8 @@ static inline float sign(float value)
 
 - (IBAction)autoTakeOff:(id)sender {
     if (isAutoTakingOff == NO) {
+        take_off_start_time = mach_absolute_time();
+        
         autoTakeOffState.text =  @"0";
         
         checkCnt = 0;

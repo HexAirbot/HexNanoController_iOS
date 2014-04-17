@@ -12,6 +12,7 @@
                 <outlet property="altValueTextLabel" destination="147" id="152"/>
                 <outlet property="batteryImageView" destination="25" id="62"/>
                 <outlet property="batteryLevelLabel" destination="24" id="61"/>
+                <outlet property="debugTextView" destination="Yku-Zu-IkL" id="Y8N-KF-OyD"/>
                 <outlet property="debugValueTextLabel" destination="dc2-eY-v2Z" id="w8u-eQ-w8Y"/>
                 <outlet property="downIndicatorImageView" destination="95" id="105"/>
                 <outlet property="headAngleValueTextLabel" destination="149" id="153"/>
@@ -362,6 +363,13 @@
                         <action selector="switchButtonClick:" destination="-1" eventType="touchUpInside" id="191"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Yku-Zu-IkL">
+                    <rect key="frame" x="183" y="1" width="120" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

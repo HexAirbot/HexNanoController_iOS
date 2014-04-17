@@ -75,6 +75,8 @@ float accelero_rotation[3][3];
     
     IBOutlet UILabel *accZtextLabel;
     
+    IBOutlet UITextView *debugTextView;
+    
     
 }
 @property (retain, nonatomic) IBOutlet UITextView *debugTextView;

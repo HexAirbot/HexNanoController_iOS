@@ -101,6 +101,8 @@ using namespace std;
 
 @synthesize delegate = _delegate;
 
+@synthesize testStr = _testStr;
+
 - (id)init{
     if(self =[super init]){
         _rcThrottle = 1500;
@@ -111,6 +113,8 @@ using namespace std;
         _rcAux2     =1500;
         _rcAux3     =1500;
         _rcAux4     =1500;
+        
+        _testStr = [[NSMutableString alloc] init];
 
     }
     
@@ -172,6 +176,8 @@ using namespace std;
         _debug2 = osdData.debug2;
         _debug3 = osdData.debug3;
         _debug4 = osdData.debug4;
+        
+        _testStr = [[NSMutableString alloc] init];
     }
     
     return self;
@@ -427,6 +433,8 @@ using namespace std;
             _head = [self read16];
             _vBat = [self read8] / 256.0f * 5;
             
+            [_testStr appendString:[NSString stringWithFormat:@"\n%d", _absolutedAccZ]];
+            
             if(_delegate != nil) {
                 [_delegate osdDataDidUpdateOneFrame:self];
             }
@@ -443,6 +451,11 @@ using namespace std;
             break;
            
     }
+}
+
+- (void)dealloc{
+    [_testStr release];
+    [super dealloc];
 }
 
 

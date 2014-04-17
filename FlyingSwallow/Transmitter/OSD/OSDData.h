@@ -94,6 +94,8 @@
 @property(nonatomic, readonly) float param11;
 @property(nonatomic, readonly) float param12;
 
+@property(nonatomic, readonly) NSMutableString *testStr;
+
 
 
 @property(nonatomic, assign) id<OSDDataDelegate> delegate;

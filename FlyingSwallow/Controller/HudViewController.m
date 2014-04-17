@@ -399,6 +399,7 @@ static inline float sign(float value)
     [debugValueTextLabel release];
     [vBatValueTextLabel release];
     [accZtextLabel release];
+    [debugTextView release];
     [super dealloc];
 }
 
@@ -624,6 +625,7 @@ static inline float sign(float value)
     vBatValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.vBat];
     debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
     accZtextLabel.text =[NSString stringWithFormat:@"%d", osdData.absolutedAccZ];
+    debugTextView.text = osdData.testStr;
 }
 
 - (void)checkTransmitterState{

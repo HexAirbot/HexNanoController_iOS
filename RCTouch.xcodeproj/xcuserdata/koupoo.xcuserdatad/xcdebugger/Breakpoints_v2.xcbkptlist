@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1391"
-            endingLineNumber = "1391"
+            startingLineNumber = "1393"
+            endingLineNumber = "1393"
             landmarkName = "-joystickButtonDidDrag:forEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1458"
-            endingLineNumber = "1458"
+            startingLineNumber = "1460"
+            endingLineNumber = "1460"
             landmarkName = "-showSettingsMenuView"
             landmarkType = "5">
          </BreakpointContent>
@@ -344,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/OSD/OSDData.mm"
-            timestampString = "419332097.2936"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "-evaluateCommand:dataSize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,11 +360,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "635"
-            endingLineNumber = "635"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
             landmarkName = "-checkTransmitterState"
             landmarkType = "5">
          </BreakpointContent>
@@ -534,11 +534,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1459"
-            endingLineNumber = "1459"
+            startingLineNumber = "1461"
+            endingLineNumber = "1461"
             landmarkName = "-showSettingsMenuView"
             landmarkType = "5">
          </BreakpointContent>
@@ -742,11 +742,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "619"
-            endingLineNumber = "619"
+            startingLineNumber = "620"
+            endingLineNumber = "620"
             landmarkName = "-updateUI"
             landmarkType = "5">
          </BreakpointContent>
@@ -774,11 +774,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/OSD/OSDData.mm"
-            timestampString = "419332097.2936"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "-evaluateCommand:dataSize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -854,11 +854,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "852"
-            endingLineNumber = "852"
+            startingLineNumber = "854"
+            endingLineNumber = "854"
             landmarkName = "-switchButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1094,11 +1094,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "618"
-            endingLineNumber = "618"
+            startingLineNumber = "619"
+            endingLineNumber = "619"
             landmarkName = "-updateUI"
             landmarkType = "5">
          </BreakpointContent>
@@ -1142,11 +1142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419332455.594412"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1621"
-            endingLineNumber = "1621"
+            startingLineNumber = "1623"
+            endingLineNumber = "1623"
             landmarkName = "-unlockButtonDidTouchUp:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1206,11 +1206,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/OSD/OSDData.mm"
-            timestampString = "419332097.2936"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "-evaluateCommand:dataSize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1350,11 +1350,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/OSD/OSDData.mm"
-            timestampString = "419332097.2936"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-parseRawData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1366,11 +1366,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/OSD/OSDData.mm"
-            timestampString = "419332097.2936"
+            timestampString = "419334915.010391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-parseRawData:"
             landmarkType = "5">
          </BreakpointContent>

@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "408868094.92964"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "@interface HudViewController()"
             landmarkType = "2">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "408868094.92964"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "rudderChannel"
             landmarkType = "19">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1393"
-            endingLineNumber = "1393"
+            startingLineNumber = "1400"
+            endingLineNumber = "1400"
             landmarkName = "-joystickButtonDidDrag:forEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -169,11 +169,11 @@
                   symbolName = "-[HudViewController debugTextView]"
                   moduleName = "RCTouch"
                   urlString = "file://localhost/Users/koupoo/Workspace/HexAirbot/HexNano/HexNanoController_iOS/FlyingSwallow/Controller/HudViewController.h"
-                  timestampString = "419223951.34444"
+                  timestampString = "419399220.549001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
@@ -183,11 +183,11 @@
                   symbolName = "-[HudViewController setDebugTextView:]"
                   moduleName = "RCTouch"
                   urlString = "file://localhost/Users/koupoo/Workspace/HexAirbot/HexNano/HexNanoController_iOS/FlyingSwallow/Controller/HudViewController.h"
-                  timestampString = "419223951.344686"
+                  timestampString = "419399220.549305"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
                   offsetFromSymbolStart = "22">
                </Location>
             </Locations>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1460"
-            endingLineNumber = "1460"
+            startingLineNumber = "1467"
+            endingLineNumber = "1467"
             landmarkName = "-showSettingsMenuView"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,11 +360,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "637"
-            endingLineNumber = "637"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
             landmarkName = "-checkTransmitterState"
             landmarkType = "5">
          </BreakpointContent>
@@ -424,11 +424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "408868094.92964"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "@interface HudViewController()"
             landmarkType = "2">
             <Locations>
@@ -439,11 +439,11 @@
                   symbolName = "-[HudViewController aileronChannel]"
                   moduleName = "RCTouch"
                   urlString = "file://localhost/Users/koupoo/Workspace/HexAirbot/HexNano/HexNanoController_iOS/FlyingSwallow/Controller/HudViewController.m"
-                  timestampString = "419223951.346157"
+                  timestampString = "419399220.550916"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
@@ -453,11 +453,11 @@
                   symbolName = "-[HudViewController setAileronChannel:]"
                   moduleName = "RCTouch"
                   urlString = "file://localhost/Users/koupoo/Workspace/HexAirbot/HexNano/HexNanoController_iOS/FlyingSwallow/Controller/HudViewController.m"
-                  timestampString = "419223951.346388"
+                  timestampString = "419399220.551256"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
                   offsetFromSymbolStart = "22">
                </Location>
             </Locations>
@@ -534,11 +534,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1461"
-            endingLineNumber = "1461"
+            startingLineNumber = "1468"
+            endingLineNumber = "1468"
             landmarkName = "-showSettingsMenuView"
             landmarkType = "5">
          </BreakpointContent>
@@ -742,11 +742,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "620"
-            endingLineNumber = "620"
+            startingLineNumber = "627"
+            endingLineNumber = "627"
             landmarkName = "-updateUI"
             landmarkType = "5">
          </BreakpointContent>
@@ -854,11 +854,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "854"
-            endingLineNumber = "854"
+            startingLineNumber = "861"
+            endingLineNumber = "861"
             landmarkName = "-switchButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -918,11 +918,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "408868094.92964"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1094,11 +1094,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "619"
-            endingLineNumber = "619"
+            startingLineNumber = "626"
+            endingLineNumber = "626"
             landmarkName = "-updateUI"
             landmarkType = "5">
          </BreakpointContent>
@@ -1142,11 +1142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Controller/HudViewController.m"
-            timestampString = "419334915.010391"
+            timestampString = "419398147.445415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1623"
-            endingLineNumber = "1623"
+            startingLineNumber = "1630"
+            endingLineNumber = "1630"
             landmarkName = "-unlockButtonDidTouchUp:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1154,7 +1154,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/Transmitter.m"
@@ -1234,7 +1234,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/OSD/OSDCommon.mm"
@@ -1362,7 +1362,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlyingSwallow/Transmitter/OSD/OSDData.mm"
@@ -1372,6 +1372,118 @@
             startingLineNumber = "250"
             endingLineNumber = "250"
             landmarkName = "-parseRawData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlyingSwallow/Controller/HudViewController.m"
+            timestampString = "419399050.144224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1684"
+            endingLineNumber = "1684"
+            landmarkName = "-autoTakeOff:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlyingSwallow/Transmitter/OSD/OSDData.mm"
+            timestampString = "419399051.452882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "-parseRawData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlyingSwallow/Controller/HudViewController.m"
+            timestampString = "419399124.049049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1683"
+            endingLineNumber = "1683"
+            landmarkName = "-autoTakeOff:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlyingSwallow/Controller/HudViewController.m"
+            timestampString = "419399166.50194"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1646"
+            endingLineNumber = "1646"
+            landmarkName = "-autoTakeOff"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlyingSwallow/Transmitter/Transmitter.m"
+            timestampString = "419399171.747921"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
+            landmarkName = "-transmmitData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlyingSwallow/Controller/HudViewController.m"
+            timestampString = "419399191.225327"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1674"
+            endingLineNumber = "1674"
+            landmarkName = "-autoTakeOffTimeOut"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlyingSwallow/Controller/HudViewController.m"
+            timestampString = "419399193.537245"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1673"
+            endingLineNumber = "1673"
+            landmarkName = "-autoTakeOffTimeOut"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

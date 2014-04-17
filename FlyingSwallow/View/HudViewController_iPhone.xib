@@ -134,6 +134,21 @@
                         <action selector="unlockButtonDidTouchUp:" destination="-1" eventType="touchUpInside" id="hdB-sh-IkP"/>
                     </connections>
                 </button>
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="y3Q-eG-5T5" userLabel="TakeOff">
+                    <rect key="frame" x="149" y="272" width="42" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                    <state key="normal" image="Btn_Take_Off_RETINA.png">
+                        <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" image="Btn_Take_Off_On_RETINA.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="autoTakeOff:" destination="-1" eventType="touchUpInside" id="Elc-0p-vok"/>
+                    </connections>
+                </button>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="31" userLabel="Emergency">
                     <rect key="frame" x="220" y="2" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -364,7 +379,7 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Yku-Zu-IkL">
-                    <rect key="frame" x="183" y="1" width="120" height="100"/>
+                    <rect key="frame" x="270" y="1" width="120" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

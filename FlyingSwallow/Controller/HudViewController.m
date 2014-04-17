@@ -41,6 +41,7 @@
 #define kBeginnerRudderChannelRatio    0.0
 #define kBeginnerThrottleChannelRatio  0.8
 
+#define kCheckDuration 0.1 //s
 
 static inline float sign(float value)
 {
@@ -85,6 +86,12 @@ static inline float sign(float value)
     CGPoint leftHandedDownIndicatorImageViewCenter;
     
     NSMutableDictionary *blockViewDict;
+    
+    BOOL isAutoTakingOff;
+    NSTimer *throttleTimer;
+    
+
+    int checkCnt;
 }
 
 @property(nonatomic, retain) Channel *aileronChannel;
@@ -1633,6 +1640,56 @@ static inline float sign(float value)
 
 - (IBAction)lockButtonDidTouchUp:(id)sender {
     [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_DISARM];
+}
+
+- (void)autoTakeOff{
+    if ( -40 < osdView.osdData.absolutedAccZ < - 25) {
+        checkCnt++;
+    }
+    
+    if (checkCnt * kCheckDuration > 6.3) {
+        [throttleTimer invalidate];
+        [throttleTimer release];
+        throttleTimer = nil;
+        
+        if (20 < osdView.osdData.altitude < 150) {
+            [self canPerformAction:@selector(autoTakeOffTimeOut) withSender:self];
+            
+            [_aux2Channel setValue:1];
+            
+            isAutoTakingOff = NO;
+        }
+    }
+    else{
+        if (_throttleChannel.value < 0.2) {
+            _throttleChannel.value += (20 / 500.0f);
+            
+            [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+        }
+    }
+}
+
+- (void)autoTakeOffTimeOut{
+    if (isAutoTakingOff) {
+        [throttleTimer invalidate];
+        [throttleTimer release];
+        throttleTimer = nil;
+        isAutoTakingOff = NO;
+        //[self lockButtonDidTouchUp:nil];
+    }
+}
+
+- (IBAction)autoTakeOff:(id)sender {
+    if (isAutoTakingOff == NO) {
+        checkCnt = 0;
+        [_aux2Channel setValue:-1];
+        
+        [self unlockButtonDidTouchUp:nil];
+        isAutoTakingOff = YES;
+        
+        throttleTimer = [[NSTimer scheduledTimerWithTimeInterval:kCheckDuration target:self selector:@selector(autoTakeOff) userInfo:nil repeats:YES] retain];
+        [self performSelector:@selector(autoTakeOffTimeOut) withObject:nil afterDelay:6];
+    }
 }
 
 

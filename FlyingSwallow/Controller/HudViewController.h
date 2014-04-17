@@ -102,5 +102,8 @@ float accelero_rotation[3][3];
 - (IBAction)unlockButtonDidTouchUp:(id)sender;
 - (IBAction)lockButtonDidTouchUp:(id)sender;
 
+- (IBAction)autoTakeOff:(id)sender;
+
+
 
 @end

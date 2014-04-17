@@ -10,6 +10,7 @@
                 <outlet property="accZtextLabel" destination="y9Q-TV-jeX" id="C3D-EO-gdb"/>
                 <outlet property="altHoldSwitchButton" destination="187" id="189"/>
                 <outlet property="altValueTextLabel" destination="147" id="152"/>
+                <outlet property="autoTakeOffState" destination="IPB-om-6it" id="uIR-5m-aS6"/>
                 <outlet property="batteryImageView" destination="25" id="62"/>
                 <outlet property="batteryLevelLabel" destination="24" id="61"/>
                 <outlet property="debugTextView" destination="Yku-Zu-IkL" id="Y8N-KF-OyD"/>
@@ -354,9 +355,16 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="debug" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dc2-eY-v2Z">
-                            <rect key="frame" x="0.0" y="64" width="170" height="21"/>
+                            <rect key="frame" x="0.0" y="64" width="84" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IPB-om-6it">
+                            <rect key="frame" x="88" y="67" width="99" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -378,7 +386,7 @@
                         <action selector="switchButtonClick:" destination="-1" eventType="touchUpInside" id="191"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Yku-Zu-IkL">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="Yku-Zu-IkL">
                     <rect key="frame" x="270" y="1" width="120" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

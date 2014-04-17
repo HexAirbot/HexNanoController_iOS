@@ -407,6 +407,7 @@ static inline float sign(float value)
     [vBatValueTextLabel release];
     [accZtextLabel release];
     [debugTextView release];
+    [autoTakeOffState release];
     [super dealloc];
 }
 
@@ -632,7 +633,7 @@ static inline float sign(float value)
     vBatValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.vBat];
     debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
     accZtextLabel.text =[NSString stringWithFormat:@"%d", osdData.absolutedAccZ];
-    debugTextView.text = osdData.testStr;
+    //debugTextView.text = osdData.testStr;
 }
 
 - (void)checkTransmitterState{
@@ -1642,32 +1643,97 @@ static inline float sign(float value)
     [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_DISARM];
 }
 
-- (void)autoTakeOff{
-    if ( -40 < osdView.osdData.absolutedAccZ < - 25) {
-        checkCnt++;
-    }
+
+- (void)updateDebugTextView{
+    OSDData *osdData = [Transmitter sharedTransmitter].osdData;
     
-    if (checkCnt * kCheckDuration > 6.3) {
+        debugTextView.text = [NSString stringWithFormat:@"%@\n%d", debugTextView.text, osdData.absolutedAccZ];
+}
+
+
+- (void)autoTakeOff{
+    OSDData *osdData = [Transmitter sharedTransmitter].osdData;
+    
+    int accZ = osdData.absolutedAccZ;
+    float altitude = osdData.altitude;
+    
+    
+    NSLog(@">>>***%d", osdData.absolutedAccZ);
+    
+    //if ( (accZ > -50) && (accZ < - 15)) {
+         if (accZ < - 15) {
+        
+        checkCnt++;
+        
+        [self performSelectorOnMainThread:@selector(updateDebugTextView) withObject:nil waitUntilDone:NO];
+    }
+    /*
+    else if(accZ <= -50){
+        checkCnt++;
+        
+     
+        if (_throttleChannel.value > -0.8) {
+            _throttleChannel.value -= (10 / 500.0f);
+            
+            [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+        }
+     
+    }*/
+    
+    if (checkCnt * kCheckDuration > 0.3) {
+        if (altitude > 130) {
+            if (_throttleChannel.value > -0.8) {
+                _throttleChannel.value -= (10 / 500.0f);
+                
+                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+            }
+            
+            return;
+        }
+        else if(altitude < 50){
+            if (_throttleChannel.value < 0.4) {
+                if (accZ <= -30) {
+                    return;
+                }
+                
+                _throttleChannel.value += (10 / 500.0f);
+                
+                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+            }
+        }
+        else{
+        
+        
         [throttleTimer invalidate];
         [throttleTimer release];
         throttleTimer = nil;
         
-        if (20 < osdView.osdData.altitude < 150) {
+        //if (20 < altitude < 120) {
             [self canPerformAction:@selector(autoTakeOffTimeOut) withSender:self];
             
             [_aux2Channel setValue:1];
             
+            [_aux4Channel setValue:-1];
+            
+            autoTakeOffState.text = [NSString stringWithFormat:@"1 %d", checkCnt];
+            
             isAutoTakingOff = NO;
         }
+        //}
     }
     else{
-        if (_throttleChannel.value < 0.2) {
-            _throttleChannel.value += (20 / 500.0f);
+        if (_throttleChannel.value < 0.4) {
+            if (accZ <= -50) {
+                return;
+            }
+            
+            _throttleChannel.value += (30 / 500.0f);
             
             [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
         }
     }
 }
+//}
 
 - (void)autoTakeOffTimeOut{
     if (isAutoTakingOff) {
@@ -1675,14 +1741,20 @@ static inline float sign(float value)
         [throttleTimer release];
         throttleTimer = nil;
         isAutoTakingOff = NO;
+        [_aux4Channel setValue:-1];
+        
+        autoTakeOffState.text = [NSString stringWithFormat:@"%d timeout", checkCnt];
         //[self lockButtonDidTouchUp:nil];
     }
 }
 
 - (IBAction)autoTakeOff:(id)sender {
     if (isAutoTakingOff == NO) {
+        autoTakeOffState.text =  @"0";
+        
         checkCnt = 0;
         [_aux2Channel setValue:-1];
+        [_aux4Channel setValue:1];
         
         [self unlockButtonDidTouchUp:nil];
         isAutoTakingOff = YES;

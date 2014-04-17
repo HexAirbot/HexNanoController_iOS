@@ -77,6 +77,9 @@ float accelero_rotation[3][3];
     
     IBOutlet UITextView *debugTextView;
     
+    IBOutlet UILabel *autoTakeOffState;
+    
+    
     
 }
 @property (retain, nonatomic) IBOutlet UITextView *debugTextView;

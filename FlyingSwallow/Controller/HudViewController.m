@@ -1704,7 +1704,7 @@ static inline float sign(float value)
                         return;
                     }
                     
-                    _throttleChannel.value += ((4.5 - dt) / dt * 40 / 500.0f);
+                    _throttleChannel.value += ((4.5 - dt) / dt * 50 / 500.0f);
                     
                     [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
                 }

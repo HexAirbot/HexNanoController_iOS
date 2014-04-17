@@ -1661,7 +1661,7 @@ static inline float sign(float value)
     NSLog(@">>>***%d", osdData.absolutedAccZ);
     
     //if ( (accZ > -50) && (accZ < - 15)) {
-         if (accZ < - 15) {
+         if (accZ < - 25) {
         
         checkCnt++;
         
@@ -1715,7 +1715,7 @@ static inline float sign(float value)
             
             [_aux4Channel setValue:-1];
             
-            autoTakeOffState.text = [NSString stringWithFormat:@"1 %d", checkCnt];
+            autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
             
             isAutoTakingOff = NO;
         }
@@ -1727,7 +1727,7 @@ static inline float sign(float value)
                 return;
             }
             
-            _throttleChannel.value += (30 / 500.0f);
+            _throttleChannel.value += (15 / 500.0f);
             
             [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
         }

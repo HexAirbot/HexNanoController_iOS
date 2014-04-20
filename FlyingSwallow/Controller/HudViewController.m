@@ -1155,7 +1155,7 @@ static inline float sign(float value)
             [_aux2Channel setValue:1];
         }
         
-        if (((int)[_aux4Channel value]) != 1) {
+        if (((int)[_aux4Channel value]) != -1) {
             [_aux4Channel setValue:-1];
         }
     }

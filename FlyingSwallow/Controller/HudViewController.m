@@ -1667,9 +1667,15 @@ static inline float sign(float value)
     NSLog(@">>>***%d", osdData.absolutedAccZ);
     
     //if ( (accZ > -50) && (accZ < - 15)) {
-         if (accZ < - 15) {
+         if (accZ < - 7) {
         
         checkCnt++;
+             
+//             if (_throttleChannel.value < 0.5) {
+//                 if (accZ > -30) {
+//                     _throttleChannel.value += ( 5 / 500.0f) + (15 * ((29 - fabs(accZ)) / 19.0f));
+//                 }
+//             }
         
         [self performSelectorOnMainThread:@selector(updateDebugTextView) withObject:nil waitUntilDone:NO];
     }
@@ -1686,7 +1692,8 @@ static inline float sign(float value)
      
     }*/
     
-    if (checkCnt * kCheckDuration > 0.2) {
+    //if (checkCnt * kCheckDuration > 0.1) {
+    if (checkCnt > 0) {
         uint64_t current_time = mach_absolute_time();
         static mach_timebase_info_data_t sRightPressTimebaseInfo;
         uint64_t elapsedNano;
@@ -1704,7 +1711,7 @@ static inline float sign(float value)
                         return;
                     }
                     
-                    _throttleChannel.value += ((4.5 - dt) / dt * 50 / 500.0f);
+                    _throttleChannel.value += ((4.5 - dt) / 4.5 * 50 / 500.0f);
                     
                     [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
                 }

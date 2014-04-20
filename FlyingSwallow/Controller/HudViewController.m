@@ -1745,12 +1745,10 @@ static inline float sign(float value)
         [throttleTimer release];
         throttleTimer = nil;
         
-        //if (20 < altitude < 120) {
             [self canPerformAction:@selector(autoTakeOffTimeOut) withSender:self];
             
             [_aux2Channel setValue:1];
             
-           // [_aux4Channel setValue:-1];
             
             
             

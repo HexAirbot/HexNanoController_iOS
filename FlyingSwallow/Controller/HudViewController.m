@@ -94,6 +94,7 @@ static inline float sign(float value)
     
 
     int checkCnt;
+    int accTimeCnt;
 }
 
 @property(nonatomic, retain) Channel *aileronChannel;
@@ -1656,6 +1657,10 @@ static inline float sign(float value)
         debugTextView.text = [NSString stringWithFormat:@"%@\n%d", debugTextView.text, osdData.absolutedAccZ];
 }
 
+- (void)flight{
+
+}
+
 
 - (void)autoTakeOff{
     OSDData *osdData = [Transmitter sharedTransmitter].osdData;
@@ -1667,7 +1672,7 @@ static inline float sign(float value)
     NSLog(@">>>***%d", osdData.absolutedAccZ);
     
     //if ( (accZ > -50) && (accZ < - 15)) {
-         if (accZ < - 7) {
+         if (accZ < - 5) {
         
         checkCnt++;
              
@@ -1693,82 +1698,231 @@ static inline float sign(float value)
     }*/
     
     //if (checkCnt * kCheckDuration > 0.1) {
+    
+    
+#define MAX_ACC_TIME_CNT 19
+    
     if (checkCnt > 0) {
-        uint64_t current_time = mach_absolute_time();
-        static mach_timebase_info_data_t sRightPressTimebaseInfo;
-        uint64_t elapsedNano;
-        float dt = 0;
-        
-        //dt calculus function of real elapsed time
-        if(sRightPressTimebaseInfo.denom == 0) (void) mach_timebase_info(&sRightPressTimebaseInfo);
-        elapsedNano = (current_time-take_off_start_time)*(sRightPressTimebaseInfo.numer / sRightPressTimebaseInfo.denom);
-        dt = elapsedNano/1000000000.0;
-        
-        if (altitude > 130) {
-            if (dt < 4.5) {  //此altitude是由超声波盲区造成的
-                if (_throttleChannel.value < 0.5) {
-                    if (accZ <= -30) {
-                        return;
-                    }
-                    
-                    _throttleChannel.value += ((4.5 - dt) / 4.5 * 50 / 500.0f);
-                    
-                    [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
-                }
-            }
-            else{
-                if (_throttleChannel.value > -0.8) {
-                    _throttleChannel.value -= (20 / 500.0f);
-                    
-                    [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
-                }
-            }
-
-
-            return;
-        }
-        else if(altitude < 50){
-            if (_throttleChannel.value < 0.5) {
-                if (accZ <= -30) {
-                    return;
-                }
-                
-                _throttleChannel.value += (20 / 500.0f);
-                
-                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
-            }
-        }
-        else{
-        
-        
-        [throttleTimer invalidate];
-        [throttleTimer release];
-        throttleTimer = nil;
-        
-            [self canPerformAction:@selector(autoTakeOffTimeOut) withSender:self];
+        if (accTimeCnt > MAX_ACC_TIME_CNT) {
+            [throttleTimer invalidate];
+            [throttleTimer release];
+            throttleTimer = nil;
+            
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
+            
             
             [_aux2Channel setValue:1];
-            
-            
             
             
             autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
             
             isAutoTakingOff = NO;
+       
         }
-        //}
+        else{
+            if (_throttleChannel.value < 0.5) {
+                if (accZ > -25) {
+
+                    if (accTimeCnt == 0) {
+                        _throttleChannel.value += (25 / 500.0f);
+                    }
+                    else if(accTimeCnt == 1){
+                        _throttleChannel.value += (25 / 500.0f);
+                    }
+                    else if(accTimeCnt == 2){
+                        _throttleChannel.value += (20 / 500.0f);
+                    }
+                    else if(accTimeCnt == 3){
+                        _throttleChannel.value += (20 / 500.0f);
+                    }
+                    else if(accTimeCnt == 4){
+                        _throttleChannel.value += (20 / 500.0f);
+                    }
+                    else if(accTimeCnt == 5){
+                        _throttleChannel.value += (20 / 500.0f);
+                    }
+                    else if(accTimeCnt == 6){
+                        _throttleChannel.value += (20 / 500.0f);
+                    }
+                    else if(accTimeCnt == 7){
+                        _throttleChannel.value += (18 / 500.0f);
+                    }
+                    else if(accTimeCnt == 8){
+                        _throttleChannel.value += (18 / 500.0f);
+                    }
+                    else if(accTimeCnt == 9){
+                        _throttleChannel.value += (18 / 500.0f);
+                    }
+                    else if(accTimeCnt == 10){
+                        _throttleChannel.value += (18 / 500.0f);
+                    }
+                    
+                    else if(accTimeCnt == 11){
+                        _throttleChannel.value += (18 / 500.0f);
+                    }
+                    else if(accTimeCnt == 12){
+                        _throttleChannel.value += (18 / 500.0f);
+                    }
+                    else{
+//                        if (30 < altitude < 100) {
+//                            [throttleTimer invalidate];
+//                            [throttleTimer release];
+//                            throttleTimer = nil;
+//                            
+//                            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
+//                            
+//                            
+//                            [_aux2Channel setValue:1];
+//                            
+//                            
+//                            autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
+//                            
+//                            isAutoTakingOff = NO;
+//                        }
+//                        else
+                        if(accTimeCnt == 13){
+                            _throttleChannel.value += (18 / 500.0f);
+                        }
+                        else if(accTimeCnt == 14){
+                            _throttleChannel.value += (18 / 500.0f);
+                        }
+                        else if(accTimeCnt == 15){
+                            _throttleChannel.value += (18 / 500.0f);
+                        }
+                        
+                        else if(accTimeCnt == 16){
+                            _throttleChannel.value += (15 / 500.0f);
+                        }
+                        
+                        else if(accTimeCnt == 17){
+                            _throttleChannel.value += (15 / 500.0f);
+                        }
+                        
+                        else if(accTimeCnt == 18){
+                            _throttleChannel.value += (15 / 500.0f);
+                        }
+                        
+                        else if(accTimeCnt == 19){
+                            _throttleChannel.value += (15 / 500.0f);
+                        }
+                    
+                                           }
+                    
+                    [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+                }
+                else{
+                    [throttleTimer invalidate];
+                    [throttleTimer release];
+                    throttleTimer = nil;
+                    
+                    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
+                    
+                    
+                    [_aux2Channel setValue:1];
+                    
+                    
+                    autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
+                    
+                    isAutoTakingOff = NO;
+                }
+            }
+        }
+        
+        accTimeCnt++;
     }
     else{
         if (_throttleChannel.value < 0.5) {
-            if (accZ <= -30) {
-                return;
+            if (accZ > -30) {
+                _throttleChannel.value += (22 / 500.0f);
+                
+                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
             }
-            
-            _throttleChannel.value += (22 / 500.0f);
-            
-            [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
         }
     }
+    
+    
+//    
+//    if (checkCnt > 0) {
+//        
+//        
+//        
+//        
+//        uint64_t current_time = mach_absolute_time();
+//        static mach_timebase_info_data_t sRightPressTimebaseInfo;
+//        uint64_t elapsedNano;
+//        float dt = 0;
+//        
+//        //dt calculus function of real elapsed time
+//        if(sRightPressTimebaseInfo.denom == 0) (void) mach_timebase_info(&sRightPressTimebaseInfo);
+//        elapsedNano = (current_time-take_off_start_time)*(sRightPressTimebaseInfo.numer / sRightPressTimebaseInfo.denom);
+//        dt = elapsedNano/1000000000.0;
+//        
+//        if (altitude > 130) {
+//            if (dt < 4.5) {  //此altitude是由超声波盲区造成的
+//                if (_throttleChannel.value < 0.5) {
+//                    if (accZ <= -30) {
+//                        return;
+//                    }
+//                    
+//                    _throttleChannel.value += ((4.5 - dt) / 4.5 * 50 / 500.0f);
+//                    
+//                    [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+//                }
+//            }
+//            else{
+//                if (_throttleChannel.value > -0.8) {
+//                    _throttleChannel.value -= (20 / 500.0f);
+//                    
+//                    [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+//                }
+//            }
+//            
+//            
+//            return;
+//        }
+//        else if(altitude < 50){
+//            if (_throttleChannel.value < 0.5) {
+//                if (accZ <= -30) {
+//                    return;
+//                }
+//                
+//                _throttleChannel.value += (20 / 500.0f);
+//                
+//                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+//            }
+//        }
+//        else{
+//            
+//            
+//            [throttleTimer invalidate];
+//            [throttleTimer release];
+//            throttleTimer = nil;
+//            
+//            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
+//        
+//            
+//            [_aux2Channel setValue:1];
+//            
+//            
+//            
+//            
+//            autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
+//            
+//            isAutoTakingOff = NO;
+//        }
+//        //}
+//    }
+//    else{
+//        if (_throttleChannel.value < 0.5) {
+//            if (accZ <= -30) {
+//                return;
+//            }
+//            
+//            _throttleChannel.value += (22 / 500.0f);
+//            
+//            [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+//        }
+//    }
 }
 //}
 
@@ -1792,6 +1946,7 @@ static inline float sign(float value)
         autoTakeOffState.text =  @"0";
         
         checkCnt = 0;
+        accTimeCnt = 0;
         [_aux2Channel setValue:-1];
         [_aux4Channel setValue:1];
         

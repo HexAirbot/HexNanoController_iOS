@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>1430469B-0DC7-4AE5-9FC6-51A00A2C68E4</string>
+	<string>F0C32A53-FDFC-458A-8549-22E8FA36986C</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RCTouch</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9A2E83A7-1D56-46D1-8222-B49364F52A3F</key>
-		<string>https://github.com/matt-the-ogre/HexNanoController_iOS.git</string>
+		<key>68DB8B11-7ED6-4BC8-831E-BC7E281C8296</key>
+		<string>https://github.com/HexAirbot/HexNanoController_iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RCTouch.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9A2E83A7-1D56-46D1-8222-B49364F52A3F</key>
+		<key>68DB8B11-7ED6-4BC8-831E-BC7E281C8296</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/matt-the-ogre/HexNanoController_iOS.git</string>
+	<string>https://github.com/HexAirbot/HexNanoController_iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9A2E83A7-1D56-46D1-8222-B49364F52A3F</string>
+	<string>68DB8B11-7ED6-4BC8-831E-BC7E281C8296</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9A2E83A7-1D56-46D1-8222-B49364F52A3F</string>
+			<string>68DB8B11-7ED6-4BC8-831E-BC7E281C8296</string>
 			<key>IDESourceControlWCCName</key>
 			<string>HexNanoController_iOS</string>
 		</dict>

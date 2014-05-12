@@ -1086,10 +1086,10 @@ typedef enum settings_alert_dialog{
                 [self resetToDefaultSettings];
                 break;
             case settings_alert_dialog_calibrate_mag:
-                [[[Transmitter sharedTransmitter] bleSerialManager] sendControlData:[self getSimpleSetCmd:206]]; // MSP_MAG_CALIBRATION
+                [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_MAG_CALIBRATION];
                 break;
             case settings_alert_dialog_calibrate_acc:
-                [[[Transmitter sharedTransmitter] bleSerialManager] sendControlData:[self getSimpleSetCmd:205]];  // MSP_ACC_CALIBRATION
+                [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_ACC_CALIBRATION];
                 break;
             default:
                 break;

@@ -266,10 +266,10 @@ static Transmitter *sharedTransmitter;
     NSMutableData *data = nil;
 
     if (data == nil) {
-        data = [NSMutableData dataWithBytes:package length:11];
+        data = [NSMutableData dataWithBytes:package + 5 length:6];
     }
     else{
-        [data appendData:[NSData dataWithBytes:package length:11]];
+        [data appendData:[NSData dataWithBytes:package + 5 length:6]];
     }
     
     if ([bleSerialMangager isConnected] && data != nil) {

@@ -714,7 +714,11 @@ typedef enum settings_alert_dialog{
         [manager stopScan];
     }
     else{
-        [[[Transmitter sharedTransmitter] bleSerialManager] disconnect];
+        [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_DISARM];
+        
+        [[[Transmitter sharedTransmitter] bleSerialManager] performSelector:@selector(disconnect) withObject:nil afterDelay:0.01];
+        
+        //[[[Transmitter sharedTransmitter] bleSerialManager] disconnect];
         
         [manager scan];
         
@@ -901,7 +905,11 @@ typedef enum settings_alert_dialog{
                 break;
             case settings_alert_dialog_disconnect:
                 isTryingConnect = NO;
-                [[[Transmitter sharedTransmitter] bleSerialManager] disconnect];
+                [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_DISARM];
+                
+                [[[Transmitter sharedTransmitter] bleSerialManager] performSelector:@selector(disconnect) withObject:nil afterDelay:0.01];
+                
+                //[[[Transmitter sharedTransmitter] bleSerialManager] disconnect];
                 break;
             case settings_alert_dialog_default:
                 [self resetToDefaultSettings];

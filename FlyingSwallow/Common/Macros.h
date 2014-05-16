@@ -26,7 +26,7 @@
 #define CURR_LANG              ([[NSLocale preferredLanguages] objectAtIndex:0])
 
 
-#define getLocalizeString(key) (!([CURR_LANG isEqual:@"en"] && ![CURR_LANG isEqual:@"zh-Hans"] && ![CURR_LANG isEqual:@"zh-Hant"]) ? \
+#define getLocalizeString(key) ((![CURR_LANG isEqual:@"en"] && ![CURR_LANG isEqual:@"zh-Hans"] && ![CURR_LANG isEqual:@"zh-Hant"]) ? \
                                 [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"]] localizedStringForKey:key value:@"" table:@"languages"] \
                                 : [[NSBundle mainBundle] localizedStringForKey:key value:@"" table:@"languages"])
  

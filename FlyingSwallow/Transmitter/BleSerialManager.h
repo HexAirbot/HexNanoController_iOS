@@ -42,7 +42,7 @@
 @property(nonatomic, assign) id<BleSerialManagerDelegate> delegate;
 
 //当isReady为NO时，scan不执行任何操作
--(void)scan;
+-(BOOL)scan;
 -(void)stopScan;
 
 -(void)connect:(CBPeripheral *)peripheral;

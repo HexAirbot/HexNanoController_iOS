@@ -37,7 +37,7 @@
     return [_currentBleSerial isConnected];
 }
 
-- (void)scan{
+- (BOOL)scan{
     if (_isAvailabel == YES && _isScanning == NO) {
         _isScanning = YES;
         
@@ -58,6 +58,11 @@
         
 //        [_centralManager scanForPeripheralsWithServices:nil options:nil];
         NSLog(@"Scanning started");
+        
+        return YES;
+    }
+    else{
+        return NO;
     }
 }
 
@@ -221,6 +226,15 @@
     
     [_currentBleSerial release];
     _currentBleSerial = nil;
+    
+    [controlCharacteristic release];
+    controlCharacteristic = nil;
+    
+    [requestCharacteristic release];
+    requestCharacteristic = nil;
+    
+    [osdCharacteristic release];
+    osdCharacteristic = nil;
     
     if(_delegate != nil){
         if ([_delegate respondsToSelector:@selector(bleSerialManager:didDisconnectPeripheral:)]) {

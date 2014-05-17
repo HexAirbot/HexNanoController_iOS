@@ -248,6 +248,14 @@ typedef enum settings_alert_dialog{
         if ((inputState == TransmitterStateOk) && (outputState == TransmitterStateOk)) {
             connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"connected")];
             connectionActivityIndicatorView.hidden = YES;
+            
+            [peripheralListScanButton setTitle:getLocalizeString(@"Scan") forState:UIControlStateNormal];
+            isScanningTextLabel.hidden = YES;
+            connectionActivityIndicatorView.hidden = YES;
+            
+            BleSerialManager *manager = [[Transmitter sharedTransmitter] bleSerialManager];
+            
+            [manager stopScan];
         }
         else if((inputState == TransmitterStateOk) && (outputState != TransmitterStateOk)){
             connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"not connected")];
@@ -789,13 +797,13 @@ typedef enum settings_alert_dialog{
     else{
         [[[Transmitter sharedTransmitter] bleSerialManager] disconnect];
         
-        [manager scan];
-        
-        if ([manager isScanning]) {
-            [peripheralListScanButton setTitle:getLocalizeString(@"Stop Scan") forState:UIControlStateNormal];
-            isScanningTextLabel.hidden = NO;
-            connectionActivityIndicatorView.hidden = NO;
-            [connectionActivityIndicatorView startAnimating];
+        if ([manager scan]) {
+            if ([manager isScanning]) {
+                [peripheralListScanButton setTitle:getLocalizeString(@"Stop Scan") forState:UIControlStateNormal];
+                isScanningTextLabel.hidden = NO;
+                connectionActivityIndicatorView.hidden = NO;
+                [connectionActivityIndicatorView startAnimating];
+            }
         }
     }
 }

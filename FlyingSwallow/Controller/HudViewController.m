@@ -411,6 +411,9 @@ static inline float sign(float value)
     [accZtextLabel release];
     [debugTextView release];
     [autoTakeOffState release];
+    [pitchTrimValueTextLabel release];
+    [rollTrimValueTextLabel release];
+    [flightModeTextLabel release];
     [super dealloc];
 }
 
@@ -635,6 +638,8 @@ static inline float sign(float value)
     altValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.altitude];
     vBatValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.vBat];
     debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
+    pitchTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.pitchTrim];
+    rollTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.rollTrim];
     accZtextLabel.text =[NSString stringWithFormat:@"%d", osdData.absolutedAccZ];
     //debugTextView.text = osdData.testStr;
 }

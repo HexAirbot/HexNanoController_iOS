@@ -74,6 +74,9 @@ using namespace std;
 @synthesize gpsUpdate = _gpsUpdate;
 @synthesize gpsSpeed = _gpsSpeed;
 
+@synthesize rollTrim = _rollTrim;
+@synthesize pitchTrim = _pitchTrim;
+
 @synthesize rcThrottle = _rcThrottle;
 @synthesize rcYaw = _rcYaw;
 @synthesize rcRoll = _rcRoll;
@@ -214,7 +217,7 @@ using namespace std;
     return (inBuf[p++]&0xff) + ((inBuf[p++])<<8); 
 }
 
-- (int)read8 {
+- (int8_t)read8 {
     return inBuf[p++]&0xff;
 }
 
@@ -427,11 +430,14 @@ using namespace std;
             break;
         case MSP_HEX_NANO:
             _absolutedAccZ = [self read16];
-            _altitude = (float) [self read32];
+            //_altitude = (float) [self read32];
+            _altitude = [self read16];
             _angleX = [self read16]/10;  //[-180,180]，往右roll时，为正数
             _angleY = [self read16]/10;  //[-180,180]，头往上仰时，为负
             _head = [self read16];
-            _vBat = [self read8] / 256.0f * 5;
+            _vBat = ((uint8_t)[self read8]) / 256.0f * 5;
+            _pitchTrim = [self read8];
+            _rollTrim = [self read8];
             
             [_testStr appendString:[NSString stringWithFormat:@"\n%d", _absolutedAccZ]];
             

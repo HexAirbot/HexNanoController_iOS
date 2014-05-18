@@ -67,6 +67,13 @@ float accelero_rotation[3][3];
     
     IBOutlet UILabel *vBatValueTextLabel;
     
+    IBOutlet UILabel *pitchTrimValueTextLabel;
+    
+    IBOutlet UILabel *rollTrimValueTextLabel;
+    
+    
+    IBOutlet UILabel *flightModeTextLabel;
+    
     IBOutlet UILabel *debugValueTextLabel;
     
     IBOutlet UIButton *altHoldSwitchButton;

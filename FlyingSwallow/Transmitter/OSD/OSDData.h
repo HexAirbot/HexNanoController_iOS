@@ -55,6 +55,9 @@
 @property(nonatomic, readonly) int gpsUpdate;
 @property(nonatomic, readonly) int gpsSpeed;
 
+@property(nonatomic, readonly) int rollTrim;
+@property(nonatomic, readonly) int pitchTrim;
+
 @property(nonatomic, readonly) float rcThrottle;
 @property(nonatomic, readonly) float rcYaw;
 @property(nonatomic, readonly) float rcRoll;

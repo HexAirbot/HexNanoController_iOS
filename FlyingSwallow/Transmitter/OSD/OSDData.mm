@@ -95,6 +95,8 @@ using namespace std;
 @synthesize mode = _mode;
 @synthesize present = _present;
 
+@synthesize flightState = _flightState;
+
 @synthesize absolutedAccZ = _absolutedAccZ;
 
 @synthesize debug1 = _debug1;
@@ -429,6 +431,7 @@ using namespace std;
             NSLog(@"***get p6:%f", _param6);
             break;
         case MSP_HEX_NANO:
+            _flightState = (uint8_t)[self read8];
             _absolutedAccZ = [self read16];
             //_altitude = (float) [self read32];
             _altitude = [self read16];

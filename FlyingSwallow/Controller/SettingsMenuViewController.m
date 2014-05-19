@@ -496,6 +496,10 @@ typedef enum settings_alert_dialog{
     [param10ValueLabel release];
     [param11ValueLabel release];
     [param12ValueLabel release];
+    [upFastTrimButton release];
+    [downFastTrimButton release];
+    [leftFastTrimButton release];
+    [rightFastTrimButton release];
     [super dealloc];
 }
 
@@ -862,6 +866,18 @@ typedef enum settings_alert_dialog{
     }
     else if(sender == rightTrimButton){
         [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_TRIM_RIGHT];
+    }
+    else if(sender == upFastTrimButton){
+        [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_TRIM_UP_FAST];
+    }
+    else if(sender == downFastTrimButton){
+        [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_TRIM_DOWN_FAST];
+    }
+    else if(sender == leftFastTrimButton){
+        [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_TRIM_LEFT_FAST];
+    }
+    else if(sender == rightFastTrimButton){
+        [[Transmitter sharedTransmitter] transmmitSimpleCommand:MSP_TRIM_RIGHT_FAST];
     }
     else{
     }

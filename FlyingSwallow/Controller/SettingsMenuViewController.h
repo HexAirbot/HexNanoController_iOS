@@ -116,6 +116,14 @@ enum ChannelListTableViewSection {
     IBOutlet UIButton *rightTrimButton;
     IBOutlet UIButton *leftTrimButton;
     
+    IBOutlet UIButton *upFastTrimButton;
+    
+    IBOutlet UIButton *downFastTrimButton;
+    
+    IBOutlet UIButton *leftFastTrimButton;
+    
+    IBOutlet UIButton *rightFastTrimButton;
+    
     IBOutlet UILabel *beginnerModeTitleLabel;
     IBOutlet UIButton *beginnerModeSwitchButton;
     
@@ -183,6 +191,7 @@ enum ChannelListTableViewSection {
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil settings:(Settings *)settings;
 
 - (IBAction)buttonClick:(id)sender;
+
 - (IBAction)switchButtonClick:(id)sender;
 
 - (IBAction)sliderRelease:(id)sender;

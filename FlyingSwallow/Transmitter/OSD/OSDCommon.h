@@ -41,6 +41,10 @@ typedef unsigned char byte;
 #define MSP_TRIM_DOWN            154
 #define MSP_TRIM_LEFT            155
 #define MSP_TRIM_RIGHT           156
+#define MSP_TRIM_UP_FAST         157
+#define MSP_TRIM_DOWN_FAST       158
+#define MSP_TRIM_LEFT_FAST       159
+#define MSP_TRIM_RIGHT_FAST      160
 
 #define MSP_READ_TEST_PARAM      189
 #define MSP_SET_TEST_PARAM       190

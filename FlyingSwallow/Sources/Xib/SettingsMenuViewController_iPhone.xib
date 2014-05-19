@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -20,6 +20,7 @@
                 <outlet property="connectionActivityIndicatorView" destination="328" id="331"/>
                 <outlet property="connectionStateTextLabel" destination="329" id="334"/>
                 <outlet property="defaultSettingsButton" destination="103" id="279"/>
+                <outlet property="downFastTrimButton" destination="Utr-qk-evN" id="mPB-WK-YQt"/>
                 <outlet property="downTrimButton" destination="O9z-JR-IJw" id="Tea-bI-n6G"/>
                 <outlet property="headfreeModeSwitchButton" destination="7M2-sR-vIR" id="RgQ-cu-J0T"/>
                 <outlet property="headfreeModeTitleLabel" destination="1kP-Uq-chU" id="fCz-Lk-qD2"/>
@@ -27,6 +28,7 @@
                 <outlet property="interfaceOpacitySlider" destination="127" id="264"/>
                 <outlet property="interfaceOpacityTitleLabel" destination="125" id="263"/>
                 <outlet property="isScanningTextLabel" destination="335" id="336"/>
+                <outlet property="leftFastTrimButton" destination="zMs-UP-rKj" id="Yq6-zz-XTD"/>
                 <outlet property="leftHandedSwitchButton" destination="129" id="262"/>
                 <outlet property="leftHandedTitleLabel" destination="128" id="261"/>
                 <outlet property="leftTrimButton" destination="hwl-mw-m7K" id="OT6-07-1Qf"/>
@@ -89,6 +91,7 @@
                 <outlet property="peripheralView" destination="318" id="323"/>
                 <outlet property="personalSettingsPageView" destination="124" id="145"/>
                 <outlet property="previousPageButton" destination="100" id="149"/>
+                <outlet property="rightFastTrimButton" destination="omU-J7-b6w" id="RAe-3z-wvv"/>
                 <outlet property="rightTrimButton" destination="3yF-3J-aH3" id="AKf-WG-hdK"/>
                 <outlet property="rudderDeadBandLabel" destination="292" id="302"/>
                 <outlet property="rudderDeadBandSlider" destination="293" id="301"/>
@@ -100,6 +103,7 @@
                 <outlet property="testSettingsView" destination="PGl-cy-KXB" id="Ljn-6w-bTr"/>
                 <outlet property="testSettingsView2" destination="mOn-pe-RR0" id="4t8-2r-kpA"/>
                 <outlet property="trimSettingsView" destination="ppa-Dq-Gag" id="LiI-LG-lFm"/>
+                <outlet property="upFastTrimButton" destination="wnk-Nh-Wm5" id="fwh-RZ-9Wc"/>
                 <outlet property="upTrimButton" destination="5r5-Cl-m7w" id="Hfe-jr-uJZ"/>
                 <outlet property="view" destination="97" id="144"/>
             </connections>
@@ -529,6 +533,19 @@
                     </state>
                     <connections>
                         <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="YbJ-3V-wnK"/>
+                        <action selector="buttonClickRepeat:" destination="-1" eventType="touchDownRepeat" id="XtC-DH-AR6"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wnk-Nh-Wm5">
+                    <rect key="frame" x="174" y="4" width="92" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="up_fast" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="J4r-aQ-xiG"/>
+                        <action selector="buttonClickRepeat:" destination="-1" eventType="touchDownRepeat" id="rsL-ju-jtf"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O9z-JR-IJw">
@@ -542,6 +559,17 @@
                         <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="g1j-e9-wUp"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Utr-qk-evN">
+                    <rect key="frame" x="174" y="221" width="92" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="down_fast" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="DPK-95-26a"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3yF-3J-aH3">
                     <rect key="frame" x="275" y="114" width="92" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -553,6 +581,17 @@
                         <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="4VM-Dr-hhl"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="omU-J7-b6w">
+                    <rect key="frame" x="356" y="114" width="92" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="right_fast" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="TMs-Ew-9lx"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hwl-mw-m7K">
                     <rect key="frame" x="79" y="114" width="92" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -562,6 +601,17 @@
                     </state>
                     <connections>
                         <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="mPT-5n-idG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zMs-UP-rKj">
+                    <rect key="frame" x="-2" y="114" width="92" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="left_fast" backgroundImage="Btn_Default_RETINA.png">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="NBb-LQ-1jv"/>
                     </connections>
                 </button>
             </subviews>

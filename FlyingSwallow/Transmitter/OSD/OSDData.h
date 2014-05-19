@@ -82,6 +82,8 @@
 @property(nonatomic, readonly) int mode;
 @property(nonatomic, readonly) int present;
 
+@property(nonatomic, readonly) int flightState;
+
 @property(nonatomic, readonly) int absolutedAccZ;
 
 @property(nonatomic, readonly) float param1;

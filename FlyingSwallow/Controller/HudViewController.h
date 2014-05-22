@@ -22,6 +22,7 @@
 #import "Channel.h"
 #import "Settings.h"
 #import "OSDView.h"
+#import "OSDViewController.h"
 
 typedef enum{
 	ViewBlockViewINVALID = 0,

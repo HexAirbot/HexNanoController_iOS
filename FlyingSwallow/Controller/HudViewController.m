@@ -95,6 +95,8 @@ static inline float sign(float value)
 
     int checkCnt;
     int accTimeCnt;
+    
+    OSDViewController *osdVC;
 }
 
 @property(nonatomic, retain) Channel *aileronChannel;
@@ -294,6 +296,26 @@ static inline float sign(float value)
         [alertView show];
         [alertView release];
     }
+    
+    if (osdVC == nil) {
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController" bundle:nil
+                                                          data:[Transmitter sharedTransmitter].osdData];
+            osdVC.view.center = CGPointMake(self.view.frame.size.width - osdVC.view.frame.size.width / 2.0 - 10, 200);
+        }
+        else{
+            osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController" bundle:nil
+                                                          data:[Transmitter sharedTransmitter].osdData];
+            osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0, 140);
+            // osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController_iPhone" bundle:nil
+            //                                              data:[Transmitter sharedTransmitter].osdData];
+            // osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0 - 10, 100);
+        }
+        
+        [self.view insertSubview:osdVC.view belowSubview:joystickRightButton];
+        
+       // [[BasicInfoManager sharedManager] setOsdVC:osdVC];
+    }
 }
 
 
@@ -414,6 +436,7 @@ static inline float sign(float value)
     [pitchTrimValueTextLabel release];
     [rollTrimValueTextLabel release];
     [flightModeTextLabel release];
+    [osdVC release];
     [super dealloc];
 }
 
@@ -641,6 +664,8 @@ static inline float sign(float value)
     pitchTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.pitchTrim];
     rollTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.rollTrim];
     accZtextLabel.text =[NSString stringWithFormat:@"%d", osdData.absolutedAccZ];
+    
+    [osdVC updateUI];
     //debugTextView.text = osdData.testStr;
 }
 

@@ -24,6 +24,17 @@
 		E05AA5F3169B494B009DA2A7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0E3D358169B2A9000DC30C6 /* Default@2x.png */; };
 		E05AA5F7169B496D009DA2A7 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E05AA5F6169B496D009DA2A7 /* Default-Landscape@2x~ipad.png */; };
 		E05AA5F8169B498F009DA2A7 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E05AA5F4169B4962009DA2A7 /* Default-Portrait@2x~ipad.png */; };
+		E08EA64C192D8DC3005C1DBA /* ArtificialHorizonView.m in Sources */ = {isa = PBXBuildFile; fileRef = E08EA64B192D8DC3005C1DBA /* ArtificialHorizonView.m */; };
+		E08EA64F192D8DE1005C1DBA /* OSDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E08EA64E192D8DE1005C1DBA /* OSDViewController.m */; };
+		E08EA652192D8DF3005C1DBA /* OSDViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = E08EA650192D8DF3005C1DBA /* OSDViewController_iPhone.xib */; };
+		E08EA653192D8DF3005C1DBA /* OSDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E08EA651192D8DF3005C1DBA /* OSDViewController.xib */; };
+		E08EA657192D8E18005C1DBA /* osd_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E08EA654192D8E18005C1DBA /* osd_button.png */; };
+		E08EA658192D8E18005C1DBA /* osd_cover.png in Resources */ = {isa = PBXBuildFile; fileRef = E08EA655192D8E18005C1DBA /* osd_cover.png */; };
+		E08EA659192D8E18005C1DBA /* osd_holder.png in Resources */ = {isa = PBXBuildFile; fileRef = E08EA656192D8E18005C1DBA /* osd_holder.png */; };
+		E08EA65C192D904B005C1DBA /* DoubleBufferedAsyncView.m in Sources */ = {isa = PBXBuildFile; fileRef = E08EA65B192D904B005C1DBA /* DoubleBufferedAsyncView.m */; };
+		E08EA65F192D9075005C1DBA /* CompassView.m in Sources */ = {isa = PBXBuildFile; fileRef = E08EA65E192D9075005C1DBA /* CompassView.m */; };
+		E08EA662192D908F005C1DBA /* VerticalScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E08EA661192D908F005C1DBA /* VerticalScaleView.m */; };
+		E08EA666192D920D005C1DBA /* MiscUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E08EA665192D920D005C1DBA /* MiscUtilities.m */; };
 		E0AE51C5168B6AD400AA394D /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = E0AE51C4168B6AD400AA394D /* util.c */; };
 		E0AE67B6185EADFA00802775 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0AE67B5185EADFA00802775 /* HelpViewController.m */; };
 		E0AE67BA185EAE8C00802775 /* HelpViewController_iPhone_tall.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE67B7185EAE8C00802775 /* HelpViewController_iPhone_tall.xib */; };
@@ -159,6 +170,24 @@
 		E05AA5ED169B451E009DA2A7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/About.html"; sourceTree = "<group>"; };
 		E05AA5F4169B4962009DA2A7 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../../../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		E05AA5F6169B496D009DA2A7 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../../../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		E08EA64A192D8DC3005C1DBA /* ArtificialHorizonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtificialHorizonView.h; sourceTree = "<group>"; };
+		E08EA64B192D8DC3005C1DBA /* ArtificialHorizonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtificialHorizonView.m; sourceTree = "<group>"; };
+		E08EA64D192D8DE1005C1DBA /* OSDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDViewController.h; sourceTree = "<group>"; };
+		E08EA64E192D8DE1005C1DBA /* OSDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSDViewController.m; sourceTree = "<group>"; };
+		E08EA650192D8DF3005C1DBA /* OSDViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSDViewController_iPhone.xib; sourceTree = "<group>"; };
+		E08EA651192D8DF3005C1DBA /* OSDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSDViewController.xib; sourceTree = "<group>"; };
+		E08EA654192D8E18005C1DBA /* osd_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = osd_button.png; sourceTree = "<group>"; };
+		E08EA655192D8E18005C1DBA /* osd_cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = osd_cover.png; sourceTree = "<group>"; };
+		E08EA656192D8E18005C1DBA /* osd_holder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = osd_holder.png; sourceTree = "<group>"; };
+		E08EA65A192D904B005C1DBA /* DoubleBufferedAsyncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleBufferedAsyncView.h; sourceTree = "<group>"; };
+		E08EA65B192D904B005C1DBA /* DoubleBufferedAsyncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleBufferedAsyncView.m; sourceTree = "<group>"; };
+		E08EA65D192D9075005C1DBA /* CompassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassView.h; sourceTree = "<group>"; };
+		E08EA65E192D9075005C1DBA /* CompassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassView.m; sourceTree = "<group>"; };
+		E08EA660192D908F005C1DBA /* VerticalScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalScaleView.h; sourceTree = "<group>"; };
+		E08EA661192D908F005C1DBA /* VerticalScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalScaleView.m; sourceTree = "<group>"; };
+		E08EA663192D91E5005C1DBA /* GaugeViewCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugeViewCommon.h; sourceTree = "<group>"; };
+		E08EA664192D920D005C1DBA /* MiscUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscUtilities.h; sourceTree = "<group>"; };
+		E08EA665192D920D005C1DBA /* MiscUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscUtilities.m; sourceTree = "<group>"; };
 		E0AE51C4168B6AD400AA394D /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
 		E0AE51C7168B6ADF00AA394D /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		E0AE67B4185EADFA00802775 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
@@ -402,6 +431,8 @@
 			isa = PBXGroup;
 			children = (
 				E01CC8BB16F4CB360006921B /* BasicInfoManager.h */,
+				E08EA664192D920D005C1DBA /* MiscUtilities.h */,
+				E08EA665192D920D005C1DBA /* MiscUtilities.m */,
 				E01CC8BC16F4CB360006921B /* BasicInfoManager.m */,
 				E0C429F7168C9F7A00B0AD63 /* BlockViewStyle1.h */,
 				E0C429F8168C9F7A00B0AD63 /* BlockViewStyle1.m */,
@@ -415,6 +446,8 @@
 		E0DDF9DF16846E1A00F2A21E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E08EA64D192D8DE1005C1DBA /* OSDViewController.h */,
+				E08EA64E192D8DE1005C1DBA /* OSDViewController.m */,
 				E0DDF9E316846E3700F2A21E /* HudViewController.h */,
 				E0DDF9E416846E3700F2A21E /* HudViewController.m */,
 				E0DDFA4016849CEB00F2A21E /* SettingsMenuViewController.h */,
@@ -452,6 +485,15 @@
 		E0DDF9E216846E1A00F2A21E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E08EA663192D91E5005C1DBA /* GaugeViewCommon.h */,
+				E08EA660192D908F005C1DBA /* VerticalScaleView.h */,
+				E08EA661192D908F005C1DBA /* VerticalScaleView.m */,
+				E08EA65D192D9075005C1DBA /* CompassView.h */,
+				E08EA65E192D9075005C1DBA /* CompassView.m */,
+				E08EA64A192D8DC3005C1DBA /* ArtificialHorizonView.h */,
+				E08EA65A192D904B005C1DBA /* DoubleBufferedAsyncView.h */,
+				E08EA65B192D904B005C1DBA /* DoubleBufferedAsyncView.m */,
+				E08EA64B192D8DC3005C1DBA /* ArtificialHorizonView.m */,
 				E0DDFA951684C6ED00F2A21E /* FSSlider.h */,
 				E0DDFA961684C6ED00F2A21E /* FSSlider.m */,
 			);
@@ -461,6 +503,9 @@
 		E0DDF9EE168472BB00F2A21E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				E08EA654192D8E18005C1DBA /* osd_button.png */,
+				E08EA655192D8E18005C1DBA /* osd_cover.png */,
+				E08EA656192D8E18005C1DBA /* osd_holder.png */,
 				E0AE67BD185EB58800802775 /* help_page_01.png */,
 				E0AE67BE185EB58800802775 /* help_page_02.png */,
 				E0AE67BF185EB58800802775 /* help_page_03.png */,
@@ -523,6 +568,8 @@
 		E0DDF9EF168472BB00F2A21E /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				E08EA650192D8DF3005C1DBA /* OSDViewController_iPhone.xib */,
+				E08EA651192D8DF3005C1DBA /* OSDViewController.xib */,
 				E0AE67B7185EAE8C00802775 /* HelpViewController_iPhone_tall.xib */,
 				E0AE67B8185EAE8C00802775 /* HelpViewController_iPhone.xib */,
 				E0AE67B9185EAE8C00802775 /* HelpViewController.xib */,
@@ -706,6 +753,7 @@
 				E0DDFA7F16849EBE00F2A21E /* scroll_bar_gray_iPad.png in Resources */,
 				E0DDFA8016849EBE00F2A21E /* scroll_bar_orange.png in Resources */,
 				E0DDFA8116849EBE00F2A21E /* scroll_bar_orange@2x.png in Resources */,
+				E08EA652192D8DF3005C1DBA /* OSDViewController_iPhone.xib in Resources */,
 				E0DDFA8216849EBE00F2A21E /* scroll_bar_orange_iPad.png in Resources */,
 				E0DDFA8316849EBE00F2A21E /* scroll_btn.png in Resources */,
 				E0DDFA8416849EBE00F2A21E /* scroll_btn@2x.png in Resources */,
@@ -717,6 +765,7 @@
 				E0DF7EB416972C31002607DB /* hud_frame_RETINA.png in Resources */,
 				E0DF7EB716972E27002607DB /* Btn_Settings_On_RETINA.png in Resources */,
 				E0DF7EB816972E27002607DB /* Btn_Settings_RETINA.png in Resources */,
+				E08EA653192D8DF3005C1DBA /* OSDViewController.xib in Resources */,
 				E0DF7EBB16972FD2002607DB /* Btn_Emergency_On_RETINA.png in Resources */,
 				E0DF7EBC16972FD2002607DB /* Btn_Emergency_RETINA.png in Resources */,
 				E0DF7EBF169730AB002607DB /* Btn_Take_Off_On_RETINA.png in Resources */,
@@ -741,10 +790,12 @@
 				E0DF7EE116974A4D002607DB /* Btn_Increase_IPAD.png in Resources */,
 				E0DF7EE216974A4D002607DB /* Btn_Increase_On_IPAD.png in Resources */,
 				E0DF7EE516974B94002607DB /* Btn_Take_Off_IPAD.png in Resources */,
+				E08EA659192D8E18005C1DBA /* osd_holder.png in Resources */,
 				E0AE67C5185EB58800802775 /* help_page_04.png in Resources */,
 				E0DF7EE616974B94002607DB /* Btn_Take_Off_On_IPAD.png in Resources */,
 				E0DF7EED16974ECE002607DB /* Btn_Emergency_IPAD.png in Resources */,
 				E0DF7EEE16974ECE002607DB /* Btn_Emergency_On_IPAD.png in Resources */,
+				E08EA658192D8E18005C1DBA /* osd_cover.png in Resources */,
 				E0DF7EF6169750CE002607DB /* Joystick_Gyro_iPAD.png in Resources */,
 				E0DF7EF7169750CE002607DB /* Joystick_Halo_iPAD.png in Resources */,
 				E0DF7EF8169750CE002607DB /* Joystick_Manuel_iPAD.png in Resources */,
@@ -765,6 +816,7 @@
 				E0E3D34A169B282900DC30C6 /* Icon@2x.png in Resources */,
 				E0E3D34B169B283B00DC30C6 /* Icon.png in Resources */,
 				E0E3D352169B293200DC30C6 /* Icon_iPad.png in Resources */,
+				E08EA657192D8E18005C1DBA /* osd_button.png in Resources */,
 				E0E3D353169B293200DC30C6 /* Icon_iPad@2x.png in Resources */,
 				E0E3D357169B299400DC30C6 /* Default-Landscape~ipad.png in Resources */,
 				E0E3D35F169B2F4200DC30C6 /* Channel_Settings_Bg.jpg in Resources */,
@@ -796,17 +848,23 @@
 				E0DDF9CB1684698500F2A21E /* main.m in Sources */,
 				E0DDF9CF1684698500F2A21E /* AppDelegate.m in Sources */,
 				E0DDF9E516846E3700F2A21E /* HudViewController.m in Sources */,
+				E08EA662192D908F005C1DBA /* VerticalScaleView.m in Sources */,
+				E08EA65F192D9075005C1DBA /* CompassView.m in Sources */,
 				E0DDFA4216849CEC00F2A21E /* SettingsMenuViewController.m in Sources */,
 				E0DDFA971684C6ED00F2A21E /* FSSlider.m in Sources */,
 				E0CCFAB01685C63C000266A9 /* Settings.m in Sources */,
+				E08EA65C192D904B005C1DBA /* DoubleBufferedAsyncView.m in Sources */,
 				E0CCFAB31685CB95000266A9 /* Channel.m in Sources */,
 				E0AE67B6185EADFA00802775 /* HelpViewController.m in Sources */,
+				E08EA64C192D8DC3005C1DBA /* ArtificialHorizonView.m in Sources */,
 				E0D0141D16887DFC003E3F19 /* ChannelSettingsViewController.m in Sources */,
 				E0AE51C5168B6AD400AA394D /* util.c in Sources */,
 				E0C429F9168C9F7A00B0AD63 /* BlockViewStyle1.m in Sources */,
 				E0F5127B16F31982009CEF70 /* Transmitter.m in Sources */,
 				E0EFB03C16F4B2B5007B912F /* AsyncUdpSocket.m in Sources */,
 				E01CC8BD16F4CB360006921B /* BasicInfoManager.m in Sources */,
+				E08EA666192D920D005C1DBA /* MiscUtilities.m in Sources */,
+				E08EA64F192D8DE1005C1DBA /* OSDViewController.m in Sources */,
 				E0159E1316F71456002D414F /* OSDView.m in Sources */,
 				E0159E1C16F72B36002D414F /* OSDCommon.mm in Sources */,
 				E0159E1D16F72B36002D414F /* OSDData.mm in Sources */,

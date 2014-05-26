@@ -545,7 +545,6 @@
                     </state>
                     <connections>
                         <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="J4r-aQ-xiG"/>
-                        <action selector="buttonClickRepeat:" destination="-1" eventType="touchDownRepeat" id="rsL-ju-jtf"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O9z-JR-IJw">

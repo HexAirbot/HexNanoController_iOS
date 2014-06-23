@@ -115,6 +115,4 @@ float accelero_rotation[3][3];
 
 - (IBAction)autoTakeOff:(id)sender;
 
-
-
 @end

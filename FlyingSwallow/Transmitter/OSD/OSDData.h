@@ -42,8 +42,8 @@
 
 @property(nonatomic, readonly) float altitude;
 @property(nonatomic, readonly) float head;
-@property(nonatomic, readonly) float angleX;
-@property(nonatomic, readonly) float angleY;
+@property(nonatomic) float angleX;
+@property(nonatomic) float angleY;
 
 @property(nonatomic, readonly) int gpsSatCount;
 @property(nonatomic, readonly) int gpsLongitude;

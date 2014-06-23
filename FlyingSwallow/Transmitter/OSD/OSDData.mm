@@ -188,6 +188,14 @@ using namespace std;
     return self;
 }
 
+- (void)setAngleX:(float)angleX{
+    _angleX = angleX;
+}
+
+- (void)setAngleY:(float)angleY{
+    _angleY = angleY;
+}
+
 - (Float32)read32{
 //    uint32_t part1 = (inBuf[p++]&0xff);
 //    uint32_t part2 = ((inBuf[p++]&0xff)<<8);

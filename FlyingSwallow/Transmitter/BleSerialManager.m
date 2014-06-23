@@ -378,11 +378,13 @@
     
     NSString *NSMutableString = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
     
+    /*
     if (NSMutableString != nil) {
         [[[BasicInfoManager sharedManager] debugStr] setString:NSMutableString];
     }
     
     NSLog(@"Received: %@", NSMutableString);
+    */
     
     if ([_delegate respondsToSelector:@selector(bleSerialManager:didReceiveData:)]) {
         [_delegate bleSerialManager:self didReceiveData:characteristic.value];

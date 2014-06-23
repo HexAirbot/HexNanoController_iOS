@@ -54,6 +54,15 @@ static inline float sign(float value)
 	return result;
 }
 
+typedef enum flight_state{
+    flight_state_taking_off,
+    flight_state_angle,
+    flight_state_horizon,
+    flight_state_baro,
+    flight_state_sonar,
+    flight_state_headfree
+}flight_state_t;
+
 
 @interface HudViewController (){
     CGPoint joystickRightCurrentPosition, joystickLeftCurrentPosition;
@@ -96,6 +105,15 @@ static inline float sign(float value)
     int checkCnt;
     int accTimeCnt;
     
+    
+#define kAltArrayMaxLen 6
+    float altArray[kAltArrayMaxLen];
+    
+    
+    int altArrayVaildLen;
+    
+    
+    flight_state_t flightState;
     OSDViewController *osdVC;
 }
 
@@ -316,6 +334,8 @@ static inline float sign(float value)
         
        // [[BasicInfoManager sharedManager] setOsdVC:osdVC];
     }
+    
+    flightState = flight_state_horizon;
 }
 
 
@@ -660,12 +680,24 @@ static inline float sign(float value)
     headAngleValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.head];
     altValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.altitude];
     vBatValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.vBat];
-    debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
+    
+    if (osdData.vBat < 3.4) {
+        vBatValueTextLabel.textColor = [UIColor redColor];
+    }
+    else{
+        vBatValueTextLabel.textColor = [UIColor whiteColor];
+    }
+    
+    //debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
+    
+    [self updateFlightState:flightState];
+    
     pitchTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.pitchTrim];
     rollTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.rollTrim];
     accZtextLabel.text =[NSString stringWithFormat:@"%d", osdData.absolutedAccZ];
     
     [osdVC updateUI];
+    
     //debugTextView.text = osdData.testStr;
 }
 
@@ -682,6 +714,10 @@ static inline float sign(float value)
     }
     else if((inputState == TransmitterStateOk) && (outputState != TransmitterStateOk)){
        // warningLabel.text = @"Can‘t to send data to WiFi Module, please check the connection is OK.";
+        OSDData *osdData = osdView.osdData;
+        osdData.angleX = 0.0f;
+        osdData.angleY = 0.0f;
+        
         warningLabel.text = getLocalizeString(@"not connected");
         [warningLabel setTextColor:[UIColor redColor]];
         warningView.hidden = NO;
@@ -689,6 +725,15 @@ static inline float sign(float value)
     }
     else if((inputState != TransmitterStateOk) && (outputState == TransmitterStateOk)){
         //warningLabel.text = @"Can't get data from WiFi modual, please check the connection is OK.";
+        OSDData *osdData = [Transmitter sharedTransmitter].osdData;
+        
+    }
+    else if((inputState == TransmitterStateOk) && (outputState != TransmitterStateOk)){
+        // warningLabel.text = @"Can‘t to send data to WiFi Module, please check the connection is OK.";
+        OSDData *osdData = osdView.osdData;
+        osdData.angleX = 0.0f;
+        osdData.angleY = 0.0f;
+        
         warningLabel.text = getLocalizeString(@"not connected");
         [warningLabel setTextColor:[UIColor redColor]];
         warningView.hidden = NO;
@@ -696,6 +741,10 @@ static inline float sign(float value)
         
     }
     else {
+        OSDData *osdData = osdView.osdData;
+        osdData.angleX = 0.0f;
+        osdData.angleY = 0.0f;
+        
         warningLabel.text = @"not connected";
         [warningLabel setTextColor:[UIColor redColor]];
         warningView.hidden = NO;
@@ -1684,13 +1733,216 @@ static inline float sign(float value)
 - (void)updateDebugTextView{
     OSDData *osdData = [Transmitter sharedTransmitter].osdData;
     
-        debugTextView.text = [NSString stringWithFormat:@"%@\n%d", debugTextView.text, osdData.absolutedAccZ];
+    
+    
+    //debugTextView.text = [NSString stringWithFormat:@"%@\n%d", debugTextView.text, osdData.absolutedAccZ];
+    
+
+   // debugTextView.text = [NSString stringWithFormat:@"%@\n%d", debugTextView.text, osdData.absolutedAccZ];
 }
 
 - (void)flight{
 
 }
 
+- (void)updateDebugTextView2{
+    debugTextView.text = [NSString stringWithFormat:@"%@\n<<******", debugTextView.text];
+    
+    for (int idx = 0; idx < kAltArrayMaxLen; idx++) {
+        //int alt = altArray[idx];
+        
+        debugTextView.text = [NSString stringWithFormat:@"%@\n%f", debugTextView.text, altArray[idx]];
+    }
+    
+    debugTextView.text = [NSString stringWithFormat:@"%@\n******", debugTextView.text];
+
+}
+
+- (void)updateDebugTextViewWithString:(NSString *)str{
+    debugTextView.text = [NSString stringWithFormat:@"%@\n%@", debugTextView.text, str];
+}
+
+
+- (BOOL)checkAltArray{
+    if (altArrayVaildLen != kAltArrayMaxLen) {  //数据还没采集足够的多
+        return FALSE;
+    }
+    
+    [self performSelectorOnMainThread:@selector(updateDebugTextView2) withObject:nil waitUntilDone:NO];
+    
+
+    
+    int invalidAltCnt = 0;
+    
+    for (int idx = 0; idx < kAltArrayMaxLen; idx++) {
+        if (25 < altArray[idx] < 150) {
+            
+        }
+        else{
+            invalidAltCnt++;
+        }
+    }
+    
+    if (invalidAltCnt > 2) {
+        [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"度范围不对>>" waitUntilDone:NO];
+        
+        return FALSE;
+    }
+    /*
+    else{
+        invalidAltCnt = 0;
+        
+        for (int idx = 0; idx < kAltArrayMaxLen - 1; idx++) {
+            if(fabs(altArray[idx + 1] - altArray[idx]) > 12){
+                invalidAltCnt++;
+                
+                if (fabs(altArray[idx + 1] - altArray[idx]) > 30) {
+                    [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"值相差不对>>" waitUntilDone:NO];
+                    //debugTextView.text = [NSString stringWithFormat:@"%@\n值相差不对>>", debugTextView.text];
+                    return FALSE;
+                }
+            }
+            else if(fabs(altArray[idx + 1] - altArray[idx]) == 0){
+                invalidAltCnt++;
+            }
+            else{
+                invalidAltCnt--;
+            }
+        }
+        
+        if (invalidAltCnt > 2) {
+            [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"值相差不对>>" waitUntilDone:NO];
+            //debugTextView.text = [NSString stringWithFormat:@"%@\n值相差不对>>", debugTextView.text];
+            return FALSE;
+        }
+    }*/
+    
+    invalidAltCnt = 0;
+    
+    int sum = 0;
+    int average = 0;
+    
+    for(int idx = 0; idx < kAltArrayMaxLen; idx++){
+        sum += altArray[idx];
+    }
+    
+    average = sum / kAltArrayMaxLen;
+    
+    for(int idx = 0; idx < kAltArrayMaxLen; idx++){
+        if(fabs(altArray[idx] - average) > 30){
+            invalidAltCnt++;
+        }
+    }
+    
+    if (invalidAltCnt > 1) {
+        [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"平均值不对>>" waitUntilDone:NO];
+        //debugTextView.text = [NSString stringWithFormat:@"%@\n值相差不对>>", debugTextView.text];
+        return FALSE;
+    }
+
+    
+    
+    [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"跨过盲区>>" waitUntilDone:NO];
+    //debugTextView.text = [NSString stringWithFormat:@"%@\n跨过盲区>>", debugTextView.text];
+    
+    return TRUE;
+}
+
+
+- (void)autoTakeOff2{
+    OSDData *osdData = [Transmitter sharedTransmitter].osdData;
+    
+    int accZ = osdData.absolutedAccZ;
+    float altitude = osdData.altitude;
+    
+    NSLog(@">>>***%d", osdData.absolutedAccZ);
+    
+    if (accZ < -5) {
+        checkCnt++;
+        
+        [self performSelectorOnMainThread:@selector(updateDebugTextView) withObject:nil waitUntilDone:NO];
+    }
+    
+    
+#define MAX_ACC_TIME_CNT 30
+    if (checkCnt > 0) {  //获得了怠速
+        [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"获得怠速" waitUntilDone:NO];
+        /*
+        if (accTimeCnt > MAX_ACC_TIME_CNT) {  //获得怠速之后，自动起飞超时了
+            [throttleTimer invalidate];
+            [throttleTimer release];
+            throttleTimer = nil;
+            
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
+            
+            
+            [_aux2Channel setValue:-1];
+            
+            
+            autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
+            
+            isAutoTakingOff = NO;
+            
+            return;
+        }*/
+        
+        if (altArrayVaildLen < kAltArrayMaxLen) {
+            altArray[altArrayVaildLen] = altitude;
+            altArrayVaildLen++;
+        }
+        else{
+            for (int idx = 0; idx < kAltArrayMaxLen - 1; idx++) {
+                altArray[idx] = altArray[idx + 1];
+            }
+            altArray[kAltArrayMaxLen - 1] = altitude;
+            altArrayVaildLen = kAltArrayMaxLen;
+            //altArrayVaildLen++;
+        }
+
+        
+        if([self checkAltArray]){  //越过了盲区
+            [throttleTimer invalidate];
+            [throttleTimer release];
+            throttleTimer = nil;
+            
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
+            
+            [_aux2Channel setValue:1];
+            
+            autoTakeOffState.text = [NSString stringWithFormat:@"1 %d %d", checkCnt, (int)(1500 + 500 * _throttleChannel.value)];
+            
+            isAutoTakingOff = NO;
+        }
+        else{
+            [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"未跨过盲区" waitUntilDone:NO];
+            
+            if (_throttleChannel.value < 0.7) {
+                if (accZ >= -5) {
+                    _throttleChannel.value += (15 / 500.0f);
+                }
+                else if(accZ < -25){
+                    _throttleChannel.value -= (10 / 500.0f);
+                }
+                
+                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+            }
+            else{
+
+            }
+        }
+        
+        accTimeCnt++;
+    }
+    else{  //加怠速
+        if (_throttleChannel.value < 0.6) {
+            if (accZ > -30) {
+                _throttleChannel.value += (10 / 500.0f);
+                
+                [self performSelectorOnMainThread:@selector(updateJoystickCenter) withObject:nil waitUntilDone:NO];
+            }
+        }
+    }
+}
 
 - (void)autoTakeOff{
     OSDData *osdData = [Transmitter sharedTransmitter].osdData;
@@ -1965,12 +2217,45 @@ static inline float sign(float value)
         [_aux4Channel setValue:-1];
         
         autoTakeOffState.text = [NSString stringWithFormat:@"%d timeout", checkCnt];
+        
+        [self updateDebugTextViewWithString:@"自动起飞超时，自动起飞失败"];
         //[self lockButtonDidTouchUp:nil];
+    }
+}
+
+
+- (void)updateFlightState:(flight_state_t) flightSate_{
+    flightState = flightSate_;
+    
+    switch (flightState) {
+        case flight_state_taking_off:
+            debugValueTextLabel.text = @"自动起飞中...";
+            break;
+        case flight_state_angle:
+            debugValueTextLabel.text = @"特技模式";
+            break;
+        case flight_state_horizon:
+            debugValueTextLabel.text = @"自稳模式";
+            break;
+        case flight_state_baro:
+            debugValueTextLabel.text = @"气压计定高模式";
+            break;
+        case flight_state_sonar:
+            debugValueTextLabel.text = @"超声波定高模式";
+            break;
+        case flight_state_headfree:
+            debugValueTextLabel.text = @"无头模式";
+            break;
+        default:
+            break;
     }
 }
 
 - (IBAction)autoTakeOff:(id)sender {
     if (isAutoTakingOff == NO) {
+        
+        altArrayVaildLen = 0;
+        
         take_off_start_time = mach_absolute_time();
         
         autoTakeOffState.text =  @"0";
@@ -1983,8 +2268,10 @@ static inline float sign(float value)
         [self unlockButtonDidTouchUp:nil];
         isAutoTakingOff = YES;
         
-        throttleTimer = [[NSTimer scheduledTimerWithTimeInterval:kCheckDuration target:self selector:@selector(autoTakeOff) userInfo:nil repeats:YES] retain];
-        [self performSelector:@selector(autoTakeOffTimeOut) withObject:nil afterDelay:7];
+        flightState = flight_state_taking_off;
+        
+        throttleTimer = [[NSTimer scheduledTimerWithTimeInterval:kCheckDuration target:self selector:@selector(autoTakeOff2) userInfo:nil repeats:YES] retain];
+        [self performSelector:@selector(autoTakeOffTimeOut) withObject:nil afterDelay:10];
     }
 }
 

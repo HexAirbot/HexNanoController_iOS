@@ -1768,7 +1768,7 @@ typedef enum flight_state{
         return FALSE;
     }
     
-    [self performSelectorOnMainThread:@selector(updateDebugTextView2) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(updateDebugTextView2) withObject:nil waitUntilDone:YES];
     
 
     
@@ -1784,7 +1784,7 @@ typedef enum flight_state{
     }
     
     if (invalidAltCnt > 2) {
-        [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"度范围不对>>" waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"度范围不对>>" waitUntilDone:YES];
         
         return FALSE;
     }
@@ -1835,14 +1835,14 @@ typedef enum flight_state{
     }
     
     if (invalidAltCnt > 1) {
-        [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"平均值不对>>" waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"平均值不对>>" waitUntilDone:YES];
         //debugTextView.text = [NSString stringWithFormat:@"%@\n值相差不对>>", debugTextView.text];
         return FALSE;
     }
 
     
     
-    [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"跨过盲区>>" waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(updateDebugTextViewWithString:) withObject:@"跨过盲区>>" waitUntilDone:YES];
     //debugTextView.text = [NSString stringWithFormat:@"%@\n跨过盲区>>", debugTextView.text];
     
     return TRUE;

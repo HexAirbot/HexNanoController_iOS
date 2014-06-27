@@ -49,6 +49,7 @@ static Transmitter *sharedTransmitter;
 @synthesize osdData = _osdData;
 @synthesize outputState = _outputState;
 @synthesize inputState = _inputState;
+@synthesize rssi = _rssi;
 
 + (Transmitter *)sharedTransmitter{
     if (sharedTransmitter == nil) {
@@ -529,6 +530,11 @@ static Transmitter *sharedTransmitter;
 -(void)bleSerialManager:(BleSerialManager *)manager didReceiveData:(NSData *)data{
     [_osdData parseRawData:data];
 }
+
+-(void)bleSerialManager:(BleSerialManager *)manager didUpdateRSSI:(int)rssi{
+    _rssi = rssi;
+}
+
 
 #pragma mark BleSerialManagerDelegate Methods end
 

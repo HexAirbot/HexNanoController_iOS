@@ -319,12 +319,15 @@ typedef enum flight_state{
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController" bundle:nil
                                                           data:[Transmitter sharedTransmitter].osdData];
+            osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0, 256);
+            /*
             osdVC.view.center = CGPointMake(self.view.frame.size.width - osdVC.view.frame.size.width / 2.0 - 10, 200);
+            */
         }
         else{
-            osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController" bundle:nil
+            osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController_iPhone" bundle:nil
                                                           data:[Transmitter sharedTransmitter].osdData];
-            osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0, 140);
+            osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0, 150);
             // osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController_iPhone" bundle:nil
             //                                              data:[Transmitter sharedTransmitter].osdData];
             // osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0 - 10, 100);
@@ -457,6 +460,7 @@ typedef enum flight_state{
     [rollTrimValueTextLabel release];
     [flightModeTextLabel release];
     [osdVC release];
+    [rssiValueLabel release];
     [super dealloc];
 }
 
@@ -695,6 +699,8 @@ typedef enum flight_state{
     pitchTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.pitchTrim];
     rollTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.rollTrim];
     accZtextLabel.text =[NSString stringWithFormat:@"%d", osdData.absolutedAccZ];
+    
+    rssiValueLabel.text = [NSString stringWithFormat:@"%ddb", [[Transmitter sharedTransmitter] rssi] ];
     
     [osdVC updateUI];
     

@@ -142,12 +142,13 @@ typedef enum settings_alert_dialog{
     interfaceOpacityTitleLabel.text = getLocalizeString(@"INTERFACE OPACITY");
     accModeTitleLabel.text = getLocalizeString(@"Acc Mode");
     
+    /*
     [pageViewArray addObject:testSettingsView];
     [pageTitleArray addObject:@"测试参数页面1"];
     
     [pageViewArray addObject:testSettingsView2];
     [pageTitleArray addObject:@"测试参数页面2"];
-
+     */
     [pageViewArray addObject:peripheralView];
     [pageTitleArray addObject:getLocalizeString(@"BLE DEVICES")];
     

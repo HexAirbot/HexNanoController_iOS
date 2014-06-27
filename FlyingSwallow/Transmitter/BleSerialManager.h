@@ -26,11 +26,12 @@
 -(void)bleSerialManagerDidFailSendData:(BleSerialManager *)manager error:(NSError *)error;
 -(void)bleSerialManagerDidSendData:(BleSerialManager *)manager;
 -(void)bleSerialManager:(BleSerialManager *)manager didReceiveData:(NSData *)data;
+-(void)bleSerialManager:(BleSerialManager *)manager didUpdateRSSI:(int)rssi;
 
 
 @end
 
-@interface BleSerialManager : NSObject <CBCentralManagerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate>
+@interface BleSerialManager : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
 
 @property(nonatomic, readonly) BOOL isAvailabel; //ble是否可用
 @property(nonatomic, readonly) BOOL isConnected; //连接上Ble

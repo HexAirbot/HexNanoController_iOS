@@ -51,11 +51,13 @@
     [self drawAHGaugeOuterFixed:  ctx centre:c radius:r];
     
     static CGLayerRef frontFaceLayer = NULL;
+    
     if (frontFaceLayer == NULL) {
         frontFaceLayer = CGLayerCreateWithContext(ctx, self.frame.size, NULL);
         CGContextRef ctx = CGLayerGetContext(frontFaceLayer);
         [self drawAHGaugeFrontFace:   ctx centre:c radius:r];
     }
+     
     CGContextDrawLayerAtPoint(ctx, CGPointMake(0,0), frontFaceLayer);
 }
 

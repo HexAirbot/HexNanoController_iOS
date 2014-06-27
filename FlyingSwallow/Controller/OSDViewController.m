@@ -18,7 +18,7 @@
 @synthesize osdData = _osdData;
 
 - (void)updateUI{
-    float roll = _osdData.angleX / 180.0 * M_PI;
+    float roll = -_osdData.angleX / 180.0 * M_PI;
     float pitch = _osdData.angleY / 180.0 * M_PI;
     
     [artificalHorizonView setRoll:roll pitch:pitch];

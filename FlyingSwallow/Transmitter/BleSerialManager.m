@@ -150,6 +150,10 @@
     
     NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
     
+    if ([_delegate respondsToSelector:@selector(bleSerialManager:didUpdateRSSI:)]) {
+        [_delegate bleSerialManager:self didUpdateRSSI:[peripheral.RSSI intValue]];
+    }
+    
 //    if (RSSI.integerValue > -15) {
 //        return;
 //    }
@@ -162,7 +166,9 @@
 //    NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
     
     
-    if (![_bleSerialList containsObject:peripheral] && ([peripheral.name isEqualToString:@"AnyFlite"] || [peripheral.name isEqualToString:@"Hex Mini"] || [peripheral.name isEqualToString:@"HMSoft"] || [peripheral.name isEqualToString:@"Hex Nano"] || [peripheral.name isEqualToString:@"Any Flite"] || [peripheral.name isEqualToString:@"Flexbot"])) {
+    if (![_bleSerialList containsObject:peripheral] && ([peripheral.name isEqualToString:@"AnyFlite"] || [peripheral.name isEqualToString:@"Hex Mini"] || [peripheral.name isEqualToString:@"HMSoft"] || [peripheral.name isEqualToString:@"Hex Nano"] || [peripheral.name isEqualToString:@"Any Flite"] || [peripheral.name isEqualToString:@"Flexbot"] || [peripheral.name isEqualToString:@"FlexBLE"])) {
+        NSLog(@"***peripheral.name:%@", peripheral.name);
+        
         [(NSMutableArray *)_bleSerialList addObject:peripheral];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPeripheralListDidChange object:self userInfo:nil];
@@ -445,6 +451,16 @@
         if ([_delegate respondsToSelector:@selector(bleSerialManagerDidSendData:)]) {
             [_delegate bleSerialManagerDidSendData:self];
         }
+    }
+}
+
+- (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error{
+    if (error != NULL) {
+        NSLog(@"peripheralDidUpdateRSSI error:%@", error);
+    }
+    
+    if ([_delegate respondsToSelector:@selector(bleSerialManager:didUpdateRSSI:)]) {
+        [_delegate bleSerialManager:self didUpdateRSSI:[peripheral.RSSI intValue]];
     }
 }
 

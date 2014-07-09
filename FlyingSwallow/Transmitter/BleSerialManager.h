@@ -26,7 +26,7 @@
 -(void)bleSerialManagerDidFailSendData:(BleSerialManager *)manager error:(NSError *)error;
 -(void)bleSerialManagerDidSendData:(BleSerialManager *)manager;
 -(void)bleSerialManager:(BleSerialManager *)manager didReceiveData:(NSData *)data;
--(void)bleSerialManager:(BleSerialManager *)manager didUpdateRSSI:(int)rssi;
+-(void)bleSerialManager:(BleSerialManager *)manager didUpdateRSSI:(float)rssi;
 
 
 @end

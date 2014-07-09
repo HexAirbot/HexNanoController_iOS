@@ -319,13 +319,13 @@ typedef enum flight_state{
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController" bundle:nil
                                                           data:[Transmitter sharedTransmitter].osdData];
-            osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0, 256);
+            osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0, 300);
             /*
             osdVC.view.center = CGPointMake(self.view.frame.size.width - osdVC.view.frame.size.width / 2.0 - 10, 200);
             */
         }
         else{
-            osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController_iPhone" bundle:nil
+            osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController_iphone" bundle:nil
                                                           data:[Transmitter sharedTransmitter].osdData];
             osdVC.view.center = CGPointMake(self.view.frame.size.width / 2.0, 150);
             // osdVC = [[OSDViewController alloc] initWithNibName:@"OSDViewController_iPhone" bundle:nil
@@ -700,7 +700,7 @@ typedef enum flight_state{
     rollTrimValueTextLabel.text = [NSString stringWithFormat:@"%d", osdData.rollTrim];
     accZtextLabel.text =[NSString stringWithFormat:@"%d", osdData.absolutedAccZ];
     
-    rssiValueLabel.text = [NSString stringWithFormat:@"%ddb", [[Transmitter sharedTransmitter] rssi] ];
+    rssiValueLabel.text = [NSString stringWithFormat:@"%.1fdb", [[Transmitter sharedTransmitter] rssi] ];
     
     [osdVC updateUI];
     

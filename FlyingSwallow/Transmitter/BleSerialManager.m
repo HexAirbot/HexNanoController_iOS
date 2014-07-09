@@ -148,10 +148,10 @@
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
     // Reject any where the value is above reasonable range
     
-    NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
+    NSLog(@"Discovered %@ at %@ %f", peripheral.name, RSSI, [RSSI floatValue]);
     
     if ([_delegate respondsToSelector:@selector(bleSerialManager:didUpdateRSSI:)]) {
-        [_delegate bleSerialManager:self didUpdateRSSI:[peripheral.RSSI intValue]];
+        [_delegate bleSerialManager:self didUpdateRSSI:[peripheral.RSSI floatValue]];
     }
     
 //    if (RSSI.integerValue > -15) {

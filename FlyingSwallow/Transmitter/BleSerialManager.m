@@ -379,7 +379,7 @@
     [data  getBytes:what length:[data length]];
     what[[data length]] = '\0';
     
-    NSLog(@"Received data len:%d, data:%s", [data length], what);
+   // NSLog(@"Received data len:%d, data:%s", [data length], what);
     
     
     NSString *NSMutableString = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
@@ -454,7 +454,19 @@
     }
 }
 
+- (void)outputRSSI:(NSNumber *)rssi{
+    NSLog(@"***peripheralDidUpdateRSSI %f", [rssi floatValue]);
+}
+
 - (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error{
+    NSNumber *rssi = peripheral.RSSI;
+    
+    //peripheral
+    
+    //peripheral.readRSSI
+    
+    [self performSelectorOnMainThread:@selector(outputRSSI:) withObject:rssi waitUntilDone:NO];
+    
     if (error != NULL) {
         NSLog(@"peripheralDidUpdateRSSI error:%@", error);
     }
@@ -513,6 +525,20 @@
     return [CBUUID UUIDWithData:requestCharacteristicData];
 }
 
+- (BOOL)updateRSSI{
+    if (_currentBleSerial != nil) {
+        if ([_currentBleSerial isConnected]) {
+            [_currentBleSerial readRSSI];
+            return YES;
+        }
+        else{
+            return NO;
+        }
+    }
+    else{
+        return NO;
+    }
+}
 
 - (void)dealloc{
     [self disconnect];

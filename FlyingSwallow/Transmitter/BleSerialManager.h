@@ -52,5 +52,6 @@
 -(void)sendControlData:(NSData *)data;
 -(void)sendRequestData:(NSData *)data;
 
+-(BOOL)updateRSSI;
 
 @end

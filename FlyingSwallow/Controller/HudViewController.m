@@ -304,6 +304,7 @@ typedef enum flight_state{
     
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateUI) userInfo:nil repeats:YES];
     
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateRSSI) userInfo:nil repeats:YES];
     
     if (_settings.isBeginnerMode) {
         UIAlertView *alertView = [[UIAlertView alloc]       initWithTitle:getLocalizeString(@"Beginner Mode")
@@ -705,6 +706,10 @@ typedef enum flight_state{
     [osdVC updateUI];
     
     //debugTextView.text = osdData.testStr;
+}
+
+- (void)updateRSSI{
+    [[Transmitter sharedTransmitter] updateRSSI];
 }
 
 - (void)checkTransmitterState{
@@ -1176,7 +1181,7 @@ typedef enum flight_state{
             
             float throttleValue = [_throttleChannel value];
             
-            [self setAltHoldModeIfNeeds:throttleValue];
+            //[self setAltHoldModeIfNeeds:throttleValue];
             
             rightCenter = CGPointMake(joystickRightBackgroundImageView.frame.origin.x + (joystickRightBackgroundImageView.frame.size.width / 2), 
                                       joystickRightBackgroundImageView.frame.origin.y + (joystickRightBackgroundImageView.frame.size.height / 2) - throttleValue * rightJoyStickOperableRadius);
@@ -1200,7 +1205,7 @@ typedef enum flight_state{
             
             float throttleValue = [_throttleChannel value];
             
-            [self setAltHoldModeIfNeeds:throttleValue];
+            //[self setAltHoldModeIfNeeds:throttleValue];
             
             leftCenter = CGPointMake(joystickLeftBackgroundImageView.frame.origin.x + (joystickLeftBackgroundImageView.frame.size.width / 2), 
                                       joystickLeftBackgroundImageView.frame.origin.y + (joystickLeftBackgroundImageView.frame.size.height / 2) - throttleValue * rightJoyStickOperableRadius);

@@ -38,13 +38,15 @@ typedef enum {
 - (BOOL)transmmitData:(NSData *)data;
 - (BOOL)transmmitSimpleCommand:(unsigned char)commandName;
 
+- (BOOL)updateRSSI;
+
 - (BleSerialManager *)bleSerialManager;
 
 @property(nonatomic, assign) TransmitterState outputState;
 @property(nonatomic, assign) TransmitterState inputState ;
-@property(nonatomic, readonly) int rssi;
-
 
 @property(nonatomic, retain) OSDData *osdData;
+
+@property(nonatomic, readonly) float rssi;
 
 @end

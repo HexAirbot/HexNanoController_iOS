@@ -49,7 +49,6 @@ static Transmitter *sharedTransmitter;
 @synthesize osdData = _osdData;
 @synthesize outputState = _outputState;
 @synthesize inputState = _inputState;
-@synthesize rssi = _rssi;
 
 + (Transmitter *)sharedTransmitter{
     if (sharedTransmitter == nil) {
@@ -515,7 +514,7 @@ static Transmitter *sharedTransmitter;
 //        }
 //    }
     
-    NSLog(@"fail send data***");
+    //xNSLog(@"fail send data***");
 }
 
 -(void)bleSerialManagerDidSendData:(BleSerialManager *)manager{
@@ -531,8 +530,12 @@ static Transmitter *sharedTransmitter;
     [_osdData parseRawData:data];
 }
 
--(void)bleSerialManager:(BleSerialManager *)manager didUpdateRSSI:(int)rssi{
+-(void)bleSerialManager:(BleSerialManager *)manager didUpdateRSSI:(float)rssi{
     _rssi = rssi;
+}
+
+- (BOOL)updateRSSI{
+    return [bleSerialMangager updateRSSI];
 }
 
 

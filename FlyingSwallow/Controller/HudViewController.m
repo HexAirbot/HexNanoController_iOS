@@ -30,8 +30,6 @@
 #import <CoreMotion/CoreMotion.h>
 
 
-
-
 #define UDP_SERVER_HOST @"192.168.0.1"
 #define UDP_SERVER_PORT 6000
 
@@ -177,7 +175,7 @@ typedef enum flight_state{
         NSString *documentsDir= [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         NSString *userSettingsFilePath = [documentsDir stringByAppendingPathComponent:@"Settings.plist"];
         
-        _settings = [[[Settings alloc] initWithSettingsFile:userSettingsFilePath] retain];
+        _settings = [[Settings alloc] initWithSettingsFile:userSettingsFilePath];
         
         if ([_settings.flexbotVersion isEqualToString:@"1.5.0"]) {
             [[BasicInfoManager sharedManager] setIsFullDuplex:YES];

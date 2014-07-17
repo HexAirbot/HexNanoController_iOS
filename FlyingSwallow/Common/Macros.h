@@ -26,10 +26,10 @@
 #define CURR_LANG              ([[NSLocale preferredLanguages] objectAtIndex:0])
 
 
-#define getLocalizeString(key) (!([CURR_LANG isEqual:@"en"] && ![CURR_LANG isEqual:@"zh-Hans"] && ![CURR_LANG isEqual:@"zh-Hant"]) ? \
-                                [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"]] localizedStringForKey:key value:@"" table:@"languages"] \
-                                : [[NSBundle mainBundle] localizedStringForKey:key value:@"" table:@"languages"])
- 
+#define getLocalizeString(key) ((![CURR_LANG isEqual:@"en"] && ![CURR_LANG isEqual:@"zh-Hans"] && ![CURR_LANG isEqual:@"zh-Hant"]) ? \
+[[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"]] localizedStringForKey:key value:@"" table:@"languages"] \
+: [[NSBundle mainBundle] localizedStringForKey:key value:@"" table:@"languages"])
+
 
 
 #define isIphone5() ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)

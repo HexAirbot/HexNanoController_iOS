@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMenuViewController">
@@ -320,7 +320,7 @@
             <rect key="frame" x="0.0" y="0.0" width="830" height="500"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Aileron/Elevator Dead Band" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="18">
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Aileron/Elevator Dead Band" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="18">
                     <rect key="frame" x="9" y="160" width="272" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -336,7 +336,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="16.7%" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="17">
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="16.7%" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="17">
                     <rect key="frame" x="129" y="180" width="150" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -344,7 +344,7 @@
                     <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.16699999570846558" minValue="0.0" maxValue="1" id="16" customClass="FSSlider">
+                <slider hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.16699999570846558" minValue="0.0" maxValue="1" id="16" customClass="FSSlider">
                     <rect key="frame" x="287" y="160" width="420" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -354,7 +354,7 @@
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="83"/>
                     </connections>
                 </slider>
-                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Rudder Dead Band" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="15">
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Rudder Dead Band" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="15">
                     <rect key="frame" x="40" y="235" width="241" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -362,7 +362,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="16.7%" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="13">
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="16.7%" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="18" id="13">
                     <rect key="frame" x="109" y="256" width="170" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -370,7 +370,7 @@
                     <color key="textColor" red="1" green="0.47058823529999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.16699999570846558" minValue="0.0" maxValue="1" id="14" customClass="FSSlider">
+                <slider hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.16699999570846558" minValue="0.0" maxValue="1" id="14" customClass="FSSlider">
                     <rect key="frame" x="287" y="236" width="420" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -422,7 +422,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Headfree Mode" textAlignment="right" lineBreakMode="wordWrap" minimumFontSize="10" id="bUc-Z6-vc1">
-                    <rect key="frame" x="65" y="316" width="216" height="20"/>
+                    <rect key="frame" x="65" y="162" width="216" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
@@ -430,7 +430,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2sk-qe-j5i">
-                    <rect key="frame" x="289" y="312" width="77" height="27"/>
+                    <rect key="frame" x="289" y="158" width="77" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" image="Btn_OFF.png">

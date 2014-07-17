@@ -454,7 +454,7 @@ using namespace std;
             _pitchTrim = [self read8];
             _rollTrim = [self read8];
             
-            [_testStr appendString:[NSString stringWithFormat:@"\n%d", _absolutedAccZ]];
+            //[_testStr appendString:[NSString stringWithFormat:@"\n%d", _absolutedAccZ]];
             
             if(_delegate != nil) {
                 [_delegate osdDataDidUpdateOneFrame:self];

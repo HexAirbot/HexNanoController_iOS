@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OSDView.h"
 #import <CoreMotion/CMMotionManager.h>
 
 
@@ -15,7 +14,6 @@
 }
 
 @property (nonatomic, retain) UITextView *debugTextView;
-@property (nonatomic, retain) OSDView *osdView;
 @property (nonatomic, readonly)  CMMotionManager *motionManager;
 
 @property (nonatomic, readonly) NSMutableString *debugStr;

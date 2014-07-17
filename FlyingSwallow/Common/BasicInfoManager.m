@@ -14,7 +14,6 @@ static BasicInfoManager *sharedManager;
 
 
 @synthesize debugTextView;
-@synthesize osdView;
 @synthesize motionManager = _motionManager;
 @synthesize debugStr = _debugStr;
 @synthesize needsAltHoldMode = _needsAltHoldMode;
@@ -45,7 +44,6 @@ static BasicInfoManager *sharedManager;
 
 - (void)dealloc{
 	[debugTextView release];
-    [osdView release];
     [_motionManager release];
     [_debugStr release];
 	[super dealloc];

@@ -10,13 +10,10 @@
 		E00891C417FAC4E500D7081D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00891C317FAC4E500D7081D /* CoreMotion.framework */; };
 		E0142F08174DBFC300C5A9E1 /* SettingsMenuViewController_iPhone_tall.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0142F07174DBFC300C5A9E1 /* SettingsMenuViewController_iPhone_tall.xib */; };
 		E0142F0A174DC18800C5A9E1 /* Background_Settings_RETINA_TALL.png in Resources */ = {isa = PBXBuildFile; fileRef = E0142F09174DC18800C5A9E1 /* Background_Settings_RETINA_TALL.png */; };
-		E0159E1316F71456002D414F /* OSDView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0159E1216F71456002D414F /* OSDView.m */; };
 		E0159E1C16F72B36002D414F /* OSDCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0159E1916F72B36002D414F /* OSDCommon.mm */; };
 		E0159E1D16F72B36002D414F /* OSDData.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0159E1B16F72B36002D414F /* OSDData.mm */; };
 		E01CC375171E4FFB008CA464 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01CC374171E4FFB008CA464 /* CoreBluetooth.framework */; };
 		E01CC8BD16F4CB360006921B /* BasicInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E01CC8BC16F4CB360006921B /* BasicInfoManager.m */; };
-		E01CC8C416F4D9260006921B /* drone.png in Resources */ = {isa = PBXBuildFile; fileRef = E01CC8C216F4D9260006921B /* drone.png */; };
-		E01CC8C516F4D9260006921B /* world.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E01CC8C316F4D9260006921B /* world.jpg */; };
 		E01D3474171E707D00618DC0 /* BleSerialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E01D3473171E707D00618DC0 /* BleSerialManager.m */; };
 		E05AA5E5169B4152009DA2A7 /* RCTouch-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E05AA5E4169B4152009DA2A7 /* RCTouch-Info.plist */; };
 		E05AA5E7169B4227009DA2A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E0E3D35A169B2AE300DC30C6 /* Default.png */; };
@@ -153,8 +150,6 @@
 		E00891C317FAC4E500D7081D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		E0142F07174DBFC300C5A9E1 /* SettingsMenuViewController_iPhone_tall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsMenuViewController_iPhone_tall.xib; sourceTree = "<group>"; };
 		E0142F09174DC18800C5A9E1 /* Background_Settings_RETINA_TALL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_Settings_RETINA_TALL.png; sourceTree = "<group>"; };
-		E0159E1116F71456002D414F /* OSDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDView.h; sourceTree = "<group>"; };
-		E0159E1216F71456002D414F /* OSDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSDView.m; sourceTree = "<group>"; };
 		E0159E1816F72B36002D414F /* OSDCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDCommon.h; sourceTree = "<group>"; };
 		E0159E1916F72B36002D414F /* OSDCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OSDCommon.mm; sourceTree = "<group>"; };
 		E0159E1A16F72B36002D414F /* OSDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSDData.h; sourceTree = "<group>"; };
@@ -162,8 +157,6 @@
 		E01CC374171E4FFB008CA464 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E01CC8BB16F4CB360006921B /* BasicInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoManager.h; sourceTree = "<group>"; };
 		E01CC8BC16F4CB360006921B /* BasicInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfoManager.m; sourceTree = "<group>"; };
-		E01CC8C216F4D9260006921B /* drone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drone.png; sourceTree = "<group>"; };
-		E01CC8C316F4D9260006921B /* world.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world.jpg; sourceTree = "<group>"; };
 		E01D3472171E707D00618DC0 /* BleSerialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BleSerialManager.h; sourceTree = "<group>"; };
 		E01D3473171E707D00618DC0 /* BleSerialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BleSerialManager.m; sourceTree = "<group>"; };
 		E05AA5E4169B4152009DA2A7 /* RCTouch-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RCTouch-Info.plist"; sourceTree = "<group>"; };
@@ -649,10 +642,6 @@
 				E0159E1916F72B36002D414F /* OSDCommon.mm */,
 				E0159E1A16F72B36002D414F /* OSDData.h */,
 				E0159E1B16F72B36002D414F /* OSDData.mm */,
-				E0159E1116F71456002D414F /* OSDView.h */,
-				E0159E1216F71456002D414F /* OSDView.m */,
-				E01CC8C216F4D9260006921B /* drone.png */,
-				E01CC8C316F4D9260006921B /* world.jpg */,
 			);
 			path = OSD;
 			sourceTree = "<group>";
@@ -828,8 +817,6 @@
 				E05AA5F3169B494B009DA2A7 /* Default@2x.png in Resources */,
 				E05AA5F7169B496D009DA2A7 /* Default-Landscape@2x~ipad.png in Resources */,
 				E05AA5F8169B498F009DA2A7 /* Default-Portrait@2x~ipad.png in Resources */,
-				E01CC8C416F4D9260006921B /* drone.png in Resources */,
-				E01CC8C516F4D9260006921B /* world.jpg in Resources */,
 				E0EAAFE5174CB638007FB982 /* HudViewController_iPhone_tall.xib in Resources */,
 				E0EAAFE7174CC019007FB982 /* Default-568h@2x.png in Resources */,
 				E0EAAFE9174CCDDF007FB982 /* hud_frame_RETINA_TALL.png in Resources */,
@@ -865,7 +852,6 @@
 				E01CC8BD16F4CB360006921B /* BasicInfoManager.m in Sources */,
 				E08EA666192D920D005C1DBA /* MiscUtilities.m in Sources */,
 				E08EA64F192D8DE1005C1DBA /* OSDViewController.m in Sources */,
-				E0159E1316F71456002D414F /* OSDView.m in Sources */,
 				E0159E1C16F72B36002D414F /* OSDCommon.mm in Sources */,
 				E0159E1D16F72B36002D414F /* OSDData.mm in Sources */,
 				E01D3474171E707D00618DC0 /* BleSerialManager.m in Sources */,

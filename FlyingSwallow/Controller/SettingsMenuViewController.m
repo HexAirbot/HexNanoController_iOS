@@ -247,7 +247,7 @@ typedef enum settings_alert_dialog{
         TransmitterState outputState = [[Transmitter sharedTransmitter] outputState];
         
         if ((inputState == TransmitterStateOk) && (outputState == TransmitterStateOk)) {
-            connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"connected")];
+            connectionStateTextLabel.text = getLocalizeString(@"connected");
             connectionActivityIndicatorView.hidden = YES;
             
             [peripheralListScanButton setTitle:getLocalizeString(@"Scan") forState:UIControlStateNormal];
@@ -259,13 +259,13 @@ typedef enum settings_alert_dialog{
             [manager stopScan];
         }
         else if((inputState == TransmitterStateOk) && (outputState != TransmitterStateOk)){
-            connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"not connected")];
+            connectionStateTextLabel.text = getLocalizeString(@"not connected");
         }
         else if((inputState != TransmitterStateOk) && (outputState == TransmitterStateOk)){
-            connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"not connected")];
+            connectionStateTextLabel.text = getLocalizeString(@"not connected");
         }
         else {
-            connectionStateTextLabel.text = [NSString stringWithFormat:getLocalizeString(@"not connected")];
+            connectionStateTextLabel.text = getLocalizeString(@"not connected");
         }
     }
     

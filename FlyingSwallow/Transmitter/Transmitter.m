@@ -247,7 +247,7 @@ static Transmitter *sharedTransmitter;
     
     [self updatePpmPackage];
     
-    BOOL channelListIsChange = NO;
+    //BOOL channelListIsChange = NO;
     
     /*
     for(int channelIdx = 0; channelIdx < kPpmChannelCount; channelIdx++){
@@ -259,7 +259,7 @@ static Transmitter *sharedTransmitter;
     }
     */
     
-    NSData *request = getDefaultOSDDataRequest();
+    //NSData *request = getDefaultOSDDataRequest();
     
     memcpy(oldChannelList, channelList, kPpmChannelCount * sizeof(float));
     
@@ -399,7 +399,7 @@ static Transmitter *sharedTransmitter;
 
 - (void)osdDataDidUpdateOneFrame:(OSDData *)osdData{
     //在主线程中被调用
-    [[[BasicInfoManager sharedManager] osdView] setNeedsDisplay];
+    //[[[BasicInfoManager sharedManager] osdView] setNeedsDisplay];
 }
 //
 //

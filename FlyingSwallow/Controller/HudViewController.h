@@ -21,7 +21,6 @@
 #import "SettingsMenuViewController.h"
 #import "Channel.h"
 #import "Settings.h"
-#import "OSDView.h"
 #import "OSDViewController.h"
 
 typedef enum{
@@ -57,9 +56,6 @@ float accelero_rotation[3][3];
     IBOutlet UIButton *throttleDownButton;
     IBOutlet UIImageView *downIndicatorImageView;
     IBOutlet UIImageView *upIndicatorImageView;
-    
-    IBOutlet OSDView *osdView;
-    
     
     IBOutlet UILabel *rollValueTextLabel;
     IBOutlet UILabel *pitchValueTextLabel;

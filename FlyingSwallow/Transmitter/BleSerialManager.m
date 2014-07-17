@@ -48,9 +48,11 @@
             [_delegate bleSerialManager:self didDiscoverBleSerial:nil];
         }
         
+        /*
         CBUUID *serialServiceUUID = [self getSerialServiceUUID];
         
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:CBCentralManagerScanOptionAllowDuplicatesKey, @"YES", nil];
+        */
         
        // [_centralManager scanForPeripheralsWithServices:[NSArray arrayWithObject:serialServiceUUID]
                                                     //options:options];

@@ -288,7 +288,6 @@ typedef enum flight_state{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkTransmitterState) name:kNotificationTransmitterStateDidChange object:nil];
     
     [[BasicInfoManager sharedManager] setDebugTextView:debugTextView];
-    [[BasicInfoManager sharedManager] setOsdView:osdView];
 
     warningLabel.text = getLocalizeString(@"not connected");
     
@@ -427,8 +426,6 @@ typedef enum flight_state{
     [throttleValueLabel release];
     throttleValueLabel = nil;
     [self setDebugTextView:nil];
-    [osdView release];
-    osdView = nil;
     [rollValueTextLabel release];
     rollValueTextLabel = nil;
     [pitchValueTextLabel release];
@@ -487,7 +484,6 @@ typedef enum flight_state{
     [upIndicatorImageView release];
     [throttleValueLabel release];
     [debugTextView release];
-    [osdView release];
     [rollValueTextLabel release];
     [pitchValueTextLabel release];
     [altValueTextLabel release];
@@ -729,8 +725,8 @@ typedef enum flight_state{
     altValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.altitude];
     
     float energy = 0;
-    if (osdData.vBat > 3.4) {
-        energy =(osdData.vBat - 3.4) / 0.8;
+    if (osdData.vBat > 3.5) {
+        energy =(osdData.vBat - 3.5) / 0.7;
         
         if (energy > 1) {
             energy = 1;
@@ -740,12 +736,15 @@ typedef enum flight_state{
         energy = 0;
     }
     
-    vBatValueTextLabel.text = [NSString stringWithFormat:@"%d%%", (int)(energy * 100)];
-    
-    if (energy < 0.1) {
+    if (energy < 0.25) {
+        vBatValueTextLabel.text = @"low";
         vBatValueTextLabel.textColor = [UIColor redColor];
+        //vBatValueTextLabel.hidden = !(vBatValueTextLabel.hidden);
+        
     }
     else{
+        vBatValueTextLabel.hidden = NO;
+        vBatValueTextLabel.text = [NSString stringWithFormat:@"%d%%", (int)(energy * 100)];
         vBatValueTextLabel.textColor = batteryLevelLabel.textColor;
     }
     
@@ -833,8 +832,6 @@ typedef enum flight_state{
     BOOL s = [[Transmitter sharedTransmitter] start];
     
     isTransmitting = s;
-    
-    osdView.osdData = [Transmitter sharedTransmitter].osdData;
     
     return s;
 }
@@ -1800,7 +1797,7 @@ typedef enum flight_state{
 
 
 - (void)updateDebugTextView{
-    OSDData *osdData = [Transmitter sharedTransmitter].osdData;
+   // OSDData *osdData = [Transmitter sharedTransmitter].osdData;
 }
 
 - (void)flight{
@@ -1808,20 +1805,20 @@ typedef enum flight_state{
 }
 
 - (void)updateDebugTextView2{
-    debugTextView.text = [NSString stringWithFormat:@"%@\n<<******", debugTextView.text];
+    //debugTextView.text = [NSString stringWithFormat:@"%@\n<<******", debugTextView.text];
     
     for (int idx = 0; idx < kAltArrayMaxLen; idx++) {
         //int alt = altArray[idx];
         
-        debugTextView.text = [NSString stringWithFormat:@"%@\n%f", debugTextView.text, altArray[idx]];
+       // debugTextView.text = [NSString stringWithFormat:@"%@\n%f", debugTextView.text, altArray[idx]];
     }
     
-    debugTextView.text = [NSString stringWithFormat:@"%@\n******", debugTextView.text];
+   // debugTextView.text = [NSString stringWithFormat:@"%@\n******", debugTextView.text];
 
 }
 
 - (void)updateDebugTextViewWithString:(NSString *)str{
-    debugTextView.text = [NSString stringWithFormat:@"%@\n%@", debugTextView.text, str];
+    //debugTextView.text = [NSString stringWithFormat:@"%@\n%@", debugTextView.text, str];
 }
 
 
@@ -2010,7 +2007,7 @@ typedef enum flight_state{
     OSDData *osdData = [Transmitter sharedTransmitter].osdData;
     
     int accZ = osdData.absolutedAccZ;
-    float altitude = osdData.altitude;
+    //float altitude = osdData.altitude;
     
     
     NSLog(@">>>***%d", osdData.absolutedAccZ);
@@ -2044,7 +2041,7 @@ typedef enum flight_state{
     //if (checkCnt * kCheckDuration > 0.1) {
     
     
-#define MAX_ACC_TIME_CNT 19
+//#define MAX_ACC_TIME_CNT 19
     
     if (checkCnt > 0) {
         if (accTimeCnt > MAX_ACC_TIME_CNT) {

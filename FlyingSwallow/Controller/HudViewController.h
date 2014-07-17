@@ -88,6 +88,8 @@ float accelero_rotation[3][3];
     IBOutlet UILabel *autoTakeOffState;
     
     IBOutlet UILabel *rssiValueLabel;
+    
+    IBOutlet UIView *infoView;
 }
 @property (retain, nonatomic) IBOutlet UITextView *debugTextView;
 - (IBAction)switchButtonClick:(id)sender;

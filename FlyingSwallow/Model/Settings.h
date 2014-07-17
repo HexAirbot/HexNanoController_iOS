@@ -32,6 +32,10 @@
 #define kKeySettingsRudderDeadBand @"RudderDeadBand"
 #define kKeySettingsTakeOffThrottle @"TakeOffThrottle"
 #define kKeySettingsChannels @"Channels"
+#define kKeySettingsAppVersion @"AppVersion"
+#define kKeySettingsFlexbotVersion @"FlexbotVersion"
+#define kkeySettingsCommunicationType @"CommunicationType"
+#define kKeySettingsSettingsVersion @"SettingsVersion"
 
 
 @interface Settings : NSObject{
@@ -54,6 +58,10 @@
 @property(nonatomic, assign) float elevatorDeadBand;
 @property(nonatomic, assign) float rudderDeadBand;
 @property(nonatomic, assign) float takeOffThrottle;
+@property(nonatomic, readonly) NSString *appVersion;
+@property(nonatomic, retain)   NSString *flexbotVersion;
+@property(nonatomic, readonly) NSString *settingsVersion;
+@property(nonatomic, readonly) NSString *communicationType;
 
 
 - (id)initWithSettingsFile:(NSString *)settingsFilePath; 

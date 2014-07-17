@@ -18,6 +18,7 @@ static BasicInfoManager *sharedManager;
 @synthesize motionManager = _motionManager;
 @synthesize debugStr = _debugStr;
 @synthesize needsAltHoldMode = _needsAltHoldMode;
+@synthesize isFullDuplex = _isFullDuplex;
 
 + (id)sharedManager{
 	if (sharedManager == nil) {

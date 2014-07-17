@@ -178,6 +178,14 @@ typedef enum flight_state{
         NSString *userSettingsFilePath = [documentsDir stringByAppendingPathComponent:@"Settings.plist"];
         
         _settings = [[[Settings alloc] initWithSettingsFile:userSettingsFilePath] retain];
+        
+        if ([_settings.flexbotVersion isEqualToString:@"1.5.0"]) {
+            [[BasicInfoManager sharedManager] setIsFullDuplex:YES];
+        }
+        else{
+            [[BasicInfoManager sharedManager] setIsFullDuplex:NO];
+        }
+        
         UIDevice *device = [UIDevice currentDevice];
         device.batteryMonitoringEnabled = YES;
         [device addObserver:self forKeyPath:@"batteryLevel" options:NSKeyValueObservingOptionNew context:nil];
@@ -304,7 +312,7 @@ typedef enum flight_state{
     
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateUI) userInfo:nil repeats:YES];
     
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateRSSI) userInfo:nil repeats:YES];
+    //[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateRSSI) userInfo:nil repeats:YES];
     
     if (_settings.isBeginnerMode) {
         UIAlertView *alertView = [[UIAlertView alloc]       initWithTitle:getLocalizeString(@"Beginner Mode")
@@ -339,7 +347,42 @@ typedef enum flight_state{
        // [[BasicInfoManager sharedManager] setOsdVC:osdVC];
     }
     
+    if ([[BasicInfoManager sharedManager] isFullDuplex]) {
+        osdVC.view.hidden = NO;
+        infoView.hidden = NO;
+    }
+    else{
+        osdVC.view.hidden = YES;
+        infoView.hidden = YES;
+    }
+    
     flightState = flight_state_horizon;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTryingToConnect:) name:kNotificationTryiingToConnect object:nil];
+}
+
+- (void)handleTryingToConnect:(NSNotification *)notification{
+    NSString *target = [[notification userInfo] objectForKey:@"Target"];
+    
+    if ([target isEqualToString:@"FlexBLE"]) {
+        if ( [_settings.flexbotVersion isEqualToString:@"1.5.0"] == NO) {
+            _settings.flexbotVersion = @"1.5.0";
+            [_settings save];
+        }
+
+        [[BasicInfoManager sharedManager] setIsFullDuplex:YES];
+        
+        osdVC.view.hidden = NO;
+        infoView.hidden = NO;
+    }
+    else{
+        _settings.flexbotVersion = @"1.0.0";
+        [_settings save];
+        [[BasicInfoManager sharedManager] setIsFullDuplex:NO];
+        
+        osdVC.view.hidden = YES;
+        infoView.hidden = YES;
+    }
 }
 
 
@@ -412,6 +455,7 @@ typedef enum flight_state{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationDismissSettingsMenuView object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationDismissHelpView object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationTransmitterStateDidChange object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationTryiingToConnect object:nil];
     
     [self stopTransmission];
     
@@ -462,6 +506,7 @@ typedef enum flight_state{
     [flightModeTextLabel release];
     [osdVC release];
     [rssiValueLabel release];
+    [infoView release];
     [super dealloc];
 }
 
@@ -684,13 +729,26 @@ typedef enum flight_state{
     pitchValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.angleY];
     headAngleValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.head];
     altValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.altitude];
-    vBatValueTextLabel.text = [NSString stringWithFormat:@"%.1f", osdData.vBat];
     
-    if (osdData.vBat < 3.4) {
+    float energy = 0;
+    if (osdData.vBat > 3.4) {
+        energy =(osdData.vBat - 3.4) / 0.8;
+        
+        if (energy > 1) {
+            energy = 1;
+        }
+    }
+    else{
+        energy = 0;
+    }
+    
+    vBatValueTextLabel.text = [NSString stringWithFormat:@"%d%%", (int)(energy * 100)];
+    
+    if (energy < 0.1) {
         vBatValueTextLabel.textColor = [UIColor redColor];
     }
     else{
-        vBatValueTextLabel.textColor = [UIColor whiteColor];
+        vBatValueTextLabel.textColor = batteryLevelLabel.textColor;
     }
     
     //debugValueTextLabel.text = [[BasicInfoManager sharedManager] debugStr];
@@ -725,9 +783,11 @@ typedef enum flight_state{
     }
     else if((inputState == TransmitterStateOk) && (outputState != TransmitterStateOk)){
        // warningLabel.text = @"Can‘t to send data to WiFi Module, please check the connection is OK.";
-        OSDData *osdData = osdView.osdData;
+        OSDData *osdData = osdVC.osdData;
         osdData.angleX = 0.0f;
         osdData.angleY = 0.0f;
+        
+        osdData.vBat = 3.3f;
         
         warningLabel.text = getLocalizeString(@"not connected");
         [warningLabel setTextColor:[UIColor redColor]];
@@ -736,31 +796,31 @@ typedef enum flight_state{
     }
     else if((inputState != TransmitterStateOk) && (outputState == TransmitterStateOk)){
         //warningLabel.text = @"Can't get data from WiFi modual, please check the connection is OK.";
-        OSDData *osdData = [Transmitter sharedTransmitter].osdData;
+       // OSDData *osdData = [Transmitter sharedTransmitter].osdData;
         
     }
     else if((inputState == TransmitterStateOk) && (outputState != TransmitterStateOk)){
         // warningLabel.text = @"Can‘t to send data to WiFi Module, please check the connection is OK.";
-        OSDData *osdData = osdView.osdData;
+        OSDData *osdData = osdVC.osdData;
         osdData.angleX = 0.0f;
         osdData.angleY = 0.0f;
+        
+        osdData.vBat = 3.3f;
         
         warningLabel.text = getLocalizeString(@"not connected");
         [warningLabel setTextColor:[UIColor redColor]];
         warningView.hidden = NO;
-        
-        
     }
     else {
-        OSDData *osdData = osdView.osdData;
+        OSDData *osdData = osdVC.osdData;
         osdData.angleX = 0.0f;
         osdData.angleY = 0.0f;
+        
+        osdData.vBat = 3.3f;
         
         warningLabel.text = @"not connected";
         [warningLabel setTextColor:[UIColor redColor]];
         warningView.hidden = NO;
-        
-        
     }
 }
 
@@ -1743,13 +1803,6 @@ typedef enum flight_state{
 
 - (void)updateDebugTextView{
     OSDData *osdData = [Transmitter sharedTransmitter].osdData;
-    
-    
-    
-    //debugTextView.text = [NSString stringWithFormat:@"%@\n%d", debugTextView.text, osdData.absolutedAccZ];
-    
-
-   // debugTextView.text = [NSString stringWithFormat:@"%@\n%d", debugTextView.text, osdData.absolutedAccZ];
 }
 
 - (void)flight{

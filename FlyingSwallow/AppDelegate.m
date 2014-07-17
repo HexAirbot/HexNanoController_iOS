@@ -35,13 +35,21 @@
 - (void)copyDefaultSettingsFileIfNeeded{
     NSString *documentsDir= [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *userSettingsFilePath= [documentsDir stringByAppendingPathComponent:@"Settings.plist"];
-
+    NSString *defaultSettingsFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     if([fileManager fileExistsAtPath:userSettingsFilePath] == NO){
+        [fileManager copyItemAtPath:defaultSettingsFilePath toPath:userSettingsFilePath error:NULL];
+    }
+    else{
+        Settings *userSettings = [[[Settings alloc] initWithSettingsFile:userSettingsFilePath] autorelease];
         
-        NSString *settingsFilePath = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"];
-        [fileManager copyItemAtPath:settingsFilePath toPath:userSettingsFilePath error:NULL];
+        Settings *defaultSettings = [[[Settings alloc] initWithSettingsFile:defaultSettingsFilePath] autorelease];
+        
+        if ([userSettings.settingsVersion isEqualToString:defaultSettings.settingsVersion] == NO) {
+            [fileManager removeItemAtPath:userSettingsFilePath error:NULL];
+            [fileManager copyItemAtPath:defaultSettingsFilePath toPath:userSettingsFilePath error:NULL];
+        }
     }
 }
 

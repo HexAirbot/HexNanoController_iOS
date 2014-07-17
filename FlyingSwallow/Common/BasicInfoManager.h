@@ -21,6 +21,7 @@
 @property (nonatomic, readonly) NSMutableString *debugStr;
 
 @property (nonatomic) BOOL needsAltHoldMode;
+@property (nonatomic, assign) BOOL isFullDuplex;
 
 
 + (id)sharedManager;

@@ -33,6 +33,10 @@
 @synthesize rudderDeadBand = _rudderDeadBand;
 @synthesize takeOffThrottle = _takeOffThrottle;
 @synthesize isAccMode = _isAccMode;
+@synthesize appVersion = _appVersion;
+@synthesize flexbotVersion = _flexbotVersion;
+@synthesize communicationType = _communicationType;
+@synthesize settingsVersion = _settingsVersion;
 
 - (id)initWithSettingsFile:(NSString *)settingsFilePath{
     self = [super init];
@@ -54,6 +58,11 @@
         _elevatorDeadBand = [[_settingsData objectForKey:kKeySettingsElevatorDeadBand] floatValue];
         _rudderDeadBand = [[_settingsData objectForKey:kKeySettingsRudderDeadBand] floatValue];
         _takeOffThrottle = [[_settingsData objectForKey:kKeySettingsTakeOffThrottle] floatValue];
+        _appVersion = [_settingsData objectForKey:kKeySettingsAppVersion];
+        _flexbotVersion = [_settingsData objectForKey:kKeySettingsFlexbotVersion];
+        _communicationType = [_settingsData objectForKey:kkeySettingsCommunicationType];
+        _settingsVersion = [_settingsData objectForKey:kKeySettingsSettingsVersion];
+
         
         NSArray *channelDataArray = [_settingsData objectForKey:kKeySettingsChannels];
         int channelCount = [channelDataArray count];
@@ -136,6 +145,46 @@
     _takeOffThrottle = takeOffThrottle;
     
     [_settingsData setObject:[NSNumber numberWithFloat:_takeOffThrottle] forKey:kKeySettingsTakeOffThrottle];
+}
+
+- (void)setAppVersion:(NSString *)appVersion{
+    _appVersion = [appVersion retain];
+    
+    [_settingsData setObject:_appVersion forKey:kKeySettingsAppVersion];
+}
+
+- (NSString *)appVersion{
+    return _appVersion;
+}
+
+- (void)setFlexbotVersion:(NSString *)flexbotVersion{
+    _flexbotVersion = [flexbotVersion retain];
+    
+    [_settingsData setObject:_flexbotVersion forKey:kKeySettingsFlexbotVersion];
+}
+
+- (NSString *)flexbotVersion{
+    return _flexbotVersion;
+}
+
+- (NSString *)communicationType{
+    return _communicationType;
+}
+
+- (void)setCommunicationType:(NSString *)communicationType{
+    _communicationType = [communicationType retain];
+    
+    [_settingsData setObject:_communicationType forKey:kkeySettingsCommunicationType];
+}
+
+- (void)setSettingsVersion:(NSString *)settingsVersion{
+    _settingsVersion = [settingsVersion retain];
+    
+    [_settingsData setObject:_settingsVersion forKey:kKeySettingsSettingsVersion];
+}
+
+- (NSString *)settingsVersion{
+    return _settingsVersion;
 }
 
 - (void)save{

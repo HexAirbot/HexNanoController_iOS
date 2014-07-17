@@ -264,24 +264,35 @@ static Transmitter *sharedTransmitter;
     memcpy(oldChannelList, channelList, kPpmChannelCount * sizeof(float));
     
     NSMutableData *data = nil;
-
-    if (data == nil) {
-        data = [NSMutableData dataWithBytes:package + 5 length:6];
+    
+    if ([[BasicInfoManager sharedManager] isFullDuplex]) {
+        if (data == nil) {
+            data = [NSMutableData dataWithBytes:package + 5 length:6];
+        }
+        else{
+            [data appendData:[NSData dataWithBytes:package + 5 length:6]];
+        }
     }
     else{
-        [data appendData:[NSData dataWithBytes:package + 5 length:6]];
+        if (data == nil) {
+            data = [NSMutableData dataWithBytes:package length:11];
+        }
+        else{
+            [data appendData:[NSData dataWithBytes:package length:11]];
+        }
     }
-    
+
     if ([bleSerialMangager isConnected] && data != nil) {
         [bleSerialMangager sendControlData:data];
     }
-    
-    static int cnt = 0;
-    cnt++;
-    if ((cnt % 3) == 2) {
-        [bleSerialMangager sendRequestData:getSimpleCommand(MSP_HEX_NANO)];
+    if ([[BasicInfoManager sharedManager] isFullDuplex]) {
+        static int cnt = 0;
+        cnt++;
+        if ((cnt % 3) == 2) {
+            [bleSerialMangager sendRequestData:getSimpleCommand(MSP_HEX_NANO)];
+        }
     }
-    
+
     [pool release];
 }
 
@@ -325,10 +336,14 @@ static Transmitter *sharedTransmitter;
         for (int idx = 0; idx < 1; idx++) {
             [packageData appendData:data];
         }
-        /*old version
-        [bleSerialMangager sendControlData:packageData];
-         */
-        [bleSerialMangager sendRequestData:packageData];
+        
+        if ([[BasicInfoManager sharedManager] isFullDuplex]) {
+            [bleSerialMangager sendRequestData:packageData];
+        }
+        else{
+            [bleSerialMangager sendControlData:packageData];
+        }
+        
         return YES;
     }
     else

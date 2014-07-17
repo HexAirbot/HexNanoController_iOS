@@ -196,6 +196,10 @@ using namespace std;
     _angleY = angleY;
 }
 
+- (void)setVBat:(float)vBat{
+    _vBat = vBat;
+}
+
 - (Float32)read32{
 //    uint32_t part1 = (inBuf[p++]&0xff);
 //    uint32_t part2 = ((inBuf[p++]&0xff)<<8);
@@ -469,6 +473,7 @@ using namespace std;
            
     }
 }
+
 
 - (void)dealloc{
     [_testStr release];

@@ -19,7 +19,7 @@
 
 - (void)updateUI{
     float roll = -_osdData.angleX / 180.0 * M_PI;
-    float pitch = _osdData.angleY / 180.0 * M_PI;
+    float pitch = -_osdData.angleY / 180.0 * M_PI;
     
     [artificalHorizonView setRoll:roll pitch:pitch];
     
@@ -62,6 +62,10 @@
     [_osdData release];
     _osdData = [osdData retain];
     [self updateUI];
+}
+
+- (OSDData *)osdData{
+    return _osdData;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil data:(OSDData *)osdData{

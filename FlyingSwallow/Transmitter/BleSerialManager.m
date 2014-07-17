@@ -85,11 +85,15 @@
         isTryingConnect = YES;
         [_centralManager connectPeripheral:peripheral options:nil];
     }
-    else{        
+    else{
         [self disconnect];
         isTryingConnect = YES;
         _currentBleSerial = [peripheral retain];
         [_centralManager connectPeripheral:peripheral options:nil];
+        
+        NSDictionary * userInfo = [NSDictionary dictionaryWithObject:_currentBleSerial.name forKey:@"Target"];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationTryiingToConnect object:self userInfo:userInfo];
     }
 }
 
@@ -167,6 +171,8 @@
     
     
     if (![_bleSerialList containsObject:peripheral] && ([peripheral.name isEqualToString:@"AnyFlite"] || [peripheral.name isEqualToString:@"Hex Mini"] || [peripheral.name isEqualToString:@"HMSoft"] || [peripheral.name isEqualToString:@"Hex Nano"] || [peripheral.name isEqualToString:@"Any Flite"] || [peripheral.name isEqualToString:@"Flexbot"] || [peripheral.name isEqualToString:@"FlexBLE"])) {
+        
+        
         NSLog(@"***peripheral.name:%@", peripheral.name);
         
         [(NSMutableArray *)_bleSerialList addObject:peripheral];
@@ -323,39 +329,62 @@
     
     #define kCharacteristicCnt 3
     
-    for (CBCharacteristic *characteristic in service.characteristics) {
-        if ([characteristic.UUID isEqual:[self getControlCharacteristicUUID]]) {
-            [controlCharacteristic release];
-            controlCharacteristic = [characteristic retain];
+    if ([[BasicInfoManager sharedManager] isFullDuplex]) {
+        for (CBCharacteristic *characteristic in service.characteristics) {
+            if ([characteristic.UUID isEqual:[self getControlCharacteristicUUID]]) {
+                [controlCharacteristic release];
+                controlCharacteristic = [characteristic retain];
+                
+                characteristicCnt++;
+            }
+            else if ([characteristic.UUID isEqual:[self getRequestCharacteristicUUID]]) {
+                [requestCharacteristic release];
+                requestCharacteristic = [characteristic retain];
+                
+                characteristicCnt++;
+            }
             
-            characteristicCnt++;
+            else if([characteristic.UUID isEqual:[self getOsdCharacteristicUUID]]) {
+                [osdCharacteristic release];
+                osdCharacteristic = [characteristic retain];
+                
+                characteristicCnt++;
+                
+                [peripheral setNotifyValue:YES forCharacteristic:osdCharacteristic];
+            }
+            
+            if (characteristicCnt == kCharacteristicCnt) {
+                break;
+            }
         }
-        else if ([characteristic.UUID isEqual:[self getRequestCharacteristicUUID]]) {
-            [requestCharacteristic release];
-            requestCharacteristic = [characteristic retain];
-            
-            characteristicCnt++;
-        }
-        
-        else if([characteristic.UUID isEqual:[self getOsdCharacteristicUUID]]) {
-            [osdCharacteristic release];
-            osdCharacteristic = [characteristic retain];
-            
-            characteristicCnt++;
-            
-            [peripheral setNotifyValue:YES forCharacteristic:osdCharacteristic];
-        }
-        
         if (characteristicCnt == kCharacteristicCnt) {
-            break;
+            NSLog(@"***success found all characteritics");
+            
+            if(_delegate != nil){
+                if ([_delegate respondsToSelector:@selector(bleSerialManager:didConnectPeripheral:)]) {
+                    [_delegate bleSerialManager:self didConnectPeripheral:peripheral];
+                }
+            }
         }
     }
-    if (characteristicCnt == kCharacteristicCnt) {
-        NSLog(@"***success found all characteritics");
-        
-        if(_delegate != nil){
-            if ([_delegate respondsToSelector:@selector(bleSerialManager:didConnectPeripheral:)]) {
-                [_delegate bleSerialManager:self didConnectPeripheral:peripheral];
+    else{
+        for (CBCharacteristic *characteristic in service.characteristics) {
+            if ([characteristic.UUID isEqual:[self getControlCharacteristicUUID]]) {
+                
+                NSLog(@"****begin notify value for characteritic:%@", characteristic);
+                
+                [controlCharacteristic release];
+                controlCharacteristic = [characteristic retain];
+                
+                //[peripheral setNotifyValue:YES forCharacteristic:characteristic];
+                
+                if(_delegate != nil){
+                    if ([_delegate respondsToSelector:@selector(bleSerialManager:didConnectPeripheral:)]) {
+                        [_delegate bleSerialManager:self didConnectPeripheral:peripheral];
+                    }
+                }
+                
+                break;
             }
         }
     }

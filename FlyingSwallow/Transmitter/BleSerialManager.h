@@ -10,6 +10,8 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #define kNotificationPeripheralListDidChange @"NPeripheralListDidChange"
+#define kNotificationTryiingToConnect        @"NTryiingToConnect"
+
 
 @class BleSerialManager;
 

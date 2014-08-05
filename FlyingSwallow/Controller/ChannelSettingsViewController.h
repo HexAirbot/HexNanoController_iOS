@@ -48,7 +48,7 @@
 }
 
 //当重新设置channel后，UI显示的内容会随之更新
-@property(nonatomic, retain) Channel *channel;
+@property(nonatomic, strong) Channel *channel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil channel:(Channel *)channel;
 

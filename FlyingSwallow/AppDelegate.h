@@ -23,6 +23,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic,retain) HudViewController *viewController;
+@property (nonatomic,strong) HudViewController *viewController;
 
 @end

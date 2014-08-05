@@ -17,7 +17,7 @@
 
 @property (nonatomic) BOOL ceilingThresholdEnabled;
 @property (nonatomic) float ceilingThreshold;
-@property (nonatomic, retain) UIColor* ceilingThresholdBackground;
+@property (nonatomic, strong) UIColor* ceilingThresholdBackground;
 
 - (void) drawToContext:(CGContextRef)ctx rect:(CGRect)rect;
 

@@ -45,7 +45,7 @@ typedef enum {
 @property(nonatomic, assign) TransmitterState outputState;
 @property(nonatomic, assign) TransmitterState inputState ;
 
-@property(nonatomic, retain) OSDData *osdData;
+@property(nonatomic, strong) OSDData *osdData;
 
 @property(nonatomic, readonly) float rssi;
 

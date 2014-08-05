@@ -24,7 +24,7 @@
 
 @interface Channel()
 
-@property(nonatomic, retain) NSMutableDictionary *data;
+@property(nonatomic, strong) NSMutableDictionary *data;
 
 @end
 
@@ -49,9 +49,9 @@
         _ownerSettings = settings;
         _idx = idx;
         
-        _data = [[[settings.settingsData valueForKey:kKeySettingsChannels] objectAtIndex:idx] retain];
+        _data = [[settings.settingsData valueForKey:kKeySettingsChannels] objectAtIndex:idx];
         
-        _name = [[_data valueForKey:kKeyChannelName] retain];
+        _name = [_data valueForKey:kKeyChannelName];
         _isReversing = [[_data valueForKey:kKeyChannelIsReversed] boolValue];
         _trimValue = [[_data valueForKey:kKeyChannelTrimValue] floatValue];
         _outputAdjustabledRange = [[_data valueForKey:kKeyChannelOutputAdjustableRange] floatValue];
@@ -95,11 +95,6 @@
     [_data setValue:[NSNumber numberWithFloat:_defaultOutputValue] forKey:kKeyChannelDefaultOutputValue];
 }
 
-- (void)dealloc{
-    [_name release];
-    [_data release];
-    [super dealloc];
-}
 
 
 @end

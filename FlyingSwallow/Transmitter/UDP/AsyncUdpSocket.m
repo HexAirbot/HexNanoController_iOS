@@ -136,20 +136,14 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 {
 	if((self = [super init]))
 	{
-		buffer = [d retain];
-		address = [a retain];
+		buffer = d;
+		address = a;
 		timeout = t;
 		tag = i;
 	}
 	return self;
 }
 
-- (void)dealloc
-{
-	[buffer release];
-	[address release];
-	[super dealloc];
-}
 
 @end
 
@@ -188,12 +182,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	return self;
 }
 
-- (void)dealloc
-{
-	[buffer release];
-	[host release];
-	[super dealloc];
-}
 
 @end
 
@@ -222,7 +210,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		
 		// Socket context
 		theContext.version = 0;
-		theContext.info = self;
+		theContext.info = (__bridge void *)(self);
 		theContext.retain = nil;
 		theContext.release = nil;
 		theContext.copyDescription = nil;
@@ -268,7 +256,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		theRunLoop = CFRunLoopGetCurrent();
 		
 		// Set default run loop modes
-		theRunLoopModes = [[NSArray arrayWithObject:NSDefaultRunLoopMode] retain];
+		theRunLoopModes = [NSArray arrayWithObject:NSDefaultRunLoopMode];
 		
 		// Attach the sockets to the run loop
 		
@@ -322,14 +310,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 - (void) dealloc
 {
 	[self close];
-	[theSendQueue release];
-	[theReceiveQueue release];
-	[theRunLoopModes release];
-	[cachedLocalHost release];
-	[cachedConnectedHost release];
 	[NSObject cancelPreviousPerformRequestsWithTarget:theDelegate selector:@selector(onUdpSocketDidClose:) object:self];
 	[NSObject cancelPreviousPerformRequestsWithTarget:self];
-	[super dealloc];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -365,7 +347,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
+		CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
 		CFRunLoopAddSource(theRunLoop, source, runLoopMode);
 	}
 }
@@ -375,7 +357,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
+		CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
 		CFRunLoopRemoveSource(theRunLoop, source, runLoopMode);
 	}
 }
@@ -385,8 +367,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
-		CFRunLoopAddTimer(theRunLoop, (CFRunLoopTimerRef)timer, runLoopMode);
+		CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
+		CFRunLoopAddTimer(theRunLoop, (__bridge CFRunLoopTimerRef)timer, runLoopMode);
 	}
 }
 
@@ -395,8 +377,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)		
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
-		CFRunLoopRemoveTimer(theRunLoop, (CFRunLoopTimerRef)timer, runLoopMode);
+		CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
+		CFRunLoopRemoveTimer(theRunLoop, (__bridge CFRunLoopTimerRef)timer, runLoopMode);
 	}
 }
 
@@ -440,8 +422,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	// We do not retain the timers - they get retained by the runloop when we add them as a source.
 	// Since we're about to remove them as a source, we retain now, and release again below.
-	[theSendTimer retain];
-	[theReceiveTimer retain];
 	
 	if(theSendTimer)    [self runLoopRemoveTimer:theSendTimer];
 	if(theReceiveTimer) [self runLoopRemoveTimer:theReceiveTimer];
@@ -452,8 +432,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	if(theReceiveTimer) [self runLoopAddTimer:theReceiveTimer];
 	
 	// Release timers since we retained them above
-	[theSendTimer release];
-	[theReceiveTimer release];
 	
 	if(theSource4) [self runLoopAddSource:theSource4];
 	if(theSource6) [self runLoopAddSource:theSource6];
@@ -491,21 +469,16 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	// We do not retain the timers - they get retained by the runloop when we add them as a source.
 	// Since we're about to remove them as a source, we retain now, and release again below.
-	[theSendTimer retain];
-	[theReceiveTimer retain];
 	
 	if(theSendTimer)    [self runLoopRemoveTimer:theSendTimer];
 	if(theReceiveTimer) [self runLoopRemoveTimer:theReceiveTimer];
 	
-	[theRunLoopModes release];
 	theRunLoopModes = [runLoopModes copy];
 	
 	if(theSendTimer)    [self runLoopAddTimer:theSendTimer];
 	if(theReceiveTimer) [self runLoopAddTimer:theReceiveTimer];
 	
 	// Release timers since we retained them above
-	[theSendTimer release];
-	[theReceiveTimer release];
 	
 	if(theSource4) [self runLoopAddSource:theSource4];
 	if(theSource6) [self runLoopAddSource:theSource6];
@@ -519,7 +492,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 
 - (NSArray *)runLoopModes
 {
-	return [[theRunLoopModes retain] autorelease];
+	return theRunLoopModes;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -823,7 +796,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	{
 		if(theSocket4)
 		{
-			CFSocketError error = CFSocketSetAddress(theSocket4, (CFDataRef)address4);
+			CFSocketError error = CFSocketSetAddress(theSocket4, (__bridge CFDataRef)address4);
 			if(error != kCFSocketSuccess)
 			{
 				if(errPtr) *errPtr = [self getSocketError];
@@ -849,7 +822,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		
 		if(theSocket6)
 		{
-			CFSocketError error = CFSocketSetAddress(theSocket6, (CFDataRef)address6);
+			CFSocketError error = CFSocketSetAddress(theSocket6, (__bridge CFDataRef)address6);
 			if(error != kCFSocketSuccess)
 			{
 				if(errPtr) *errPtr = [self getSocketError];
@@ -919,7 +892,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	{
 		if(theSocket4)
 		{
-			CFSocketError sockErr = CFSocketConnectToAddress(theSocket4, (CFDataRef)address4, (CFTimeInterval)0.0);
+			CFSocketError sockErr = CFSocketConnectToAddress(theSocket4, (__bridge CFDataRef)address4, (CFTimeInterval)0.0);
 			if(sockErr != kCFSocketSuccess)
 			{
 				if(errPtr) *errPtr = [self getSocketError];
@@ -945,7 +918,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		
 		if(theSocket6)
 		{
-			CFSocketError sockErr = CFSocketConnectToAddress(theSocket6, (CFDataRef)address6, (CFTimeInterval)0.0);
+			CFSocketError sockErr = CFSocketConnectToAddress(theSocket6, (__bridge CFDataRef)address6, (CFTimeInterval)0.0);
 			if(sockErr != kCFSocketSuccess)
 			{
 				if(errPtr) *errPtr = [self getSocketError];
@@ -999,7 +972,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	{
 		if(theSocket4)
 		{
-			CFSocketError error = CFSocketConnectToAddress(theSocket4, (CFDataRef)remoteAddr, (CFTimeInterval)0.0);
+			CFSocketError error = CFSocketConnectToAddress(theSocket4, (__bridge CFDataRef)remoteAddr, (CFTimeInterval)0.0);
 			if(error != kCFSocketSuccess)
 			{
 				if(errPtr) *errPtr = [self getSocketError];
@@ -1024,7 +997,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	{
 		if(theSocket6)
 		{
-			CFSocketError error = CFSocketConnectToAddress(theSocket6, (CFDataRef)remoteAddr, (CFTimeInterval)0.0);
+			CFSocketError error = CFSocketConnectToAddress(theSocket6, (__bridge CFDataRef)remoteAddr, (CFTimeInterval)0.0);
 			if(error != kCFSocketSuccess)
 			{
 				if(errPtr) *errPtr = [self getSocketError];
@@ -1502,7 +1475,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	if(theFlags & kDidBind)
 	{
-		[cachedLocalHost release];
 		cachedLocalHost = [result copy];
 	}
 	
@@ -1587,7 +1559,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	if(theFlags & kDidConnect)
 	{
-		[cachedConnectedHost release];
 		cachedConnectedHost = [result copy];
 	}
 	
@@ -1710,7 +1681,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theSendQueue addObject:packet];
 	[self scheduleDequeueSend];
 	
-	[packet release];
 	return YES;
 }
 
@@ -1738,7 +1708,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theSendQueue addObject:packet];
 	[self scheduleDequeueSend];
 	
-	[packet release];
 	return YES;
 }
 
@@ -1762,7 +1731,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theSendQueue addObject:packet];
 	[self scheduleDequeueSend];
 	
-	[packet release];
 	return YES;
 }
 
@@ -1832,7 +1800,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		if([theSendQueue count] > 0)
 		{
 			// Dequeue next send packet
-			theCurrentSend = [[theSendQueue objectAtIndex:0] retain];
+			theCurrentSend = [theSendQueue objectAtIndex:0];
 			[theSendQueue removeObjectAtIndex:0];
 			
 			// Start time-out timer.
@@ -1961,7 +1929,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theSendTimer invalidate];
 	theSendTimer = nil;
 	
-	[theCurrentSend release];
 	theCurrentSend = nil;
 }
 
@@ -1989,7 +1956,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theReceiveQueue addObject:packet];
 	[self scheduleDequeueReceive];
 	
-	[packet release];
 }
 
 - (BOOL)hasBytesAvailable:(CFSocketRef)sockRef
@@ -2047,7 +2013,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		if([theReceiveQueue count] > 0)
 		{
 			// Dequeue next receive packet
-			theCurrentReceive = [[theReceiveQueue objectAtIndex:0] retain];
+			theCurrentReceive = [theReceiveQueue objectAtIndex:0];
 			[theReceiveQueue removeObjectAtIndex:0];
 			
 			// Start time-out timer.
@@ -2158,7 +2124,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 							theCurrentReceive->buffer = [[NSMutableData alloc] initWithBytesNoCopy:buf
 																					 length:result
 																			   freeWhenDone:YES];
-							theCurrentReceive->host = [host retain];
+							theCurrentReceive->host = host;
 							theCurrentReceive->port = port;
 						}
 					}
@@ -2192,7 +2158,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 							theCurrentReceive->buffer = [[NSMutableData alloc] initWithBytesNoCopy:buf
 																					 length:result
 																			   freeWhenDone:YES];
-							theCurrentReceive->host = [host retain];
+							theCurrentReceive->host = host;
 							theCurrentReceive->port = port;
 						}
 					}
@@ -2222,8 +2188,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 					}
 					else
 					{
-						[theCurrentReceive->buffer release];
-						[theCurrentReceive->host release];
 						
 						theCurrentReceive->buffer = nil;
 						theCurrentReceive->host = nil;
@@ -2283,7 +2247,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theReceiveTimer invalidate];
 	theReceiveTimer = nil;
 	
-	[theCurrentReceive release];
 	theCurrentReceive = nil;
 }
 
@@ -2336,12 +2299,12 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
  **/
 static void MyCFSocketCallback(CFSocketRef sref, CFSocketCallBackType type, CFDataRef address, const void *pData, void *pInfo)
 {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
-	AsyncUdpSocket *theSocket = [[(AsyncUdpSocket *)pInfo retain] autorelease];
-	[theSocket doCFSocketCallback:type forSocket:sref withAddress:(NSData *)address withData:pData];
+		AsyncUdpSocket *theSocket = (__bridge AsyncUdpSocket *)pInfo;
+		[theSocket doCFSocketCallback:type forSocket:sref withAddress:(__bridge NSData *)address withData:pData];
 	
-	[pool release];
+	}
 }
 
 @end

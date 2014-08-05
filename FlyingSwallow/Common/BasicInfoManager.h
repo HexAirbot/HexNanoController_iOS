@@ -13,7 +13,7 @@
 @interface BasicInfoManager : NSObject {
 }
 
-@property (nonatomic, retain) UITextView *debugTextView;
+@property (nonatomic, strong) UITextView *debugTextView;
 @property (nonatomic, readonly)  CMMotionManager *motionManager;
 
 @property (nonatomic, readonly) NSMutableString *debugStr;

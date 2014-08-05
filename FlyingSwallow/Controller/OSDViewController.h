@@ -17,7 +17,7 @@
     
 }
 
-@property(nonatomic, retain) OSDData *osdData;
+@property(nonatomic, strong) OSDData *osdData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil data:(OSDData *)osdData;
 

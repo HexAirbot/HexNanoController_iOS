@@ -25,12 +25,6 @@
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 
-- (void)dealloc
-{
-    [_window release];
-    [_viewController release];
-    [super dealloc];
-}
 
 - (void)copyDefaultSettingsFileIfNeeded{
     NSString *documentsDir= [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -42,9 +36,9 @@
         [fileManager copyItemAtPath:defaultSettingsFilePath toPath:userSettingsFilePath error:NULL];
     }
     else{
-        Settings *userSettings = [[[Settings alloc] initWithSettingsFile:userSettingsFilePath] autorelease];
+        Settings *userSettings = [[Settings alloc] initWithSettingsFile:userSettingsFilePath];
         
-        Settings *defaultSettings = [[[Settings alloc] initWithSettingsFile:defaultSettingsFilePath] autorelease];
+        Settings *defaultSettings = [[Settings alloc] initWithSettingsFile:defaultSettingsFilePath];
         
         if ([userSettings.settingsVersion isEqualToString:defaultSettings.settingsVersion] == NO) {
             [fileManager removeItemAtPath:userSettingsFilePath error:NULL];
@@ -58,18 +52,18 @@
 {
     [self copyDefaultSettingsFileIfNeeded];
     
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.viewController = [[[HudViewController alloc] initWithNibName:@"HudViewController" bundle:nil] autorelease];
+        self.viewController = [[HudViewController alloc] initWithNibName:@"HudViewController" bundle:nil];
     } else {
         if (isIphone5()) {
-            self.viewController = [[[HudViewController alloc] initWithNibName:@"HudViewController_iPhone_tall" bundle:nil] autorelease];
+            self.viewController = [[HudViewController alloc] initWithNibName:@"HudViewController_iPhone_tall" bundle:nil];
         }
         else{
-            self.viewController = [[[HudViewController alloc] initWithNibName:@"HudViewController_iPhone" bundle:nil] autorelease];
+            self.viewController = [[HudViewController alloc] initWithNibName:@"HudViewController_iPhone" bundle:nil];
         }
     }
     

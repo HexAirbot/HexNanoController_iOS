@@ -103,7 +103,7 @@
 
 
 
-@property(nonatomic, assign) id<OSDDataDelegate> delegate;
+@property(nonatomic, weak) id<OSDDataDelegate> delegate;
 
 - (id)initWithOSDData:(OSDData *)osdData;
 - (void)parseRawData:(NSData *)data;

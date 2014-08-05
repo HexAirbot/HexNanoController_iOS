@@ -43,7 +43,6 @@
     
     if(self){
         _path = settingsFilePath;
-        [_path retain];
         
         _settingsData = [[NSMutableDictionary alloc] initWithContentsOfFile:_path];
         
@@ -72,7 +71,6 @@
             Channel *channel = [[Channel alloc] initWithSetting:self idx:channelIdx];
             [_channelArray addObject:channel];
             
-            [channel release];
         }
     }
     
@@ -148,7 +146,7 @@
 }
 
 - (void)setAppVersion:(NSString *)appVersion{
-    _appVersion = [appVersion retain];
+    _appVersion = appVersion;
     
     [_settingsData setObject:_appVersion forKey:kKeySettingsAppVersion];
 }
@@ -158,7 +156,7 @@
 }
 
 - (void)setFlexbotVersion:(NSString *)flexbotVersion{
-    _flexbotVersion = [flexbotVersion retain];
+    _flexbotVersion = flexbotVersion;
     
     [_settingsData setObject:_flexbotVersion forKey:kKeySettingsFlexbotVersion];
 }
@@ -172,13 +170,13 @@
 }
 
 - (void)setCommunicationType:(NSString *)communicationType{
-    _communicationType = [communicationType retain];
+    _communicationType = communicationType;
     
     [_settingsData setObject:_communicationType forKey:kkeySettingsCommunicationType];
 }
 
 - (void)setSettingsVersion:(NSString *)settingsVersion{
-    _settingsVersion = [settingsVersion retain];
+    _settingsVersion = settingsVersion;
     
     [_settingsData setObject:_settingsVersion forKey:kKeySettingsSettingsVersion];
 }
@@ -214,17 +212,15 @@
 }
 
 - (void)changeChannelFrom:(int)from to:(int)to{
-    Channel *channel = [[_channelArray objectAtIndex:from] retain];
+    Channel *channel = [_channelArray objectAtIndex:from];
 	[_channelArray removeObjectAtIndex:from];
 	[_channelArray insertObject:channel atIndex:to];
-	[channel release];
     
     NSMutableArray *channelDataArray = (NSMutableArray *)[_settingsData valueForKey:kKeySettingsChannels];
     
-	id channelData = [[channelDataArray objectAtIndex:from] retain];
+	id channelData = [channelDataArray objectAtIndex:from];
 	[channelDataArray removeObjectAtIndex:from];
 	[channelDataArray insertObject:channelData atIndex:to];
-	[channelData release];
 	
 	int idx = 0;
 	for (Channel *oneChannel in _channelArray) {
@@ -273,18 +269,10 @@
         channel.defaultOutputValue = defaultChannel.defaultOutputValue;
         channel.value = channel.defaultOutputValue;
 
-        [defaultChannel release];
     }
     
-    [defaultSettings release];
 }
 
-- (void)dealloc{
-    [_path release];
-    [_settingsData release];
-    [_channelArray release];
-    [super dealloc];
-}
 
 
 @end

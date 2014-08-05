@@ -475,10 +475,6 @@ using namespace std;
 }
 
 
-- (void)dealloc{
-    [_testStr release];
-    [super dealloc];
-}
 
 
 @end

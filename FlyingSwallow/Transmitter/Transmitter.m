@@ -240,60 +240,60 @@ static Transmitter *sharedTransmitter;
 }
 
 - (void)transmmit{
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
     
-    static int osdRequestTimer = 0;
-    osdRequestTimer++;
-    
-    [self updatePpmPackage];
-    
-    //BOOL channelListIsChange = NO;
-    
-    /*
-    for(int channelIdx = 0; channelIdx < kPpmChannelCount; channelIdx++){
-        if (fabs(channelList[channelIdx] - oldChannelList[channelIdx]) > 0.004f) {
-            channelListIsChange = YES;
-            NSLog(@"***channelListIsChange");
-            break;
-        }å
-    }
-    */
-    
-    //NSData *request = getDefaultOSDDataRequest();
-    
-    memcpy(oldChannelList, channelList, kPpmChannelCount * sizeof(float));
-    
-    NSMutableData *data = nil;
-    
-    if ([[BasicInfoManager sharedManager] isFullDuplex]) {
-        if (data == nil) {
-            data = [NSMutableData dataWithBytes:package + 5 length:6];
+        static int osdRequestTimer = 0;
+        osdRequestTimer++;
+        
+        [self updatePpmPackage];
+        
+        //BOOL channelListIsChange = NO;
+        
+        /*
+        for(int channelIdx = 0; channelIdx < kPpmChannelCount; channelIdx++){
+            if (fabs(channelList[channelIdx] - oldChannelList[channelIdx]) > 0.004f) {
+                channelListIsChange = YES;
+                NSLog(@"***channelListIsChange");
+                break;
+            }å
+        }
+        */
+        
+        //NSData *request = getDefaultOSDDataRequest();
+        
+        memcpy(oldChannelList, channelList, kPpmChannelCount * sizeof(float));
+        
+        NSMutableData *data = nil;
+        
+        if ([[BasicInfoManager sharedManager] isFullDuplex]) {
+            if (data == nil) {
+                data = [NSMutableData dataWithBytes:package + 5 length:6];
+            }
+            else{
+                [data appendData:[NSData dataWithBytes:package + 5 length:6]];
+            }
         }
         else{
-            [data appendData:[NSData dataWithBytes:package + 5 length:6]];
+            if (data == nil) {
+                data = [NSMutableData dataWithBytes:package length:11];
+            }
+            else{
+                [data appendData:[NSData dataWithBytes:package length:11]];
+            }
         }
-    }
-    else{
-        if (data == nil) {
-            data = [NSMutableData dataWithBytes:package length:11];
-        }
-        else{
-            [data appendData:[NSData dataWithBytes:package length:11]];
-        }
-    }
 
-    if ([bleSerialMangager isConnected] && data != nil) {
-        [bleSerialMangager sendControlData:data];
-    }
-    if ([[BasicInfoManager sharedManager] isFullDuplex]) {
-        static int cnt = 0;
-        cnt++;
-        if ((cnt % 3) == 2) {
-            [bleSerialMangager sendRequestData:getSimpleCommand(MSP_HEX_NANO)];
+        if ([bleSerialMangager isConnected] && data != nil) {
+            [bleSerialMangager sendControlData:data];
         }
-    }
+        if ([[BasicInfoManager sharedManager] isFullDuplex]) {
+            static int cnt = 0;
+            cnt++;
+            if ((cnt % 3) == 2) {
+                [bleSerialMangager sendRequestData:getSimpleCommand(MSP_HEX_NANO)];
+            }
+        }
 
-    [pool release];
+    }
 }
 
 
@@ -307,14 +307,13 @@ static Transmitter *sharedTransmitter;
         _osdData.delegate = self;
     }
     
-    timer = [[NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(transmmit) userInfo:nil repeats:YES] retain];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(transmmit) userInfo:nil repeats:YES];
 
     return YES;
 }
 
 - (BOOL)stop{    
     [timer invalidate];
-    [timer release];
     timer = nil;
     
     return YES;
@@ -368,7 +367,6 @@ static Transmitter *sharedTransmitter;
 
     UIAlertView *alertView =[[UIAlertView alloc] initWithTitle:@"Sorry" message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
-    [alertView release];
 }
 
 //- (BOOL)setupSocket
@@ -558,8 +556,6 @@ static Transmitter *sharedTransmitter;
 
 - (void)dealloc{
     [self stop];
-    [_osdData  release];
-    [super dealloc];
 }
 
 @end

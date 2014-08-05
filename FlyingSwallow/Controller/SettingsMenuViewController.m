@@ -83,7 +83,7 @@ typedef enum settings_alert_dialog{
         pageViewArray = [[NSMutableArray alloc] initWithCapacity:5];
         pageTitleArray = [[NSMutableArray alloc] initWithCapacity:5];
 
-        settings = [settings_ retain];
+        settings = settings_;
         
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissChannelSetttingsView) name:kNotificationDismissChannelSettingsView object:nil];
     }
@@ -223,7 +223,7 @@ typedef enum settings_alert_dialog{
     if(peripheralList == nil){
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotificationPeripheralListDidChange) name:kNotificationPeripheralListDidChange object:nil];
         
-        peripheralList =  [[[[Transmitter sharedTransmitter] bleSerialManager] bleSerialList] retain];
+        peripheralList =  [[[Transmitter sharedTransmitter] bleSerialManager] bleSerialList];
         
         [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(updateConnectionState) userInfo:nil repeats:YES];
 
@@ -275,100 +275,56 @@ typedef enum settings_alert_dialog{
 
 - (void)viewDidUnload
 {
-    [personalSettingsPageView release];
     personalSettingsPageView = nil;
-    [channelSetttingsPageView release];
     channelSetttingsPageView = nil;
-    [modeSettingsPageView release];
     modeSettingsPageView = nil;
-    [settingsPageScrollView release];
     settingsPageScrollView = nil;
-    [previousPageButton release];
     previousPageButton = nil;
-    [nextPageButton release];
     nextPageButton = nil;
-    [pageTitleLabel release];
     pageTitleLabel = nil;
-    [okButton release];
     okButton = nil;
     
-    [pageViewArray release], pageViewArray = nil;
-    [pageTitleArray release], pageViewArray = nil;
+    pageViewArray = nil;
+    pageViewArray = nil;
     
-    [pageControl release];
     pageControl = nil;
-    [aboutPageView release];
     aboutPageView = nil;
-    [leftHandedTitleLabel release];
     leftHandedTitleLabel = nil;
-    [leftHandedSwitchButton release];
     leftHandedSwitchButton = nil;
-    [interfaceOpacityTitleLabel release];
     interfaceOpacityTitleLabel = nil;
-    [interfaceOpacitySlider release];
     interfaceOpacitySlider = nil;
-    [interfaceOpacityLabel release];
     interfaceOpacityLabel = nil;
-    [channelListTableView release];
     channelListTableView = nil;
     
-    [reorderTableViewCell release], reorderTableViewCell = nil;
+    reorderTableViewCell = nil;
     
-    [ppmPolarityReversedTitleLabel release];
     ppmPolarityReversedTitleLabel = nil;
-    [ppmPolarityReversedSwitchButton release];
     ppmPolarityReversedSwitchButton = nil;
-    [defaultSettingsButton release];
     defaultSettingsButton = nil;
-    [takeOffThrottleTitleLabel release];
     takeOffThrottleTitleLabel = nil;
-    [takeOffThrottleLabel release];
     takeOffThrottleLabel = nil;
-    [takeOffThrottleSlider release];
     takeOffThrottleSlider = nil;
-    [aileronElevatorDeadBandTitleLabel release];
     aileronElevatorDeadBandTitleLabel = nil;
-    [aileronElevatorDeadBandSlider release];
     aileronElevatorDeadBandSlider = nil;
-    [aileronElevatorDeadBandLabel release];
     aileronElevatorDeadBandLabel = nil;
-    [rudderDeadBandTitleLabel release];
     rudderDeadBandTitleLabel = nil;
-    [rudderDeadBandSlider release];
     rudderDeadBandSlider = nil;
-    [rudderDeadBandLabel release];
     rudderDeadBandLabel = nil;
-    [aboutWebView release];
     aboutWebView = nil;
-    [peripheralView release];
     peripheralView = nil;
-    [peripheralListTableView release];
     peripheralListTableView = nil;
-    [peripheralListScanButton release];
     peripheralListScanButton = nil;
-    [connectionActivityIndicatorView release];
     connectionActivityIndicatorView = nil;
-    [connectionStateTextLabel release];
     connectionStateTextLabel = nil;
-    [isScanningTextLabel release];
     isScanningTextLabel = nil;
-    [accCalibrateButton release];
     accCalibrateButton = nil;
-    [magCalibrateButton release];
     magCalibrateButton = nil;
-    [upTrimButton release];
     upTrimButton = nil;
-    [downTrimButton release];
     downTrimButton = nil;
-    [rightTrimButton release];
     rightTrimButton = nil;
-    [leftTrimButton release];
     leftTrimButton = nil;
-    [trimSettingsView release];
     trimSettingsView = nil;
-    [accModeTitleLabel release];
     accModeTitleLabel = nil;
-    [accModeSwitchButton release];
     accModeSwitchButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -378,7 +334,7 @@ typedef enum settings_alert_dialog{
     [super didReceiveMemoryWarning];
     
     if([channelSettingsVC.view superview] == nil)
-        [channelSettingsVC release], channelSettingsVC = nil;
+        channelSettingsVC = nil;
 
 }
 
@@ -391,117 +347,8 @@ typedef enum settings_alert_dialog{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationDismissChannelSettingsView object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationPeripheralListDidChange object:nil];
 
-    [personalSettingsPageView release];
-    [channelSetttingsPageView release];
-    [modeSettingsPageView release];
-    [settingsPageScrollView release];
-    [previousPageButton release];
-    [nextPageButton release];
-    [pageTitleLabel release];
-    [okButton release];
     
-    [pageViewArray release];
-    [pageTitleArray release];
     
-    [pageControl release];
-    [aboutPageView release];
-    [leftHandedTitleLabel release];
-    [leftHandedSwitchButton release];
-    [interfaceOpacityTitleLabel release];
-    [interfaceOpacitySlider release];
-    [interfaceOpacityLabel release];
-    [channelListTableView release];
-    [reorderTableViewCell release];
-    [settings release];
-    [channelSettingsVC release];
-    [ppmPolarityReversedTitleLabel release];
-    [ppmPolarityReversedSwitchButton release];
-    [defaultSettingsButton release];
-    [takeOffThrottleTitleLabel release];
-    [takeOffThrottleLabel release];
-    [takeOffThrottleSlider release];
-    [aileronElevatorDeadBandTitleLabel release];
-    [aileronElevatorDeadBandSlider release];
-    [aileronElevatorDeadBandLabel release];
-    [rudderDeadBandTitleLabel release];
-    [rudderDeadBandSlider release];
-    [rudderDeadBandLabel release];
-    [aboutWebView release];
-    [peripheralView release];
-    [peripheralListTableView release];
-    [peripheralListScanButton release];
-    [connectionActivityIndicatorView release];
-    [connectionStateTextLabel release];
-    [selectedPeripheral release];
-    [isScanningTextLabel release];
-    [accCalibrateButton release];
-    [magCalibrateButton release];
-    [upTrimButton release];
-    [downTrimButton release];
-    [rightTrimButton release];
-    [leftTrimButton release];
-    [trimSettingsView release];
-    [accModeTitleLabel release];
-    [accModeSwitchButton release];
-    [beginnerModeSwitchButton release];
-    [beginnerModeTitleLabel release];
-    [headfreeModeTitleLabel release];
-    [headfreeModeSwitchButton release];
-    [param1Slider release];
-    [param2Slider release];
-    [param3Slider release];
-    [param4Slider release];
-    [param5Slider release];
-    [param6Slider release];
-    [param7Slider release];
-    [param8Slider release];
-    [param9Slider release];
-    [param10Slider release];
-    [param11Slider release];
-    [param12Slider release];
-    [param1Label release];
-    [param2Label release];
-    [param3Label release];
-    [param4Label release];
-    [param5Label release];
-    [param6Label release];
-    [param7Label release];
-    [param8Label release];
-    [param9Label release];
-    [param10Label release];
-    [param11Label release];
-    [param12Label release];
-    [testSettingsView release];
-    [testSettingsView2 release];
-    [param1ScaleTextFiled release];
-    [param2ScaleTextFiled release];
-    [param3ScaleTextFiled release];
-    [param5ScaleTextFiled release];
-    [param6ScaleTextFiled release];
-    [param7ScaleTextFiled release];
-    [param8ScaleTextFiled release];
-    [param9ScaleTextFiled release];
-    [param10ScaleTextFiled release];
-    [param11ScaleTextFiled release];
-    [param12ScaleTextFiled release];
-    [param1ValueLabel release];
-    [param4ScaleTextFiled release];
-    [param2ValueLabel release];
-    [param3ValueLabel release];
-    [param4ValueLabel release];
-    [param5ValueLabel release];
-    [param6ValueLabel release];
-    [param7ValueLabel release];
-    [param8ValueLabel release];
-    [param9ValueLabel release];
-    [param10ValueLabel release];
-    [param11ValueLabel release];
-    [param12ValueLabel release];
-    [upFastTrimButton release];
-    [downFastTrimButton release];
-    [leftFastTrimButton release];
-    [rightFastTrimButton release];
-    [super dealloc];
 }
 
 - (void)dismissChannelSetttingsView{
@@ -575,8 +422,7 @@ typedef enum settings_alert_dialog{
         CBPeripheral *peripheral = [peripheralList objectAtIndex:[indexPath row]];
         NSString *deviceName = peripheral.name;
 
-        [selectedPeripheral release];
-        selectedPeripheral = [peripheral retain];
+        selectedPeripheral = peripheral;
         
         if ([[[Transmitter sharedTransmitter] bleSerialManager] currentBleSerial] == peripheral) {
            // if ([peripheral isConnected]) {
@@ -644,7 +490,7 @@ typedef enum settings_alert_dialog{
                 NSString *cellId = [NSString stringWithFormat:@"CellType%d", kChannelListTableView];
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
                 if (cell == nil) {
-                    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId] autorelease];
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
                     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
                 }
                 
@@ -669,7 +515,7 @@ typedef enum settings_alert_dialog{
         NSString *cellId = [NSString stringWithFormat:@"CellType%d", kPeripheralDeviceListTabelView];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId] autorelease];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         }
         
@@ -1091,7 +937,6 @@ typedef enum settings_alert_dialog{
                                               otherButtonTitles:okButtonTitle, nil];
     alertView.tag = tag;
     [alertView show];
-    [alertView release];
 }
 
 #pragma mark UIAlertViewDelegate Methods

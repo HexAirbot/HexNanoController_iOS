@@ -186,7 +186,7 @@ enum ChannelListTableViewSection {
     IBOutlet UIView *testSettingsView;
     IBOutlet UIView *testSettingsView2;
 }
-@property(nonatomic, assign) NSObject<SettingMenuViewControllerDelegate> *delegate;
+@property(nonatomic, weak) NSObject<SettingMenuViewControllerDelegate> *delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil settings:(Settings *)settings;
 

@@ -41,8 +41,8 @@
 @property(nonatomic, readonly) BOOL isScanning;
 @property(nonatomic, readonly) CBCentralManager *centralManager;
 @property(nonatomic, readonly) NSArray *bleSerialList;
-@property(nonatomic, readonly) CBPeripheral *currentBleSerial;
-@property(nonatomic, assign) id<BleSerialManagerDelegate> delegate;
+@property(weak, nonatomic, readonly) CBPeripheral *currentBleSerial;
+@property(nonatomic, weak) id<BleSerialManagerDelegate> delegate;
 
 //当isReady为NO时，scan不执行任何操作
 -(BOOL)scan;

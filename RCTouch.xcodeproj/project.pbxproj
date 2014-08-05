@@ -942,6 +942,7 @@
 		E0DDF9D31684698500F2A21E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yu chuan (A9FQ53NVN8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yu chuan (A9FQ53NVN8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -959,6 +960,7 @@
 		E0DDF9D41684698500F2A21E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Guiyang YiDong Information Technology Co. Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yu chuan (A9FQ53NVN8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

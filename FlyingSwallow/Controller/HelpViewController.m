@@ -73,21 +73,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)dealloc {
-    [pageView01 release];
-    [pageView02 release];
-    [pageView03 release];
-    [pageView04 release];
-    [pageView05 release];
-    [pageTitleLabel release];
-    [pageControl release];
-    [closeBtn release];
-    [settingsPageScrollView release];
-    [pageViewArray release];
-    [pageTitleArray release];
-
-    [super dealloc];
-}
 
 - (void)scrollViewDidScroll:(UIScrollView *)_scrollView
 {

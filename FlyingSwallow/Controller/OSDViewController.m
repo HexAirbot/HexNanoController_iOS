@@ -59,8 +59,7 @@
 }
 
 - (void)setOsdData:(OSDData *)osdData{
-    [_osdData release];
-    _osdData = [osdData retain];
+    _osdData = osdData;
     [self updateUI];
 }
 
@@ -71,7 +70,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil data:(OSDData *)osdData{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _osdData = [osdData retain];
+        _osdData = osdData;
         osdViewVisible = YES;
     }
     return self;
@@ -98,13 +97,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_osdData release];
-    [artificalHorizonView release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
-    [artificalHorizonView release];
     artificalHorizonView = nil;
     [super viewDidUnload];
 }

@@ -100,8 +100,7 @@
 }
 
 - (void)setChannel:(Channel *)channel{
-    [_channel release];
-    _channel = [channel retain];
+    _channel = channel;
     [self updateAllValueUI];
     [self udpateChannelSettingsTitleLabel];
 }
@@ -138,7 +137,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil channel:(Channel *)channel{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _channel = [channel retain];
+        _channel = channel;
     }
     return self;
 }
@@ -160,41 +159,23 @@
 
 - (void)viewDidUnload
 {
-    [channelSettingsTitleLabel release];
     channelSettingsTitleLabel = nil;
-    [isReversedTitleLabel release];
     isReversedTitleLabel = nil;
-    [trimValueTitleLabel release];
     trimValueTitleLabel = nil;
-    [outputAdjustableRangeTitleLabel release];
     outputAdjustableRangeTitleLabel = nil;
-    [outputPpmRangeTitleLabel release];
     outputPpmRangeTitleLabel = nil;
-    [defaultOuputValueTitleLabel release];
     defaultOuputValueTitleLabel = nil;
-    [isReversedSwitchButton release];
     isReversedSwitchButton = nil;
-    [trimValueSlider release];
     trimValueSlider = nil;
-    [outputAdjustableRangeSlider release];
     outputAdjustableRangeSlider = nil;
-    [outputPpmRangeLabel release];
     outputPpmRangeLabel = nil;
-    [defaultOutputValueTextField release];
     defaultOutputValueTextField = nil;
-    [dismissButton release];
     dismissButton = nil;
-    [trimValueLabel release];
     trimValueLabel = nil;
-    [outputAdjustableRangeLabel release];
     outputAdjustableRangeLabel = nil;
-    [defaultOutputValueSlider release];
     defaultOutputValueSlider = nil;
-    [defaultOutputValueLabel release];
     defaultOutputValueLabel = nil;
-    [defaultOutputValueView release];
     defaultOutputValueView = nil;
-    [defaultButton release];
     defaultButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -205,28 +186,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-    [channelSettingsTitleLabel release];
-    [isReversedTitleLabel release];
-    [trimValueTitleLabel release];
-    [outputAdjustableRangeTitleLabel release];
-    [outputPpmRangeTitleLabel release];
-    [defaultOuputValueTitleLabel release];
-    [isReversedSwitchButton release];
-    [trimValueSlider release];
-    [outputAdjustableRangeSlider release];
-    [outputPpmRangeLabel release];
-    [defaultOutputValueTextField release];
-    [dismissButton release];
-    [_channel release];
-    [trimValueLabel release];
-    [outputAdjustableRangeLabel release];
-    [defaultOutputValueSlider release];
-    [defaultOutputValueLabel release];
-    [defaultOutputValueView release];
-    [defaultButton release];
-    [super dealloc];
-}
 
 - (void)resetToDefault{
     _channel.isReversing = NO;

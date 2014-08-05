@@ -90,7 +90,7 @@
     else{
         [self disconnect];
         isTryingConnect = YES;
-        _currentBleSerial = [peripheral retain];
+        _currentBleSerial = peripheral;
         [_centralManager connectPeripheral:peripheral options:nil];
         
         NSDictionary * userInfo = [NSDictionary dictionaryWithObject:_currentBleSerial.name forKey:@"Target"];
@@ -102,15 +102,11 @@
 -(void)disconnect{
     if (_currentBleSerial != nil) {
         [_centralManager cancelPeripheralConnection:_currentBleSerial];
-        [_currentBleSerial release];
         _currentBleSerial = nil;
-        [controlCharacteristic release];
         controlCharacteristic = nil;
         
-        [requestCharacteristic release];
         requestCharacteristic = nil;
         
-        [osdCharacteristic release];
         osdCharacteristic = nil;
     }
 }
@@ -194,7 +190,7 @@
     
     isTryingConnect = NO;
     
-    _currentBleSerial = [peripheral retain];
+    _currentBleSerial = peripheral;
     
 //    if(_delegate != nil){
 //        if ([_delegate respondsToSelector:@selector(bleSerialManager:didConnectPeripheral:)]) {
@@ -223,7 +219,6 @@
 
     NSLog(@"Failed to connect to %@. (%@)", peripheral, [error localizedDescription]);
     
-    [_currentBleSerial release];
     _currentBleSerial = nil;
 }
 
@@ -238,16 +233,12 @@
         NSLog(@"disconnect error:%@. (%@)", peripheral, [error localizedDescription]);
     }
     
-    [_currentBleSerial release];
     _currentBleSerial = nil;
     
-    [controlCharacteristic release];
     controlCharacteristic = nil;
     
-    [requestCharacteristic release];
     requestCharacteristic = nil;
     
-    [osdCharacteristic release];
     osdCharacteristic = nil;
     
     if(_delegate != nil){
@@ -334,21 +325,18 @@
     if ([[BasicInfoManager sharedManager] isFullDuplex]) {
         for (CBCharacteristic *characteristic in service.characteristics) {
             if ([characteristic.UUID isEqual:[self getControlCharacteristicUUID]]) {
-                [controlCharacteristic release];
-                controlCharacteristic = [characteristic retain];
+                controlCharacteristic = characteristic;
                 
                 characteristicCnt++;
             }
             else if ([characteristic.UUID isEqual:[self getRequestCharacteristicUUID]]) {
-                [requestCharacteristic release];
-                requestCharacteristic = [characteristic retain];
+                requestCharacteristic = characteristic;
                 
                 characteristicCnt++;
             }
             
             else if([characteristic.UUID isEqual:[self getOsdCharacteristicUUID]]) {
-                [osdCharacteristic release];
-                osdCharacteristic = [characteristic retain];
+                osdCharacteristic = characteristic;
                 
                 characteristicCnt++;
                 
@@ -375,8 +363,7 @@
                 
                 NSLog(@"****begin notify value for characteritic:%@", characteristic);
                 
-                [controlCharacteristic release];
-                controlCharacteristic = [characteristic retain];
+                controlCharacteristic = characteristic;
                 
                 //[peripheral setNotifyValue:YES forCharacteristic:characteristic];
                 
@@ -528,14 +515,14 @@
 - (CBUUID *)getSerialServiceUUID{
     UInt16 serialService = [self swap:kSerialService];
     
-    NSData *serialServiceData = [[[NSData alloc] initWithBytes:(char *)&serialService length:2] autorelease];
+    NSData *serialServiceData = [[NSData alloc] initWithBytes:(char *)&serialService length:2];
     return [CBUUID UUIDWithData:serialServiceData];
 }
 
 - (CBUUID *)getControlCharacteristicUUID{
     UInt16 serialCharacteristic_ = [self swap:kSerialCharacteristic];
     
-    NSData *serialCharacteristicData = [[[NSData alloc] initWithBytes:(char *)&serialCharacteristic_ length:2] autorelease];
+    NSData *serialCharacteristicData = [[NSData alloc] initWithBytes:(char *)&serialCharacteristic_ length:2];
     
     return [CBUUID UUIDWithData:serialCharacteristicData];
 }
@@ -543,7 +530,7 @@
 - (CBUUID *)getOsdCharacteristicUUID{
     UInt16 osdCharacteristic_ = [self swap:kOsdCharacteristic];
     
-    NSData *osdCharacteristicData = [[[NSData alloc] initWithBytes:(char *)&osdCharacteristic_ length:2] autorelease];
+    NSData *osdCharacteristicData = [[NSData alloc] initWithBytes:(char *)&osdCharacteristic_ length:2];
     
     return [CBUUID UUIDWithData:osdCharacteristicData];
 }
@@ -551,7 +538,7 @@
 - (CBUUID *)getRequestCharacteristicUUID{
     UInt16 requestCharacteristic_ = [self swap:kRequestCharacteristic];
     
-    NSData *requestCharacteristicData = [[[NSData alloc] initWithBytes:(char *)&requestCharacteristic_ length:2] autorelease];
+    NSData *requestCharacteristicData = [[NSData alloc] initWithBytes:(char *)&requestCharacteristic_ length:2];
     
     return [CBUUID UUIDWithData:requestCharacteristicData];
 }
@@ -573,12 +560,6 @@
 
 - (void)dealloc{
     [self disconnect];
-    [_centralManager release];
-    [_bleSerialList release];
-    [controlCharacteristic release];
-    [osdCharacteristic release];
-    [requestCharacteristic release];
-    [super dealloc];
 }
 
 @end

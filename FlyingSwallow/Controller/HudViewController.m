@@ -115,20 +115,20 @@ typedef enum flight_state{
     OSDViewController *osdVC;
 }
 
-@property(nonatomic, retain) Channel *aileronChannel;
-@property(nonatomic, retain) Channel *elevatorChannel;
-@property(nonatomic, retain) Channel *rudderChannel;
-@property(nonatomic, retain) Channel *throttleChannel;
-@property(nonatomic, retain) Channel *aux1Channel;
-@property(nonatomic, retain) Channel *aux2Channel;
-@property(nonatomic, retain) Channel *aux3Channel;
-@property(nonatomic, retain) Channel *aux4Channel;
+@property(nonatomic, strong) Channel *aileronChannel;
+@property(nonatomic, strong) Channel *elevatorChannel;
+@property(nonatomic, strong) Channel *rudderChannel;
+@property(nonatomic, strong) Channel *throttleChannel;
+@property(nonatomic, strong) Channel *aux1Channel;
+@property(nonatomic, strong) Channel *aux2Channel;
+@property(nonatomic, strong) Channel *aux3Channel;
+@property(nonatomic, strong) Channel *aux4Channel;
 
 
-@property(nonatomic, retain) Settings *settings;
+@property(nonatomic, strong) Settings *settings;
 
-@property(nonatomic, retain) SettingsMenuViewController *settingMenuVC;
-@property(nonatomic, retain) HelpViewController *helpVC;
+@property(nonatomic, strong) SettingsMenuViewController *settingMenuVC;
+@property(nonatomic, strong) HelpViewController *helpVC;
 
 @end
 
@@ -241,14 +241,14 @@ typedef enum flight_state{
         leftJoyStickOperableRadius  =  70;
     }
 
-    _aileronChannel = [[_settings channelByName:kChannelNameAileron] retain];
-    _elevatorChannel = [[_settings channelByName:kChannelNameElevator] retain];
-    _rudderChannel = [[_settings channelByName:kChannelNameRudder] retain];
-    _throttleChannel = [[_settings channelByName:kChannelNameThrottle] retain];
-    _aux1Channel = [[_settings channelByName:kChannelNameAUX1] retain];
-    _aux2Channel = [[_settings channelByName:kChannelNameAUX2] retain];
-    _aux3Channel = [[_settings channelByName:kChannelNameAUX3] retain];
-    _aux4Channel = [[_settings channelByName:kChannelNameAUX4] retain];
+    _aileronChannel = [_settings channelByName:kChannelNameAileron];
+    _elevatorChannel = [_settings channelByName:kChannelNameElevator];
+    _rudderChannel = [_settings channelByName:kChannelNameRudder];
+    _throttleChannel = [_settings channelByName:kChannelNameThrottle];
+    _aux1Channel = [_settings channelByName:kChannelNameAUX1];
+    _aux2Channel = [_settings channelByName:kChannelNameAUX2];
+    _aux3Channel = [_settings channelByName:kChannelNameAUX3];
+    _aux4Channel = [_settings channelByName:kChannelNameAUX4];
 
 	rightCenter = CGPointMake(joystickRightThumbImageView.frame.origin.x + (joystickRightThumbImageView.frame.size.width / 2), joystickRightThumbImageView.frame.origin.y + (joystickRightThumbImageView.frame.size.height / 2));
 	joystickRightInitialPosition = CGPointMake(rightCenter.x - (joystickRightBackgroundImageView.frame.size.width / 2), rightCenter.y - (joystickRightBackgroundImageView.frame.size.height / 2));
@@ -318,7 +318,6 @@ typedef enum flight_state{
                                                   cancelButtonTitle:getLocalizeString(@"OK")
                                                   otherButtonTitles:nil];
         [alertView show];
-        [alertView release];
     }
     
     if (osdVC == nil) {
@@ -385,56 +384,31 @@ typedef enum flight_state{
 
 - (void)viewDidUnload
 {
-    [setttingButton release];
     setttingButton = nil;
-    [joystickLeftButton release];
     joystickLeftButton = nil;
-    [joystickRightButton release];
     joystickRightButton = nil;
-    [joystickLeftThumbImageView release];
     joystickLeftThumbImageView = nil;
-    [joystickLeftBackgroundImageView release];
     joystickLeftBackgroundImageView = nil;
-    [joystickRightThumbImageView release];
     joystickRightThumbImageView = nil;
-    [joystickRightBackgroundImageView release];
     joystickRightBackgroundImageView = nil;
-    [batteryLevelLabel release];
     batteryLevelLabel = nil;
-    [batteryImageView release];
     batteryImageView = nil;
-    [_settingMenuVC release];
     _settingMenuVC = nil;
-    [_helpVC release];
     _helpVC = nil;
-    [warningView release];
     warningView = nil;
-    [warningLabel release];
     warningLabel = nil;
-    [rudderLockButton release];
     rudderLockButton = nil;
-    [statusInfoLabel release];
     statusInfoLabel = nil;
-    [throttleUpButton release];
     throttleUpButton = nil;
-    [throttleDownButton release];
     throttleDownButton = nil;
-    [downIndicatorImageView release];
     downIndicatorImageView = nil;
-    [upIndicatorImageView release];
     upIndicatorImageView = nil;
-    [throttleValueLabel release];
     throttleValueLabel = nil;
     [self setDebugTextView:nil];
-    [rollValueTextLabel release];
     rollValueTextLabel = nil;
-    [pitchValueTextLabel release];
     pitchValueTextLabel = nil;
-    [altValueTextLabel release];
     altValueTextLabel = nil;
-    [headAngleValueTextLabel release];
     headAngleValueTextLabel = nil;
-    [altHoldSwitchButton release];
     altHoldSwitchButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -442,8 +416,8 @@ typedef enum flight_state{
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    [_settingMenuVC release], _settingMenuVC = nil;
-    [_helpVC release], _helpVC = nil;
+    _settingMenuVC = nil;
+    _helpVC = nil;
 }
 
 - (void)dealloc {
@@ -454,54 +428,6 @@ typedef enum flight_state{
     
     [self stopTransmission];
     
-    [_aileronChannel release];
-    [_elevatorChannel release];
-    [_rudderChannel release];
-    [_throttleChannel release];
-    [_aux1Channel release];
-    [_aux2Channel release];
-    [_aux3Channel release];
-    [_aux4Channel release];
-    [_settings release];
-    [setttingButton release];
-    [joystickLeftButton release];
-    [joystickRightButton release];
-    [joystickLeftThumbImageView release];
-    [joystickLeftBackgroundImageView release];
-    [joystickRightThumbImageView release];
-    [joystickRightBackgroundImageView release];
-    [batteryLevelLabel release];
-    [batteryImageView release];
-    [_settingMenuVC release];
-    [warningView release];
-    [warningLabel release];
-    [blockViewDict release];
-    [rudderLockButton release];
-    [statusInfoLabel release];
-    [throttleUpButton release];
-    [throttleDownButton release];
-    [downIndicatorImageView release];
-    [upIndicatorImageView release];
-    [throttleValueLabel release];
-    [debugTextView release];
-    [rollValueTextLabel release];
-    [pitchValueTextLabel release];
-    [altValueTextLabel release];
-    [headAngleValueTextLabel release];
-    [altHoldSwitchButton release];
-    [helpButton release];
-    [debugValueTextLabel release];
-    [vBatValueTextLabel release];
-    [accZtextLabel release];
-    [debugTextView release];
-    [autoTakeOffState release];
-    [pitchTrimValueTextLabel release];
-    [rollTrimValueTextLabel release];
-    [flightModeTextLabel release];
-    [osdVC release];
-    [rssiValueLabel release];
-    [infoView release];
-    [super dealloc];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {  
@@ -611,7 +537,6 @@ typedef enum flight_state{
 	[self.view addSubview:blockView];
 	[blockViewDict setValue:blockView forKey:[NSString stringWithFormat:@"%d",  ViewBlockJoyStickHud]];
 	
-	[blockViewPart1 release];
 }
 
 - (void)unblockJoystickHudForTakingOff:(BOOL)animated{
@@ -659,7 +584,6 @@ typedef enum flight_state{
 	[self.view addSubview:blockView];
 	[blockViewDict setValue:blockView forKey:[NSString stringWithFormat:@"%d",  ViewBlockJoyStickHud2]];
 	
-	[blockViewPart1 release];
 }
 
 - (void)unblockJoystickHudForStopping:(BOOL)animated{
@@ -854,7 +778,7 @@ typedef enum flight_state{
 - (void)dismissHelpView{
     if(_helpVC.view != nil){
         [_helpVC.view removeFromSuperview];
-        [_helpVC release], _helpVC = nil;
+        _helpVC = nil;
     }
 }
 
@@ -1601,7 +1525,7 @@ typedef enum flight_state{
 
 
 - (void)showHelpView{
-    [_helpVC release], _helpVC = nil;
+    _helpVC = nil;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         _helpVC = [[HelpViewController alloc] initWithNibName:@"HelpViewController" bundle:nil];
@@ -1618,7 +1542,7 @@ typedef enum flight_state{
 }
 
 - (void)showSettingsMenuView{
-    [_settingMenuVC release], _settingMenuVC = nil;
+    _settingMenuVC = nil;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         _settingMenuVC = [[SettingsMenuViewController alloc] initWithNibName:@"SettingsMenuViewController" bundle:nil settings:_settings];
@@ -1961,7 +1885,6 @@ typedef enum flight_state{
         
         if([self checkAltArray]){  //越过了盲区
             [throttleTimer invalidate];
-            [throttleTimer release];
             throttleTimer = nil;
             
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
@@ -2046,7 +1969,6 @@ typedef enum flight_state{
     if (checkCnt > 0) {
         if (accTimeCnt > MAX_ACC_TIME_CNT) {
             [throttleTimer invalidate];
-            [throttleTimer release];
             throttleTimer = nil;
             
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
@@ -2153,7 +2075,6 @@ typedef enum flight_state{
                 }
                 else{
                     [throttleTimer invalidate];
-                    [throttleTimer release];
                     throttleTimer = nil;
                     
                     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoTakeOffTimeOut)  object:nil];
@@ -2270,7 +2191,6 @@ typedef enum flight_state{
 - (void)autoTakeOffTimeOut{
     if (isAutoTakingOff) {
         [throttleTimer invalidate];
-        [throttleTimer release];
         throttleTimer = nil;
         isAutoTakingOff = NO;
         [_aux4Channel setValue:-1];
@@ -2329,7 +2249,7 @@ typedef enum flight_state{
         
         flightState = flight_state_taking_off;
         
-        throttleTimer = [[NSTimer scheduledTimerWithTimeInterval:kCheckDuration target:self selector:@selector(autoTakeOff2) userInfo:nil repeats:YES] retain];
+        throttleTimer = [NSTimer scheduledTimerWithTimeInterval:kCheckDuration target:self selector:@selector(autoTakeOff2) userInfo:nil repeats:YES];
         [self performSelector:@selector(autoTakeOffTimeOut) withObject:nil afterDelay:10];
     }
 }

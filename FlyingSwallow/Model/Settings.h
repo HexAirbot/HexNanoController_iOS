@@ -43,7 +43,7 @@
     NSMutableArray *_channelArray;
 }
 
-@property(nonatomic, retain) NSMutableDictionary *settingsData;
+@property(nonatomic, strong) NSMutableDictionary *settingsData;
 
 //改变以下值，都不会自动保存到持久化文件中,需要持久化，需要调用save方法
 
@@ -58,10 +58,10 @@
 @property(nonatomic, assign) float elevatorDeadBand;
 @property(nonatomic, assign) float rudderDeadBand;
 @property(nonatomic, assign) float takeOffThrottle;
-@property(nonatomic, readonly) NSString *appVersion;
-@property(nonatomic, retain)   NSString *flexbotVersion;
-@property(nonatomic, readonly) NSString *settingsVersion;
-@property(nonatomic, readonly) NSString *communicationType;
+@property(weak, nonatomic, readonly) NSString *appVersion;
+@property(nonatomic, strong)   NSString *flexbotVersion;
+@property(weak, nonatomic, readonly) NSString *settingsVersion;
+@property(weak, nonatomic, readonly) NSString *communicationType;
 
 
 - (id)initWithSettingsFile:(NSString *)settingsFilePath; 

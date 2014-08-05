@@ -41,7 +41,7 @@
    
 }
 
-@property(nonatomic, readonly) NSString *name;
+@property(weak, nonatomic, readonly) NSString *name;
 
 //设置下面4个值后，都不会自动保存到持久化文件中
 
@@ -52,7 +52,7 @@
 
 @property(nonatomic, assign) float value;
 @property(nonatomic, assign) int idx;
-@property(nonatomic, assign) Settings *ownerSettings;
+@property(nonatomic, weak) Settings *ownerSettings;
 
 
 - (id)initWithSetting:(Settings *)settings idx:(int)idx;
